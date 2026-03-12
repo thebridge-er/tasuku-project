@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TASUKU Login</title>
+        <link rel="stylesheet" href="code.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <a href="index.html">
+                <div class="logo-icon">🏠</div>
+            </a>
+            <h1>TASUKU</h1>
+        </div>
+    </header>
+    
+
+
+    <section class="auth" id="authSection">
+        <div class="auth-card">
+            <h2 id="formTitle">Iniciar Sesión</h2>
+            <p id="formSub">Access your space</p>
+
+            <input id="nameField" placeholder="Nombre" style="display:none">
+            <label>Correo</label>
+            
+            <input id="email" placeholder="email@ejemplo.com">
+            <label>Contraseña</label>
+            
+            <input id="password" type="password" placeholder="********">
+            <button id="mainBtn" onclick="login()">Iniciar Sesión</button>
+
+            <p id="switchText">
+                ¿No tienes cuenta?
+                <span onclick="mostrarRegistro()">Registrarse</span>
+            </p>
+        </div>
+    </section>
+
+
+    <section id="dashboard" style="display:none">
+        <div class="welcome">
+
+            <img id="avatar" src="https://api.dicebear.com/7.x/adventurer/svg?seed=user">
+            <h2 id="welcomeName">Bienvenido</h2>
+            <p>Crea o únete a un espacio para empezar</p>
+            <button class="main-btn" onclick="openCreate()">+ Crear Espacio</button>
+            <button class="secondary-btn" onclick="openJoin()">Unirse a Espacio</button>
+
+        </div>
+    </section>
+
+
+    <section id="espacio" style="display:none">
+        <div class="space-header">
+            <div class="space-info">
+                <div class="space-icon">🏠</div>
+                <div>
+                    <h2 id="spaceName">Mi Espacio</h2>
+                    <p id="spaceMembers">1 miembros</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="user-card">
+            <img id="spaceAvatar"
+            src="https://api.dicebear.com/7.x/adventurer/svg?seed=user">
+            <div>
+                <h3 id="spaceUserName">Usuario</h3>
+                <p>🏆 <span id="userPoints">0</span> puntos</p>
+            </div>
+
+            <div class="logros">
+                <p>Logros</p>
+                <strong>0/7</strong>
+            </div>
+        </div>
+    </section>
+
+    <section id="perfil" style="display:none">
+        <div class="perfil-card">
+            <img id="perfilAvatar"
+            src="https://api.dicebear.com/7.x/adventurer/svg?seed=user">
+            <h2 id="perfilNombre">Usuario</h2>
+            <p id="perfilCorreo">correo@email.com</p>
+            <button class="main-btn" onclick="irDashboard()">Entrar al espacio</button>
+        </div>
+    </section>
+
+    <div id="joinModal" class="modal">
+        <div class="modal-card">
+        <span class="close" onclick="closeModal('joinModal')">✕</span>
+        <h3>Unirse a Espacio</h3>
+
+        <input placeholder="CÓDIGO DE INVITACIÓN">
+        <button onclick="unirseEspacio()">Unirse a Espacio</button>
+        </div>
+    </div>
+
+    <div id="createModal" class="modal">
+        <div class="modal-card">
+        <span class="close" onclick="closeModal('createModal')">✕</span>
+        <h3>Crear Espacio</h3>
+
+        <input placeholder="Nombre del Espacio">
+        <button class="main-btn" onclick="crearEspacio()">Crear Espacio</button>
+        </div>
+    </div>
+
+<!--Aqui va el codigo JavaScript-->
+
+<script>
+
+
+let modo="login"
+
+function mostrarRegistro(){
+    modo="registro"
+    document.getElementById("formTitle").innerText="Registrarse"
+    document.getElementById("formSub").innerText="Create your account"
+    document.getElementById("nameField").style.display="block"
+    document.getElementById("mainBtn").innerText="Registrarse"
+    document.getElementById("switchText").innerHTML=
+    '¿Ya tienes cuenta? <span onclick="mostrarLogin()">Iniciar Sesión</span>'
+
+}
+
+
+function mostrarLogin(){
+    modo="login"
+    document.getElementById("formTitle").innerText="Iniciar Sesión"
+    document.getElementById("formSub").innerText="Access your space"
+    document.getElementById("nameField").style.display="none"
+    document.getElementById("mainBtn").innerText="Iniciar Sesión"
+    document.getElementById("switchText").innerHTML=
+    '¿No tienes cuenta? <span onclick="mostrarRegistro()">Registrarse</span>'
+
+}
+
+
+function login(){
+
+    let email = document.getElementById("email").value
+    let password = document.getElementById("password").value
+    
+    if(modo === "login"){
+    let user = JSON.parse(localStorage.getItem(email))
+    
+    if(!user){
+    alert("Usuario no encontrado")
+    return
+    }
+
+    if(user.password !== password){
+    alert("Contraseña incorrecta")
+    return
+    }
+    mostrarDashboard(user)
+
+    }
+
+    else{
+    let name = document.getElementById("nameField").value
+    let user = {
+    name:name,
+    email:email,
+    password:password
+    }
+
+    localStorage.setItem(email, JSON.stringify(user))
+    alert("Cuenta creada")
+    mostrarDashboard(user)
+    }
+}
+
+
+function mostrarDashboard(user){
+    localStorage.setItem("usuarioActual", JSON.stringify(user))
+    document.getElementById("authSection").style.display = "none"
+    document.getElementById("dashboard").style.display = "flex"
+    document.getElementById("welcomeName").innerText =
+    "Bienvenido, " + user.name + "!"
+    document.getElementById("avatar").src =
+    "https://api.dicebear.com/7.x/adventurer/svg?seed=" + user.name
+}
+
+
+function openJoin(){
+    document.getElementById("joinModal").style.display="flex"
+}
+
+
+function openCreate(){
+    document.getElementById("createModal").style.display="flex"
+}
+
+
+function closeModal(id){
+    document.getElementById(id).style.display="none"
+}
+
+
+function generarCodigo(){
+    return "TASUKU-" + Math.floor(1000 + Math.random()*9000)
+}
+
+
+function crearEspacio(){
+    let nombre = document.querySelector("#createModal input").value
+    if(!nombre){
+
+    alert("Escribe un nombre para el espacio")
+    return
+    }
+
+    let codigo = generarCodigo()
+    let usuario = JSON.parse(localStorage.getItem("usuarioActual"))
+    let espacio = {
+
+    nombre:nombre,
+    codigo:codigo,
+    miembros:[usuario]
+        }
+
+    localStorage.setItem("espacio_"+codigo, JSON.stringify(espacio))
+    alert("Espacio creado\nCódigo: " + codigo)
+    closeModal("createModal")
+    entrarEspacio(espacio)
+}
+
+
+function unirseEspacio(){
+    let codigo = document.querySelector("#joinModal input").value
+    let espacio = localStorage.getItem("espacio_"+codigo)
+        if(!espacio){
+        alert("Código inválido")
+        return
+        }
+    espacio = JSON.parse(espacio)
+    let usuario = JSON.parse(localStorage.getItem("usuarioActual"))
+    espacio.miembros.push(usuario)
+    localStorage.setItem("espacio_"+codigo, JSON.stringify(espacio))
+    alert("Te has unido al espacio: " + espacio.nombre)
+    closeModal("joinModal")
+}
+
+
+function mostrarPerfil(user){
+    localStorage.setItem("usuarioActual", JSON.stringify(user))
+    document.getElementById("authSection").style.display="none"
+    document.getElementById("perfil").style.display="flex"
+    document.getElementById("perfilNombre").innerText=user.name
+    document.getElementById("perfilCorreo").innerText=user.email
+    document.getElementById("perfilAvatar").src=
+    "https://api.dicebear.com/7.x/adventurer/svg?seed="+user.name
+
+}
+
+
+function irDashboard(){
+    document.getElementById("perfil").style.display="none"
+    document.getElementById("dashboard").style.display="flex"
+}
+
+
+function entrarEspacio(espacio){
+    document.getElementById("dashboard").style.display="none"
+    document.getElementById("espacio").style.display="block"
+    document.getElementById("spaceName").innerText = espacio.nombre
+    document.getElementById("spaceMembers").innerText =
+    espacio.miembros.length + " miembros"
+    let usuario = JSON.parse(localStorage.getItem("usuarioActual"))
+    document.getElementById("spaceUserName").innerText = usuario.name
+    document.getElementById("spaceAvatar").src =
+    "https://api.dicebear.com/7.x/adventurer/svg?seed=" + usuario.name
+}
+</script>
+
+</body>
+
+</html>
