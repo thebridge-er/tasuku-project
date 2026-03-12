@@ -1,0 +1,51 @@
+{
+  "branch": "feature-api",
+  "created_at": "2026-03-12T11:55:06+01:00",
+  "last_updated": "2026-03-12T11:55:06+01:00",
+  "commits": [
+    {
+      "hash": "067d9b3",
+      "hash_full": "067d9b3445f401c5f6407a267f17ae834644d9ba",
+      "message": "incluir funciones logica api y script_iker a docs",
+      "type": "other",
+      "scope": "",
+      "subject": "incluir funciones logica api y script_iker a docs",
+      "description": "he añadido las funciones login(),createEvent() y getEvent() para la api GoogleCalendar",
+      "notes": "esta comentado el flujo de aplicación y como añdirlo al index.html y app.js",
+      "author": {
+        "name": "agonzalezbridge",
+        "email": "asier.medina.ugalde@gmail.com"
+      },
+      "branch": "feature-api",
+      "date": "2026-03-12T11:55:06+01:00",
+      "timestamp": 1773312906,
+      "stats": {
+        "files_changed": 5,
+        "lines_added": 733,
+        "lines_deleted": 7
+      },
+      "files": [
+        {
+          "file": ".changelog/index.html",
+          "status": "modified"
+        },
+        {
+          "file": "doc/changelog-viewer.html",
+          "status": "added"
+        },
+        {
+          "file": "doc/post-commit",
+          "status": "added"
+        },
+        {
+          "file": "doc/setup-changelog.sh",
+          "status": "added"
+        },
+        {
+          "file": "src/services/calendarService.js",
+          "status": "modified"
+        }
+      ]
+    }
+  ]
+}

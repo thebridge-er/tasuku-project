@@ -7,7 +7,7 @@ const DISCOVERY_DOC =
 const SCOPES =
 'https://www.googleapis.com/auth/calendar.readonly';
 
-/*funcion inicializacion*/
+/*funcion inicializacion(AÑADIRLA CUANDO LOGICA TERMINADA)*/
 const CLIENT_ID = "TU_CLIENT_ID";
 const API_KEY = "TU_API_KEY";
 
@@ -37,15 +37,114 @@ export async function initCalendar() {
 
   });
 
-}/*En index.html añadir ==>
+}
+
+export async function loginGoogle(){
+  try {
+  const authInstance = gapi.auth2.getAuthInstance();
+  await authInstance.signIn();
+  console.log('login correcto')
+
+}catch (error){
+  console.error('Error en login Google',error)
+}
+
+}
+
+export async function createEvent(task){
+  const event ={
+
+    summary:task.name,
+    description:'Asignado a ' + task.user,
+
+    start: {
+      dateTime: task.start,
+      timeZone: 'Europe/Madrid'
+    },
+
+    end: {
+      dateTime: task.end,
+      timeZone: 'Europe/Madrid'
+    }
+
+  };
+  return gapi.client.calendar.events.insert({
+    calendarId: 'primary'
+    resource: event
+  });
+  return response;
+  } catch (error) {
+  onsole.error('Error creando evento', error);
+
+  }
+
+export async function getEventsThisWeek() {
+  const now = new Date()
+  const nextWeek = new Date();
+  nextWeek.setDate(now.getDate()+7);
+
+  const response = await gapi.client.calendar.events.list({
+    calendarId: "primary",
+    timeMin: now.toISOString(),
+    timeMax: nextWeek.toISOString(),
+    showDeleted: false,
+    singleEvents: true,
+    orderBy: "startTime"
+  });
+  return response.result.items;
+}
+
+/*
+
+#### Ejemplo import para funcion crear evento ###
+
+const task ={
+name: 'limpiar cocina'
+user: 'Ana'
+start: "2026-04-10T10:00:00",
+end: "2026-04-10T11:00:00"
+};
+await createEvent(task)
+
+
+
+##### En index.html añadir ####
 
 <head>
   <script src="https://apis.google.com/js/api.js"></script>
   <script type="module" src="./src/app.js"></script>
-</head> */
+</head> 
 
-/*En el app.js incluir el codigo siguiente para preparar la API ==>
 
-import { initCalendar } from "./services/calendarService.js";
+##### En el app.js incluir el codigo siguiente para preparar la API ###
 
-await initCalendar();*/
+import {
+  initCalendar,
+  loginGoogle,
+  createEvent,
+  getEventsThisWeek
+} from "./services/calendarService.js";
+
+async function initGoogleCalendar() {
+
+  await initCalendar();
+
+  await loginGoogle();
+
+  console.log("Google Calendar ready");
+
+}
+
+##### flujo de la aplicacion #######
+            startApp()
+              ↓
+            initCalendar()
+              ↓
+            loginGoogle()
+              ↓
+            createEvent()
+              ↓
+            getEventsThisWeek()
+              ↓
+            console.log eventos
+*/
