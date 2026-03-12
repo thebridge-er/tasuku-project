@@ -7,15 +7,7 @@ const DISCOVERY_DOC =
 const SCOPES =
 'https://www.googleapis.com/auth/calendar.readonly';
 
-/*funcion inicializacion(AÑADIRLA CUANDO LOGICA TERMINADA)*/
-const CLIENT_ID = "TU_CLIENT_ID";
-const API_KEY = "TU_API_KEY";
-
-const DISCOVERY_DOC =
-"https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest";
-
-const SCOPES =
-"https://www.googleapis.com/auth/calendar.readonly";
+/*AÑADIR TODAS LAS FUNCIONES*/
 
 export async function initCalendar() {
 /*promesa porque Google carga api forma asincrona*/
@@ -52,6 +44,7 @@ export async function loginGoogle(){
 }
 
 export async function createEvent(task){
+  try{
   const event ={
 
     summary:task.name,
@@ -68,15 +61,17 @@ export async function createEvent(task){
     }
 
   };
-  return gapi.client.calendar.events.insert({
-    calendarId: 'primary'
+  const response = await gapi.client.calendar.events.insert({
+    calendarId: 'primary',
     resource: event
   });
   return response;
+
   } catch (error) {
-  onsole.error('Error creando evento', error);
+  console.error('Error creando evento', error);
 
   }
+}
 
 export async function getEventsThisWeek() {
   const now = new Date()

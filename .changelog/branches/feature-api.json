@@ -1,8 +1,36 @@
 {
   "branch": "feature-api",
   "created_at": "2026-03-12T11:55:06+01:00",
-  "last_updated": "2026-03-12T12:28:25+01:00",
+  "last_updated": "2026-03-12T12:56:08+01:00",
   "commits": [
+    {
+      "hash": "66119eb",
+      "hash_full": "66119eb512b1bdfab6de586ad8c1a1022bf6d6d2",
+      "message": "corregir const en calendar.Services.js",
+      "type": "other",
+      "scope": "",
+      "subject": "corregir const en calendar.Services.js",
+      "description": "tenia las variables duplicadas y definidas dos veces",
+      "notes": "",
+      "author": {
+        "name": "agonzalezbridge",
+        "email": "asier.medina.ugalde@gmail.com"
+      },
+      "branch": "feature-api",
+      "date": "2026-03-12T12:56:08+01:00",
+      "timestamp": 1773316568,
+      "stats": {
+        "files_changed": 1,
+        "lines_added": 7,
+        "lines_deleted": 12
+      },
+      "files": [
+        {
+          "file": "src/services/calendarService.js",
+          "status": "modified"
+        }
+      ]
+    },
     {
       "hash": "2969cc4",
       "hash_full": "2969cc4b2ea4590bfc6346f5e8307a5fdfd5928c",
