@@ -5,56 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TASUKU</title>
-    <link rel="stylesheet" href="code.css">
+    <link rel="stylesheet" href="./styles/code.css">
     <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+    
 
-    <header class="header">
-        <div class="logo">
-            <a href="index.html">
-                <div class="logo-icon">🏠</div>
-            </a>
-            <h1>TASUKU</h1>
-        </div>
-
-        <div class="header-right">
-
-                <i class="fa-solid fa-globe"></i>
-                <i class="fa-solid fa-sun"></i>
-
-                <button class="login-btn" onclick="irLogin()">Iniciar Sesión</button>
-
-                <script>
-                    function irLogin(){
-                    window.location.href="index2.html"
-                    }
-                </script>
-            </div>
-    </header>
-
-    <!--header class="header">
-        <div class="logo">
-            <div class="logo-icon">
-            <i class="fa-solid fa-house"></i>
-                        </div>
-                            <h1>TASUKU</h1>
-                        </div>
-            <div class="header-right">
-
-                <i class="fa-solid fa-globe"></i>
-                <i class="fa-solid fa-sun"></i>
-
-                <button class="login-btn" onclick="irLogin()">Iniciar Sesión</button>
-
-                <script>
-                    function irLogin(){
-                    window.location.href="index2.html"
-                    }
-                </script>
-            </div>
-    </header>-->
+    <div id="header"></div>
 
     <section class="hero">
         <div class="avatars">
@@ -67,7 +25,7 @@
         <h2>Haz las tareas divertidas</h2>
         <p>Organiza las tareas del hogar con tus compañeros de piso, familia o amigos.
         ¡Gana puntos, desbloquea logros y mantén tu espacio limpio juntos!</p>
-        <button class="start-btn">Comenzar</button>
+        <button class="start-btn" onclick="irRegistro()">Comenzar</button>
     </section>
 
     <section class="features">
@@ -142,15 +100,11 @@
         </div>
     </section>
 
-    <footer class="footer">
-        <div class="footer-logo">
-            <div class="logo-icon">
-                <i class="fa-solid fa-house"></i>
-            </div>
-            <span>TASUKU</span>
-        </div>
-        <p>Hecho con amor para hogares más organizados</p>
-    </footer>
+    <div id="footer"></div>
 
+    <script src="services/app.js"></script>
+    <script src="pages/auth/auth.js"></script>
+    <script src="script.js"></script>
+    
 </body>
 </html>

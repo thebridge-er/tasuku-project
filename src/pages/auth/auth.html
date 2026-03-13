@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASUKU Login</title>
+    <link rel="stylesheet" href="../../styles/code.css">
+    <link rel="stylesheet" href="../../components/header/header.css">
+    <link rel="stylesheet" href="../../components/buttons/buttons.css">
+    <link rel="stylesheet" href="./auth.css">
+</head>
+
+<body>
+
+    <div id="header"></div>
+
+    <section class="auth" id="authSection">
+        <div class="auth-card">
+            <h2 id="formTitle">Iniciar Sesión</h2>
+            <p id="formSub">Access your space</p>
+
+            <input id="nameField" placeholder="Nombre" style="display:none">
+            <label>Correo</label>
+
+            <input id="email" placeholder="email@ejemplo.com">
+            <label>Contraseña</label>
+
+            <input id="password" type="password" placeholder="********">
+            <button id="mainBtn">Iniciar Sesión</button>
+            <p id="switchText">
+                ¿No tienes cuenta?
+                <span id="registerLink">Registrarse</span>
+            </p>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+    <script src="../../services/app.js"></script>
+    <script src="./auth.js"></script>
+</body>
+</html>
