@@ -1,0 +1,203 @@
+#!/bin/bash
+
+# ============================================================
+#  .changelog — Auto-documentation hook
+#  Instala en: .git/hooks/post-commit
+#  Permisos:   chmod +x .git/hooks/post-commit
+# ============================================================
+
+CHANGELOG_DIR=".changelog"
+BRANCHES_DIR="$CHANGELOG_DIR/branches"
+INDEX_FILE="$CHANGELOG_DIR/index.json"
+HTML_FILE="$CHANGELOG_DIR/index.html"
+
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+CYAN='\033[0;36m'
+BOLD='\033[1m'
+RESET='\033[0m'
+
+echo ""
+echo -e "${CYAN}${BOLD}📋 .changelog — Generando documentación...${RESET}"
+
+HASH_SHORT=$(git rev-parse --short HEAD)
+HASH_FULL=$(git rev-parse HEAD)
+COMMIT_MSG=$(git log -1 --pretty=format:"%s")
+AUTHOR_NAME=$(git log -1 --pretty=format:"%an")
+AUTHOR_EMAIL=$(git log -1 --pretty=format:"%ae")
+COMMIT_DATE=$(git log -1 --pretty=format:"%cI")
+COMMIT_TIMESTAMP=$(git log -1 --pretty=format:"%ct")
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+BRANCH_SAFE=$(echo "$BRANCH" | sed 's/\//-/g; s/ /-/g')
+REPO_NAME=$(basename "$(git rev-parse --show-toplevel)")
+REPO_REMOTE=$(git remote get-url origin 2>/dev/null || echo "")
+
+echo ""
+echo -e "${YELLOW}${BOLD}❓ Dos preguntas para documentar mejor este commit:${RESET}"
+echo ""
+echo -e "${BOLD}  1. ¿Qué problema resuelve o qué aporta este commit?${RESET}"
+echo -e "     ${CYAN}(Ej: Corrige el bug de login en Safari, Añade paginación)${RESET}"
+read -r -p "     → " USER_DESCRIPTION </dev/tty
+echo ""
+echo -e "${BOLD}  2. ¿Hay algo que otro desarrollador deba saber?${RESET}"
+echo -e "     ${CYAN}(Ej: Requiere migración de BD, Cambia la API de X, Ninguno)${RESET}"
+read -r -p "     → " USER_NOTES </dev/tty
+echo ""
+
+mkdir -p "$BRANCHES_DIR"
+
+export CL_HASH_SHORT="$HASH_SHORT"
+export CL_HASH_FULL="$HASH_FULL"
+export CL_COMMIT_MSG="$COMMIT_MSG"
+export CL_AUTHOR_NAME="$AUTHOR_NAME"
+export CL_AUTHOR_EMAIL="$AUTHOR_EMAIL"
+export CL_COMMIT_DATE="$COMMIT_DATE"
+export CL_COMMIT_TIMESTAMP="$COMMIT_TIMESTAMP"
+export CL_BRANCH="$BRANCH"
+export CL_BRANCH_SAFE="$BRANCH_SAFE"
+export CL_REPO_NAME="$REPO_NAME"
+export CL_REPO_REMOTE="$REPO_REMOTE"
+export CL_USER_DESCRIPTION="$USER_DESCRIPTION"
+export CL_USER_NOTES="$USER_NOTES"
+export CL_INDEX_FILE="$INDEX_FILE"
+export CL_BRANCHES_DIR="$BRANCHES_DIR"
+export CL_HTML_FILE="$HTML_FILE"
+
+python3 << 'PYEOF'
+import os, json, glob, subprocess, re
+
+def run(cmd):
+    r = subprocess.run(cmd, capture_output=True, text=True, shell=True)
+    return r.stdout.strip()
+
+h_short      = os.environ['CL_HASH_SHORT']
+h_full       = os.environ['CL_HASH_FULL']
+msg          = os.environ['CL_COMMIT_MSG']
+author_name  = os.environ['CL_AUTHOR_NAME']
+author_email = os.environ['CL_AUTHOR_EMAIL']
+date         = os.environ['CL_COMMIT_DATE']
+timestamp    = int(os.environ['CL_COMMIT_TIMESTAMP'] or 0)
+branch       = os.environ['CL_BRANCH']
+branch_safe  = os.environ['CL_BRANCH_SAFE']
+repo_name    = os.environ['CL_REPO_NAME']
+repo_remote  = os.environ['CL_REPO_REMOTE']
+description  = os.environ['CL_USER_DESCRIPTION']
+notes        = os.environ['CL_USER_NOTES']
+index_file   = os.environ['CL_INDEX_FILE']
+branches_dir = os.environ['CL_BRANCHES_DIR']
+html_file    = os.environ['CL_HTML_FILE']
+
+commit_type    = 'other'
+commit_scope   = ''
+commit_subject = msg
+m = re.match(r'^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(([^)]+)\))?!?:\s*(.+)', msg)
+if m:
+    commit_type    = m.group(1)
+    commit_scope   = m.group(3) or ''
+    commit_subject = m.group(4)
+
+numstat = run('git diff-tree --no-commit-id -r --numstat HEAD')
+lines_added = lines_deleted = 0
+for line in numstat.splitlines():
+    parts = line.split()
+    if len(parts) >= 2 and parts[0].isdigit() and parts[1].isdigit():
+        lines_added   += int(parts[0])
+        lines_deleted += int(parts[1])
+
+namestatus = run('git diff-tree --no-commit-id -r --name-status HEAD')
+files = []
+status_map = {'A': 'added', 'M': 'modified', 'D': 'deleted', 'R': 'renamed', 'C': 'copied'}
+for line in namestatus.splitlines():
+    if not line: continue
+    parts = line.split('\t')
+    if len(parts) >= 2:
+        files.append({'file': parts[-1], 'status': status_map.get(parts[0][0], 'changed')})
+
+new_commit = {
+    'hash': h_short, 'hash_full': h_full, 'message': msg,
+    'type': commit_type, 'scope': commit_scope, 'subject': commit_subject,
+    'description': description, 'notes': notes,
+    'author': {'name': author_name, 'email': author_email},
+    'branch': branch, 'date': date, 'timestamp': timestamp,
+    'stats': {'files_changed': len(files), 'lines_added': lines_added, 'lines_deleted': lines_deleted},
+    'files': files
+}
+
+if not os.path.exists(index_file):
+    index = {
+        'project': {'name': repo_name, 'repository': repo_remote, 'created_at': date, 'changelog_version': '1.0.0'},
+        'stats': {'total_commits': 0, 'total_branches': 0, 'last_updated': ''},
+        'branches': []
+    }
+    with open(index_file, 'w') as f:
+        json.dump(index, f, indent=2, ensure_ascii=False)
+
+branch_file = os.path.join(branches_dir, f'{branch_safe}.json')
+if not os.path.exists(branch_file):
+    branch_data = {'branch': branch, 'created_at': date, 'last_updated': date, 'commits': [new_commit]}
+else:
+    with open(branch_file, 'r') as f:
+        branch_data = json.load(f)
+    branch_data['commits'].insert(0, new_commit)
+    branch_data['last_updated'] = date
+
+with open(branch_file, 'w') as f:
+    json.dump(branch_data, f, indent=2, ensure_ascii=False)
+
+with open(index_file, 'r') as f:
+    index = json.load(f)
+
+branches_info = []
+total_commits = 0
+all_branch_data = {}
+
+for bf in sorted(glob.glob(os.path.join(branches_dir, '*.json'))):
+    with open(bf, 'r') as f:
+        bd = json.load(f)
+    fname = os.path.basename(bf)
+    all_branch_data[fname] = bd
+    count = len(bd.get('commits', []))
+    total_commits += count
+    last = bd['commits'][0] if bd['commits'] else {}
+    branches_info.append({
+        'name': bd['branch'], 'file': fname, 'commit_count': count,
+        'last_commit_hash': last.get('hash', ''),
+        'last_commit_date': last.get('date', ''),
+        'last_author': last.get('author', {}).get('name', '')
+    })
+
+index['stats']['total_commits']  = total_commits
+index['stats']['total_branches'] = len(branches_info)
+index['stats']['last_updated']   = date
+index['branches']                = branches_info
+
+with open(index_file, 'w') as f:
+    json.dump(index, f, indent=2, ensure_ascii=False)
+
+if os.path.exists(html_file):
+    with open(html_file, 'r', encoding='utf-8') as f:
+        html = f.read()
+    payload = json.dumps({'index': index, 'branches': all_branch_data}, ensure_ascii=False)
+    new_tag = f'<script id="changelog-data">\nwindow.__CHANGELOG__ = {payload};\n</script>'
+    html = re.sub(r'<script id="changelog-data">.*?</script>', new_tag, html, flags=re.DOTALL)
+    with open(html_file, 'w', encoding='utf-8') as f:
+        f.write(html)
+
+print('OK')
+PYEOF
+
+PYRESULT=$?
+
+if [ $PYRESULT -eq 0 ]; then
+    echo -e "${GREEN}  ✓ JSONs actualizados${RESET}"
+    echo -e "${GREEN}  ✓ HTML listo — ábrelo con Live Server${RESET}"
+else
+    echo -e "${YELLOW}  ⚠ Error al procesar (el commit sí se guardó)${RESET}"
+fi
+
+git add "${CHANGELOG_DIR}/" 2>/dev/null || true
+git commit --amend --no-edit --no-verify -q 2>/dev/null || true
+
+echo ""
+echo -e "${GREEN}${BOLD}✅ Listo${RESET}  ${CYAN}hash:${RESET} ${HASH_SHORT}  ${CYAN}rama:${RESET} ${BRANCH}"
+echo ""
