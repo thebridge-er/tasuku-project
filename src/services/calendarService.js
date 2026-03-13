@@ -1,11 +1,18 @@
 /*Definir las constantes de la conf*/
-const CLIENT_ID = 'CLIENT_ID';
-const API_KEY = 'TU_API_KEY';
+const CLIENT_ID =  "724299685920-mf2v8ot1ra881kr5g80vplvb5r551ga6.apps.googleusercontent.com";
+const API_KEY = "AIzaSyA28fPQrrd337IxpO1CbGP29oU31FcqV6c";
 
 const DISCOVERY_DOC =
 'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest';
 const SCOPES =
-'https://www.googleapis.com/auth/calendar.readonly';
+'https://www.googleapis.com/auth/calendar.events';
+
+/* VARIABLES INTERNAS */
+
+let tokenClient;
+let gapiInited = false;
+let gisInited = false;
+
 
 /*AÑADIR TODAS LAS FUNCIONES*/
 
@@ -13,7 +20,7 @@ export async function initCalendar() {
 /*promesa porque Google carga api forma asincrona*/
   return new Promise((resolve) => {
 
-    gapi.load("client:auth2", async () => {
+    gapi.load("client", async () => {
 
       /*inicializar cliente google*/
       await gapi.client.init({
@@ -22,6 +29,8 @@ export async function initCalendar() {
         discoveryDocs: [DISCOVERY_DOC],
         scope: SCOPES
       });
+      gapiInited = true;
+      console.log("Google API inicializada");
 
       resolve();
 
@@ -30,18 +39,42 @@ export async function initCalendar() {
   });
 
 }
+/* INICIALIZAR GOOGLE IDENTITY */
+export function initGoogleIdentity(){
 
-export async function loginGoogle(){
-  try {
-  const authInstance = gapi.auth2.getAuthInstance();
-  await authInstance.signIn();
-  console.log('login correcto')
+  tokenClient = google.accounts.oauth2.initTokenClient({
 
-}catch (error){
-  console.error('Error en login Google',error)
+    client_id: CLIENT_ID,
+    scope: SCOPES,
+    callback: ""
+
+  });
+
+  gisInited = true;
+
 }
 
+/* LOGIN GOOGLE */
+
+export function loginGoogle(){
+
+  tokenClient.callback = async (resp)=>{
+
+    if(resp.error !== undefined){
+
+      console.error(resp);
+      return;
+
+    }
+
+    console.log("Login correcto");
+
+  };
+
+  tokenClient.requestAccessToken();
+
 }
+
 
 export async function createEvent(task){
   try{
@@ -61,10 +94,12 @@ export async function createEvent(task){
     }
 
   };
+
   const response = await gapi.client.calendar.events.insert({
     calendarId: 'primary',
     resource: event
   });
+
   return response;
 
   } catch (error) {
@@ -86,7 +121,10 @@ export async function getEventsThisWeek() {
     singleEvents: true,
     orderBy: "startTime"
   });
+  console.log("Eventos semana", response.result.items);
+
   return response.result.items;
+
 }
 
 /*
