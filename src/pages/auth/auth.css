@@ -1,0 +1,23 @@
+.auth{
+display:flex;
+justify-content:center;
+align-items:center;
+height:80vh;
+}
+
+.auth-card{
+background:#1e293b;
+padding:30px;
+border-radius:10px;
+width:300px;
+}
+
+.auth-card input{
+width:100%;
+margin:10px 0;
+padding:10px;
+}
+
+.header .login-btn{
+display:none;
+}

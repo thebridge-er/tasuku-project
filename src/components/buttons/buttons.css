@@ -1,0 +1,16 @@
+.main-btn{
+background:#3b82f6;
+border:none;
+padding:10px 20px;
+border-radius:6px;
+color:white;
+cursor:pointer;
+}
+
+.secondary-btn{
+background:#334155;
+border:none;
+padding:10px 20px;
+border-radius:6px;
+color:white;
+}

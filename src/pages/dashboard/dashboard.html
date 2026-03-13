@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard</title>
+
+<link rel="stylesheet" href="../../styles/code.css">
+<link rel="stylesheet" href="../../components/header/header.css">
+<link rel="stylesheet" href="../../components/buttons/buttons.css">
+<link rel="stylesheet" href="./dashboard.css">
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div id="header"></div>
+
+
+<!-- DASHBOARD PRINCIPAL -->
+<section id="dashboard">
+
+<div class="welcome">
+
+<img id="avatar"
+src="https://api.dicebear.com/7.x/adventurer/svg?seed=user">
+
+<h2 id="welcomeName">Bienvenido</h2>
+
+<p>Crea o únete a un espacio para empezar</p>
+
+<button class="main-btn" onclick="openCreate()">
++ Crear Espacio
+</button>
+
+<button class="secondary-btn" onclick="openJoin()">
+Unirse a Espacio
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ESPACIO -->
+<section id="espacio"></section>
+
+
+<!-- PERFIL -->
+<section id="perfil"></section>
+
+
+<!-- MODAL UNIRSE -->
+<div id="joinModal" class="modal">
+
+<div class="modal-card">
+
+<span class="close" onclick="closeModal('joinModal')">✕</span>
+
+<h3>Unirse a Espacio</h3>
+
+<input id="joinCode" placeholder="CÓDIGO DE INVITACIÓN">
+
+<button onclick="unirseEspacio()">
+Unirse a Espacio
+</button>
+
+</div>
+
+</div>
+
+
+<!-- MODAL CREAR -->
+<div id="createModal" class="modal">
+
+<div class="modal-card">
+
+<span class="close" onclick="closeModal('createModal')">✕</span>
+
+<h3>Crear Espacio</h3>
+
+<input id="spaceNameInput" placeholder="Nombre del Espacio">
+
+<button class="main-btn" onclick="crearEspacio()">
+Crear Espacio
+</button>
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+<div id="footer"></div>
+
+
+<!-- SCRIPTS -->
+<script src="../../services/app.js"></script>
+<script src="./dashboard.js"></script>
+
+</body>
+</html>
