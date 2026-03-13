@@ -1,75 +1,101 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-console.log("auth.js cargado")
+    console.log("auth.js cargado")
 
-let modo = "login"
+    let modo = "login"
 
-const emailInput = document.getElementById("email")
-const passwordInput = document.getElementById("password")
-const nameField = document.getElementById("nameField")
+    const emailInput = document.getElementById("email")
+    const passwordInput = document.getElementById("password")
+    const nameField = document.getElementById("nameField")
 
-const mainBtn = document.getElementById("mainBtn")
-const registerLink = document.getElementById("registerLink")
+    const mainBtn = document.getElementById("mainBtn")
+    const switchText = document.getElementById("switchText")
 
-mainBtn.addEventListener("click", login)
-registerLink.addEventListener("click", mostrarRegistro)
+    let modoRegistro = localStorage.getItem("modoRegistro")
 
-function login(){
+    if (modoRegistro === "registro") {
+        mostrarRegistro()
+        localStorage.removeItem("modoRegistro")
+    }
 
-let email = emailInput.value
-let password = passwordInput.value
+    mainBtn.addEventListener("click", login)
 
-if(modo === "login"){
+    function login() {
 
-let user = JSON.parse(localStorage.getItem(email))
+        let email = emailInput.value
+        let password = passwordInput.value
 
-if(!user){
-alert("Usuario no encontrado")
-return
-}
+        if (modo === "login") {
 
-if(user.password !== password){
-alert("Contraseña incorrecta")
-return
-}
+            let user = JSON.parse(localStorage.getItem(email))
 
-/* guardamos usuario actual */
-localStorage.setItem("usuarioActual", JSON.stringify(user))
+            if (!user) {
+                alert("Usuario no encontrado")
+                return
+            }
 
-/* redirigir al dashboard */
-window.location.href = "../dashboard/dashboard.html"
+            if (user.password !== password) {
+                alert("Contraseña incorrecta")
+                return
+            }
 
-}else{
+            localStorage.setItem("usuarioActual", JSON.stringify(user))
 
-let user = {
-name: nameField.value,
-email: email,
-password: password
-}
+            window.location.href = "../dashboard/dashboard.html"
 
-/* guardar usuario */
-localStorage.setItem(email, JSON.stringify(user))
+        } else {
 
-/* guardar usuario actual */
-localStorage.setItem("usuarioActual", JSON.stringify(user))
+            let user = {
+                name: nameField.value,
+                email: email,
+                password: password
+            }
 
-/* redirigir al dashboard */
-window.location.href = "../dashboard/dashboard.html"
+            localStorage.setItem(email, JSON.stringify(user))
+            localStorage.setItem("usuarioActual", JSON.stringify(user))
 
-}
+            window.location.href = "../dashboard/dashboard.html"
 
-}
+        }
 
-function mostrarRegistro(){
+    }
 
-modo = "registro"
+    function mostrarRegistro() {
 
-document.getElementById("formTitle").innerText = "Registrarse"
+        modo = "registro"
 
-nameField.style.display = "block"
+        document.getElementById("formTitle").innerText = "Registrarse"
 
-mainBtn.innerText = "Registrarse"
+        nameField.style.display = "block"
 
-}
+        mainBtn.innerText = "Registrarse"
+
+        switchText.innerHTML = `
+¿Ya tienes cuenta?
+<span id="loginLink">Logéate</span>
+`
+
+        document.getElementById("loginLink").addEventListener("click", mostrarLogin)
+
+    }
+
+    function mostrarLogin() {
+
+        modo = "login"
+
+        document.getElementById("formTitle").innerText = "Iniciar Sesión"
+
+        nameField.style.display = "none"
+
+        mainBtn.innerText = "Iniciar Sesión"
+
+        switchText.innerHTML = `
+¿No tienes cuenta?
+<span id="registerLink">Registrarse</span>
+`
+
+        document.getElementById("registerLink").addEventListener("click", mostrarRegistro)
+
+    }
 
 })

@@ -1,18 +1,18 @@
-function irRegistro(){
-localStorage.setItem("modoRegistro","registro")
-window.location.href="src/pages/auth/auth.html"
+function irRegistro() {
+    localStorage.setItem("modoRegistro", "registro")
+    window.location.href = "pages/auth/auth.html"
 }
 
 
 
-/* Formulari ome lleva directamente a registro*/
-window.addEventListener("load", function(){
+/* Formulario me lleva directamente a registro*/
+window.addEventListener("load", function () {
 
-let modoRegistro = localStorage.getItem("modoRegistro")
+    let modoRegistro = localStorage.getItem("modoRegistro")
 
-if(modoRegistro === "registro"){
-mostrarRegistro()
-localStorage.removeItem("modoRegistro")
-}
+    if (modoRegistro === "registro") {
+        mostrarRegistro()
+        localStorage.removeItem("modoRegistro")
+    }
 
 })
