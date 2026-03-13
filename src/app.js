@@ -10,7 +10,7 @@ async function initGoogleCalendar() {
 
   await initCalendar();
 
-  await loginGoogle();
+  await initGoogleIdentity();
 
   console.log("Google Calendar ready");
 
@@ -20,3 +20,4 @@ async function initGoogleCalendar() {
 //EVENT HANDLERS//
 
 //START APP//
+startApp();
