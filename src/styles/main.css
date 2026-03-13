@@ -499,3 +499,8 @@ align-items:flex-start;
 }
 
 }
+
+@font-face {
+font-family: "TasukuFont";
+src: url("../assets/fonts/font.woff2");
+}

@@ -1,4 +1,3 @@
-
 let modo="login"
 
 function mostrarRegistro(){
@@ -9,9 +8,7 @@ function mostrarRegistro(){
     document.getElementById("mainBtn").innerText="Registrarse"
     document.getElementById("switchText").innerHTML=
     '¿Ya tienes cuenta? <span onclick="mostrarLogin()">Iniciar Sesión</span>'
-
 }
-
 
 function mostrarLogin(){
     modo="login"
@@ -21,9 +18,7 @@ function mostrarLogin(){
     document.getElementById("mainBtn").innerText="Iniciar Sesión"
     document.getElementById("switchText").innerHTML=
     '¿No tienes cuenta? <span onclick="mostrarRegistro()">Registrarse</span>'
-
 }
-
 
 function login(){
 
@@ -60,7 +55,6 @@ function login(){
     }
 }
 
-
 function mostrarDashboard(user){
     localStorage.setItem("usuarioActual", JSON.stringify(user))
     document.getElementById("authSection").style.display = "none"
@@ -71,26 +65,27 @@ function mostrarDashboard(user){
     "https://api.dicebear.com/7.x/adventurer/svg?seed=" + user.name
 }
 
-
 function openJoin(){
-    document.getElementById("joinModal").style.display="flex"
+    const modal = document.getElementById("joinModal")
+    if(modal){
+        modal.style.display="flex"
+    }
 }
-
 
 function openCreate(){
-    document.getElementById("createModal").style.display="flex"
+    const modal = document.getElementById("createModal")
+    if(modal){
+        modal.style.display="flex"
+    }
 }
-
 
 function closeModal(id){
     document.getElementById(id).style.display="none"
 }
 
-
 function generarCodigo(){
     return "TASUKU-" + Math.floor(1000 + Math.random()*9000)
 }
-
 
 function crearEspacio(){
     let nombre = document.querySelector("#createModal input").value
@@ -115,7 +110,6 @@ function crearEspacio(){
     entrarEspacio(espacio)
 }
 
-
 function unirseEspacio(){
     let codigo = document.querySelector("#joinModal input").value
     let espacio = localStorage.getItem("espacio_"+codigo)
@@ -131,7 +125,6 @@ function unirseEspacio(){
     closeModal("joinModal")
 }
 
-
 function mostrarPerfil(user){
     localStorage.setItem("usuarioActual", JSON.stringify(user))
     document.getElementById("authSection").style.display="none"
@@ -140,15 +133,12 @@ function mostrarPerfil(user){
     document.getElementById("perfilCorreo").innerText=user.email
     document.getElementById("perfilAvatar").src=
     "https://api.dicebear.com/7.x/adventurer/svg?seed="+user.name
-
 }
-
 
 function irDashboard(){
     document.getElementById("perfil").style.display="none"
     document.getElementById("dashboard").style.display="flex"
 }
-
 
 function entrarEspacio(espacio){
     document.getElementById("dashboard").style.display="none"
@@ -161,3 +151,32 @@ function entrarEspacio(espacio){
     document.getElementById("spaceAvatar").src =
     "https://api.dicebear.com/7.x/adventurer/svg?seed=" + usuario.name
 }
+
+function irLogin(){
+    window.location.href="pages/auth/auth.html"
+}
+
+async function loadComponent(id, url) {
+    const element = document.getElementById(id)
+    if (!element) return
+
+    const response = await fetch(url)
+    const html = await response.text()
+    element.innerHTML = html
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    let basePath = "components/"
+
+    if (window.location.pathname.includes("/pages/")) {
+        basePath = "../../components/"
+    }
+
+    loadComponent("header", basePath + "header/header.html")
+    loadComponent("footer", basePath + "footer/footer.html")
+
+    loadComponent("createModal", basePath + "modals/create-space.html")
+    loadComponent("joinModal", basePath + "modals/join-space.html")
+
+})
