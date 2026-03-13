@@ -1,18 +1,7 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
-}
-
-body{
-background:#0f172a;
-color:white;
-}
 
 /* HEADER */
 
-.header{
+.landing-header{
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -142,6 +131,9 @@ justify-content:center;
 border-radius:12px;
 margin-bottom:20px;
 font-size:20px;
+}
+.icon svg{
+    width: 24px;;
 }
 
 .card h3{
