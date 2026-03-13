@@ -1,0 +1,12 @@
+.header{
+display:flex;
+justify-content:space-between;
+padding:20px;
+background:#1e293b;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+}

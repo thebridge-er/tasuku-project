@@ -1,8 +1,116 @@
 {
   "branch": "dev",
   "created_at": "2026-03-09T17:26:38+01:00",
-  "last_updated": "2026-03-11T16:24:19+01:00",
+  "last_updated": "2026-03-12T16:10:54+01:00",
   "commits": [
+    {
+      "hash": "8e6a38d",
+      "hash_full": "8e6a38d5a6b0819e16a91f204af1f5142c32e7e1",
+      "message": "html y css",
+      "type": "other",
+      "scope": "",
+      "subject": "html y css",
+      "description": "Añadimos el HTML y CSS",
+      "notes": "Habemus HTML y CSS",
+      "author": {
+        "name": "Txe",
+        "email": "labiennacida@gmail.com"
+      },
+      "branch": "dev",
+      "date": "2026-03-12T16:10:54+01:00",
+      "timestamp": 1773328254,
+      "stats": {
+        "files_changed": 5,
+        "lines_added": 957,
+        "lines_deleted": 1
+      },
+      "files": [
+        {
+          "file": "js/auth.js",
+          "status": "modified"
+        },
+        {
+          "file": "src/index.html",
+          "status": "modified"
+        },
+        {
+          "file": "src/index2.html",
+          "status": "added"
+        },
+        {
+          "file": "src/styles/code.css",
+          "status": "added"
+        },
+        {
+          "file": "src/styles/styles-borrar.md",
+          "status": "deleted"
+        }
+      ]
+    },
+    {
+      "hash": "890a588",
+      "hash_full": "890a588d421734f8c1151ddf7ac4be82eab2f3e4",
+      "message": "Trabajando en mi rama",
+      "type": "other",
+      "scope": "",
+      "subject": "Trabajando en mi rama",
+      "description": "",
+      "notes": "",
+      "author": {
+        "name": "Txe",
+        "email": "labiennacida@gmail.com"
+      },
+      "branch": "dev",
+      "date": "2026-03-12T15:13:47+01:00",
+      "timestamp": 1773324827,
+      "stats": {
+        "files_changed": 3,
+        "lines_added": 39,
+        "lines_deleted": 0
+      },
+      "files": [
+        {
+          "file": "doc/.~lock.memoria.odt#",
+          "status": "added"
+        },
+        {
+          "file": "doc/flujo-login.md",
+          "status": "added"
+        },
+        {
+          "file": "js/auth.js",
+          "status": "added"
+        }
+      ]
+    },
+    {
+      "hash": "8873107",
+      "hash_full": "8873107549fc6ac95612326c9e6fd60bf8b3424e",
+      "message": "Diagrama Gantt",
+      "type": "other",
+      "scope": "",
+      "subject": "Diagrama Gantt",
+      "description": "",
+      "notes": "",
+      "author": {
+        "name": "Txe",
+        "email": "labiennacida@gmail.com"
+      },
+      "branch": "dev",
+      "date": "2026-03-11T17:26:12+01:00",
+      "timestamp": 1773246372,
+      "stats": {
+        "files_changed": 1,
+        "lines_added": 15,
+        "lines_deleted": 0
+      },
+      "files": [
+        {
+          "file": "doc/diagramagantt.md",
+          "status": "added"
+        }
+      ]
+    },
     {
       "hash": "4b377b3",
       "hash_full": "4b377b3a7ec1d37c05181ea6587f392ecedd13ae",
