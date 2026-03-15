@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-/*
-  Theme system:
-  - Default uses a dark theme.
-  - Add `data-theme="light"` to <html> or <body> to switch to the light theme.
-  Example: <html data-theme="light"> or document.documentElement.dataset.theme = 'light'
-*/
 
 * {
   margin: 0;
@@ -78,6 +72,9 @@ body {
   border-color: var(--color-border);
 }
 
+.btn-color-theme, #style-mode{
+  width: 50%;
+  color: var(--color-text);
+  background-color: var(--color-primary);
 
-
-
+}
