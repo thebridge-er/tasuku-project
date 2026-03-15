@@ -6,9 +6,9 @@
     "changelog_version": "1.0.0"
   },
   "stats": {
-    "total_commits": 10,
-    "total_branches": 1,
-    "last_updated": "2026-03-13T13:16:08+01:00"
+    "total_commits": 11,
+    "total_branches": 2,
+    "last_updated": "2026-03-15T11:44:30+01:00"
   },
   "branches": [
     {
@@ -17,6 +17,14 @@
       "commit_count": 10,
       "last_commit_hash": "708637f",
       "last_commit_date": "2026-03-13T13:16:08+01:00",
+      "last_author": "Txe"
+    },
+    {
+      "name": "feature-login",
+      "file": "feature-login.json",
+      "commit_count": 1,
+      "last_commit_hash": "eac1ad8",
+      "last_commit_date": "2026-03-15T11:44:30+01:00",
       "last_author": "Txe"
     }
   ]
