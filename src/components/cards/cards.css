@@ -1,0 +1,232 @@
+/* Variables específicas de cards (se pueden sobrescribir según el theme) */
+:root {
+  --card-bg: var(--color-surface-2);
+  --card-bg-alt: var(--color-surface);
+  --card-text-primary: var(--color-text);
+  --card-text-secondary: var(--color-muted);
+  --card-border-radius: var(--radius);
+  --card-score-bg: rgba(255, 255, 255, 0.12); /* un color neutro para dark mode */
+  --ranking-top-bg: #6b5d4b;
+  --ranking-top-text: #000000;
+}
+
+[data-theme="light"] {
+  --card-bg: var(--color-surface-2);
+  --card-bg-alt: var(--color-surface);
+  --card-text-primary: var(--color-text);
+  --card-text-secondary: var(--color-muted);
+  --card-border-radius: var(--radius);
+  --card-score-bg: rgba(0, 0, 0, 0.08); /* contraste para light mode */
+}
+
+.card {
+  padding: 16px;
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow);
+  transition: background var(--transition), border var(--transition), color var(--transition);
+  margin-bottom: 16px;
+}
+
+/* Card Container */
+.user-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1px solid var(--color-surface);
+  border-radius: var(--card-border-radius);
+  background: var(--card-bg);
+  transition: background var(--transition), color var(--transition);
+  width: 100%;
+  min-height: 120px;
+}
+
+.user-card img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid var(--color-primary);
+    object-fit: contain;
+}
+
+/* Avatar */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--card-bg-alt);
+  flex-shrink: 0;
+}
+
+/* Info container */
+.user-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* User name */
+.user-card-name {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--card-text-primary);
+}
+
+.user-card-score {
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size);
+    color: var(--color-text);
+}
+
+.score-number {
+    font-weight: 700;
+    margin-right: 4px;
+}
+
+.score-label {
+  color: var(--color-muted);
+}
+
+.user-card-score::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+  background-image: url("/src/assets/images/icon-trofeo.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* User points / secondary text */
+.user-card-points {
+  margin: 0;
+  font-size: 16px;
+  color: var(--card-text-secondary);
+}
+
+/* User score badge */
+.user-score {
+  font-weight: bold;
+  background: var(--card-score-bg);
+  border-radius: calc(var(--card-border-radius) / 1.5);
+  padding: 4px 6px;
+  color: var(--card-text-primary);
+  display: inline-block;
+}
+
+.card-place {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 40px;
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius);
+    padding: 16px;
+}
+
+.card-place-info {
+    display: flex;
+    align-items: center;
+}
+
+.card-place-users img {
+    border-radius: 50%;
+    border: 3px solid var(--color-primary);
+}
+
+span.card-place-name {
+    margin: 0 8px;
+}
+
+/* CARD RANKING */
+.card-ranking {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  width: 100%;
+}
+
+.card-ranking-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.card-ranking-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-ranking-title::before {
+
+  content: "";
+
+  width: 18px;
+  height: 18px;
+  background-image: url("/src/assets/images/icon-trofeo.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+.card-ranking-toggle::before {
+  content: "";
+  width: 32px;
+  height: 32px;
+  background-image: url("/src/assets/images/chevron.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+.user-card-ranking .user-card-score::before {
+  content: none;
+}
+
+.card-ranking-list { /* Lista ranking */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-card-ranking {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--radius);
+  background-color: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  min-height: 48px;
+  width: 100%;
+}
+
+.user-card-ranking.top {
+  background-color: var(--ranking-top-bg);
+}
+
+.user-rank {
+  font-size: 20px;
+  font-weight: 700;
+  width: 24px;
+  text-align: center;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 600px) {
+    .card-place {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+}
