@@ -1,45 +1,81 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family: "Montserrat", sans-serif;
-font-size: 16px;
+/*
+  Theme system:
+  - Default uses a dark theme.
+  - Add `data-theme="light"` to <html> or <body> to switch to the light theme.
+  Example: <html data-theme="light"> or document.documentElement.dataset.theme = 'light'
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
 }
 
-:root{
-    --white:#FAF9F6;
-    --black:#161616;
-    --red:#FF0000;
-    --green:#00FF64;
-    --yellow:#FFA602;
-    --red-background:#D4879C;
-    --green-background:#88D4AB;
-    --yellow-background:#FFD6A5;
+:root {
 
-    /*LIGHT*/
-    --primary-color: #789CFA;
-    --secundary-color:#1F253D ;
-    --background-color: #161928;
-    --background-secundary-color: #31385A;
-    --background-tertiary-color:#272C48;
-    
-    /*DARK*/
-/*     --primary-color-dark:;*/
-}
-/* variables de color para tema secundario 'light' */
-:root [data-theme="light"] {
-  --primary: #f35b5d;
-  --acolor: #000000;
-  --bcolor: #242424;
-  --ccolor: #dadada;
-  --dcolor: #ffffff;
+  --color-bg: #0f172a;
+  --color-surface: #161928;
+  --color-surface-2: #31385a;
+  --color-text: #faf9f6;
+  --color-muted: rgba(255, 255, 255, 0.75);
+  --color-border: rgba(255, 255, 255, 0.12);
+
+  --color-primary: #789cfa;
+  --color-primary-variant: #4d6de5;
+  --color-danger: #ff4e5b;
+  --color-success: #00ff64;
+  --color-warning: #ffa602;
+
+  --radius: 0.75rem;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --transition: 180ms ease;
+
+  color-scheme: dark;
 }
 
-body{
-background:#0f172a;
-color:white;
+[data-theme="light"] {
+  --color-bg: #faf9f6;
+  --color-surface: #ffffff;
+  --color-surface-2: #f2f3f7;
+  --color-text: #161616;
+  --color-muted: rgba(22, 22, 22, 0.65);
+  --color-border: rgba(22, 22, 22, 0.12);
+
+  --color-primary: #3c61ff;
+  --color-primary-variant: #1a3db8;
+  --color-danger: #d32f2f;
+  --color-success: #007a4d;
+  --color-warning: #f39c12;
+
+  color-scheme: light;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: background var(--transition), color var(--transition);
+}
+
+/* Utility helpers */
+.bg-surface {
+  background: var(--color-surface);
+}
+
+.text-muted {
+  color: var(--color-muted);
+}
+
+.border {
+  border-color: var(--color-border);
 }
 
 
