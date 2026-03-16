@@ -1,0 +1,19 @@
+flowchart TD
+
+A[Landing Page] --> B{¿Usuario tiene cuenta?}
+
+B -->|Sí| C[Login]
+B -->|No| D[Registrarse]
+
+C --> E[Usuario registrado]
+D --> E
+
+E --> F[Onboarding]
+
+F --> G[Home]
+
+G --> H[Espacio compartido]
+
+H --> I[Tareas]
+H --> J[Dashboard]
+H --> K[Recompensas]
