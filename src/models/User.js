@@ -8,7 +8,7 @@ export default class User{
     this.role = role;
     this.createDate=createDate;
     }
-}
+
 /*FUNCIONES*/
 joinSpace(spaceId){
 
@@ -40,4 +40,5 @@ getSpaces(){
 
   return this.spaces;
 
+}
 }

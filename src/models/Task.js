@@ -13,12 +13,12 @@ export default class Task {
   }
 
   
-}
+
         /*FUNCIONES*/
 
 assignUser(userId) {
   this.assignedUserId = userId;
-}
+};
 unassignUser() {
   this.assignedUserId = null;
 }
@@ -33,5 +33,6 @@ assignTask(taskId,userId){
   if(!this.task.includes(taskId))return;
   if(!this.users.includes(userId))return;
   this.taskAssignments[taskId] =userId;
+}
 }
 /*faltaria funcion asignar tareas random*/

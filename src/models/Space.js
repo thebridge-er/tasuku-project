@@ -10,7 +10,7 @@ export default class Space {
     
   }
 
-}
+
 
 /*FUNCIONES*/
 
@@ -18,14 +18,14 @@ addUser(userId){
   if(!this.users.includes(userId)){
     this.users.push(userId)
   }
-}
+};
 
 removeUser(userId){
   this.users= this.users.filter(id=> id!==userId);
 }
 
 createTask(taskId){
-  this.task.push(taskId);
+  this.tasks.push(taskId);
 }
 
 removeTask(taskId){
@@ -46,4 +46,5 @@ hasTask(taskId){
 
 getUserCount(){
   return this.users.length;
+}
 }
