@@ -1,9 +1,12 @@
-function irRegistro() {
-    localStorage.setItem("modoRegistro", "registro")
-    window.location.href = "pages/auth/auth.html"
-}
+// Exponemos funciones al global para que onclick del HTML las vea
+window.irLogin = function () {
+    window.location.href = "pages/auth/auth.html";
+};
 
-
+window.irRegistro = function () {
+    localStorage.setItem("modoRegistro", "registro");
+    window.location.href = "pages/auth/auth.html";
+};
 
 /* Formulario me lleva directamente a registro*/
 window.addEventListener("load", function () {

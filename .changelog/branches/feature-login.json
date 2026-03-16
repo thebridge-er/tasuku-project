@@ -1,8 +1,64 @@
 {
   "branch": "feature-login",
   "created_at": "2026-03-15T11:44:30+01:00",
-  "last_updated": "2026-03-16T12:04:10+01:00",
+  "last_updated": "2026-03-16T15:49:18+01:00",
   "commits": [
+    {
+      "hash": "1d670a3",
+      "hash_full": "1d670a32875a389c4e2ed6bc307a4a803ae65264",
+      "message": "Botones del login/register",
+      "type": "other",
+      "scope": "",
+      "subject": "Botones del login/register",
+      "description": "",
+      "notes": "",
+      "author": {
+        "name": "Txe",
+        "email": "labiennacida@gmail.com"
+      },
+      "branch": "feature-login",
+      "date": "2026-03-16T15:49:18+01:00",
+      "timestamp": 1773672558,
+      "stats": {
+        "files_changed": 8,
+        "lines_added": 139,
+        "lines_deleted": 269
+      },
+      "files": [
+        {
+          "file": ".changelog/index.json",
+          "status": "modified"
+        },
+        {
+          "file": "src/components/header/header-borrar.md",
+          "status": "deleted"
+        },
+        {
+          "file": "src/components/header/header.css",
+          "status": "modified"
+        },
+        {
+          "file": "src/components/header/header.html",
+          "status": "modified"
+        },
+        {
+          "file": "src/index.html",
+          "status": "modified"
+        },
+        {
+          "file": "src/index2.html",
+          "status": "deleted"
+        },
+        {
+          "file": "src/pages/auth/auth.html",
+          "status": "modified"
+        },
+        {
+          "file": "src/script.js",
+          "status": "modified"
+        }
+      ]
+    },
     {
       "hash": "2db2240",
       "hash_full": "2db22408e4d3ed951793c6471cfd265d44ff1945",
