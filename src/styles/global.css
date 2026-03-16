@@ -10,7 +10,7 @@ font-family:"Montserrat",sans-serif;
 :root{
 
 --color-bg:#0f172a;
---color-surface:#161928;
+--color-surface:#1F253D;
 --color-surface-2:#31385a;
 
 --color-text:#faf9f6;
@@ -90,7 +90,7 @@ line-height:1.5;
 }
 
 section{
-padding:100px 20px;
+padding:50px 20px;
 }
 
 /* images */

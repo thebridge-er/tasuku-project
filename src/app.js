@@ -17,7 +17,7 @@ async function initGoogleCalendar() {
 }
 
 function startApp() {
-  loadLanguage("en");
+  loadLanguage("eus");
   initializeColorTheme();
   initGoogleCalendar();
 }

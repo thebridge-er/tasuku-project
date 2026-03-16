@@ -1,9 +1,9 @@
+
 export function initializeColorTheme() {
   const styleButton = document.getElementById("style-mode");
   if (!styleButton) return;
 
-  // Inicializamos iconos al cargar
-  toggleThemeIcons();
+  toggleThemeIcons(); // Inicializamos iconos al cargar
 
   styleButton.addEventListener("click", () => {
     // Cambiamos el tema
