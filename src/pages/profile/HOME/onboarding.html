@@ -2,7 +2,6 @@
 <html lang="es">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -16,11 +15,6 @@
 
 <body>
 
-<!-- HEADER -->
-<div id="header"></div>
-
-
-<!-- DASHBOARD PRINCIPAL -->
 <section id="dashboard">
 
 <div class="welcome">
@@ -44,38 +38,8 @@ Unirse a Espacio
 
 </section>
 
-
 <section id="espacio"></section>
-
 <section id="perfil"></section>
-
-
-    <div id="joinModal" class="modal">
-        <div class="modal-card">
-            <span class="close" onclick="closeModal('joinModal')">✕</span>
-            <h3>Unirse a Espacio</h3>
-
-            <input id="joinCode" placeholder="CÓDIGO DE INVITACIÓN">
-            <button onclick="unirseEspacio()">
-            Unirse a Espacio
-            </button>
-        </div>
-    </div>
-
-
-    <div id="createModal" class="modal">
-        <div class="modal-card">
-            <span class="close" onclick="closeModal('createModal')">✕</span>
-            <h3>Crear Espacio</h3>
-
-            <input id="spaceNameInput" placeholder="Nombre del Espacio">
-            <button class="main-btn" onclick="crearEspacio()">
-            Crear Espacio
-            </button>
-        </div>
-    </div>
-
-    <div id="footer"></div>
 
 <script src="../../../services/app.js"></script>
 <script src="./onboarding.js"></script>

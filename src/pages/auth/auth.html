@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../components/header/header.css">
     <link rel="stylesheet" href="../../components/buttons/buttons.css">
     <link rel="stylesheet" href="./auth.css">
+    <link rel="stylesheet" href="../../styles/global.css">
 </head>
 
 <body>
@@ -17,20 +18,20 @@
 
     <section class="auth" id="authSection">
         <div class="auth-card">
-            <h2 id="formTitle">Iniciar Sesión</h2>
-            <p id="formSub">Access your space</p>
+            <h2 id="formTitle">Login</h2>
+            <!--  <p id="formSub">Accede a tu espacio</p>-->
 
             <input id="nameField" placeholder="Nombre" style="display:none">
             <label>Correo</label>
 
-            <input id="email" placeholder="email@ejemplo.com">
+            <input id="email" placeholder="email@ejemplo.com" autocomplete="off">
             <label>Contraseña</label>
 
-            <input id="password" type="password" placeholder="********">
+            <input id="password" type="password" placeholder="**" autocomplete="off">
             <button id="mainBtn">Iniciar Sesión</button>
             <p id="switchText">
                 ¿No tienes cuenta?
-                <span id="registerLink">Iniciar</span>
+                <span id="registerLink">Registrarse</span>
             </p>
         </div>
     </section>
@@ -39,4 +40,5 @@
     <script src="../../services/app.js"></script>
     <script src="./auth.js"></script>
 </body>
+
 </html>
