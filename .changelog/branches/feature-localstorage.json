@@ -1,8 +1,40 @@
 {
   "branch": "feature-localstorage",
   "created_at": "2026-03-16T14:04:07+01:00",
-  "last_updated": "2026-03-16T14:04:07+01:00",
+  "last_updated": "2026-03-16T15:42:13+01:00",
   "commits": [
+    {
+      "hash": "d0d6b02",
+      "hash_full": "d0d6b0285029ed4b17d4af25b6d7811671ff5130",
+      "message": ".",
+      "type": "other",
+      "scope": "",
+      "subject": ".",
+      "description": "",
+      "notes": "",
+      "author": {
+        "name": "agonzalezbridge",
+        "email": "asier.medina.ugalde@gmail.com"
+      },
+      "branch": "feature-localstorage",
+      "date": "2026-03-16T15:42:13+01:00",
+      "timestamp": 1773672133,
+      "stats": {
+        "files_changed": 2,
+        "lines_added": 4,
+        "lines_deleted": 4
+      },
+      "files": [
+        {
+          "file": "src/models/Space.js",
+          "status": "modified"
+        },
+        {
+          "file": "src/models/Task.js",
+          "status": "modified"
+        }
+      ]
+    },
     {
       "hash": "db48140",
       "hash_full": "db48140984d993634fe759015c93b1681049797e",
