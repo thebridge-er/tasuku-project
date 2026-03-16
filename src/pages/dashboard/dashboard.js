@@ -1,24 +1,20 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", cargarPerfil)
 
-    const createModal = document.getElementById("createModal")
-    const joinModal = document.getElementById("joinModal")
+function cargarPerfil(){
+const usuario = JSON.parse(localStorage.getItem("usuario"))
+if(!usuario){
+return
+}
+    document.getElementById("perfilNombre").textContent = usuario.nombre
+    document.getElementById("perfilCorreo").textContent = usuario.email
+    document.getElementById("perfilAvatar").src =
+    "https://api.dicebear.com/7.x/adventurer/svg?seed=" + usuario.nombre
 
-    const user = JSON.parse(localStorage.getItem("usuarioActual"))
+}
 
-    if(!user){
-        window.location.href = "../auth/auth.html"
-        return
-    }
 
-    const welcomeName = document.getElementById("welcomeName")
-    const avatar = document.getElementById("avatar")
+function irDashboard(){
+    document.getElementById("perfil").style.display = "none"
+    document.getElementById("espacio").style.display = "block"
 
-    if(welcomeName){
-        welcomeName.innerText = "Bienvenido, " + user.name
-    }
-
-    if(avatar){
-        avatar.src = "https://api.dicebear.com/7.x/adventurer/svg?seed=" + user.name
-    }
-
-})
+}
