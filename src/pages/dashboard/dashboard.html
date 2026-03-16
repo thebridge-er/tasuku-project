@@ -1,106 +1,130 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfil</title>
 
-<title>Dashboard</title>
-
-<link rel="stylesheet" href="../../styles/code.css">
-<link rel="stylesheet" href="../../components/header/header.css">
-<link rel="stylesheet" href="../../components/buttons/buttons.css">
+<link rel="stylesheet" href="../../styles/global.css">
+<link rel="stylesheet" href="../../pages/places/places.css">
 <link rel="stylesheet" href="./dashboard.css">
-
 </head>
 
 <body>
 
-<!-- HEADER -->
-<div id="header"></div>
+    <section id="perfil">
+
+        <div class="perfil-card">
+        <img id="perfilAvatar"
+        src="https://api.dicebear.com/7.x/adventurer/svg?seed=user">
+        <h2 id="perfilNombre">Usuario</h2>
+        <p id="perfilCorreo">correo@email.com</p>
+
+        <button class="main-btn" onclick="irDashboard()"> Entrar al espacio </button>
+        </div>
+    </section>
 
 
-<!-- DASHBOARD PRINCIPAL -->
-<section id="dashboard">
 
-<div class="welcome">
+<!-- DASHBOARD / ESPACIO -->
 
-<img id="avatar"
-src="https://api.dicebear.com/7.x/adventurer/svg?seed=user">
+<section id="espacio" style="display:none">
 
-<h2 id="welcomeName">Bienvenido</h2>
-
-<p>Crea o únete a un espacio para empezar</p>
-
-<button class="main-btn" onclick="openCreate()">
-+ Crear Espacio
-</button>
-
-<button class="secondary-btn" onclick="openJoin()">
-Unirse a Espacio
-</button>
-
-</div>
-
-</section>
+        <div class="space-header">
+            <div class="space-info">
+            <div class="space-icon">🏠</div>
+            <div>
+                <h2 id="spaceName">PEDRO</h2>
+                <p id="spaceMembers">1 miembros</p>
+            </div>
+            <div class="header-right">
+                <button class="icon-btn">☀️</button>
+                <button class="icon-btn">🌐</button>
+                <button class="icon-btn">↪</button>
+            </div>
+            </div>
+        </div>
 
 
-<!-- ESPACIO -->
-<section id="espacio"></section>
+            <div class="user-card">
+            <img id="spaceAvatar"
+            src="https://api.dicebear.com/7.x/adventurer/svg?seed=user">
+            <div>
+                <h3 id="spaceUserName">JEFFERS</h3>
+                <p>🏆 <span id="userPoints">0</span> puntos</p>
+            </div>
+            <div class="logros">
+                <p>Logros</p>
+                <strong>0/7</strong>
+            </div>
+        </div>
 
 
-<!-- PERFIL -->
-<section id="perfil"></section>
+            <!-- RANKING -->
+
+        <div class="ranking-card">
+            <h3>🏆 Ranking</h3>
+            <div class="ranking-user">
+                <span>1</span>
+                <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=user">
+                <p>JEFFERS</p>
+                <span>0 puntos</span>
+            </div>
+        </div>
 
 
-<!-- MODAL UNIRSE -->
-<div id="joinModal" class="modal">
+            <!-- TAREAS -->
 
-<div class="modal-card">
-
-<span class="close" onclick="closeModal('joinModal')">✕</span>
-
-<h3>Unirse a Espacio</h3>
-
-<input id="joinCode" placeholder="CÓDIGO DE INVITACIÓN">
-
-<button onclick="unirseEspacio()">
-Unirse a Espacio
-</button>
-
-</div>
-
-</div>
+        <div class="tasks-card">
+        <h3>✔ Tareas</h3>
+        <p>Sin tareas todavía</p>
+        <button class="main-btn">
+        Añadir tareas de ejemplo
+        </button>
+        </div>
 
 
-<!-- MODAL CREAR -->
-<div id="createModal" class="modal">
+        <!-- LOGROS -->
 
-<div class="modal-card">
+        <div class="logros-card">
+        <h3>✨ Logros</h3>
+            <div class="logros-grid">
+                <div class="logro">
+                    <span>🌱</span>
+                <span>Primeros pasos</span>
+                </div>
+                <div class="logro">
+                    <span>⭐</span>
+                    <span>Aprendiz</span>
+                </div>
+                <div class="logro">
+                    <span>🏆</span>
+                    <span>Maestro</span>
+                </div>
+                <div class="logro">
+                    <span>💯</span>
+                    <span>Club 100</span>
+                </div>
+                <div class="logro">
+                    <span>💎</span>
+                    <span>Coleccionista</span>
+                </div>
+                <div class="logro">
+                    <span>💪</span>
+                    <span>Desafío</span>
+                </div>
+                <div class="logro">
+                    <span>🔥</span>
+                    <span>Racha</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<span class="close" onclick="closeModal('createModal')">✕</span>
-
-<h3>Crear Espacio</h3>
-
-<input id="spaceNameInput" placeholder="Nombre del Espacio">
-
-<button class="main-btn" onclick="crearEspacio()">
-Crear Espacio
-</button>
-
-</div>
-
-</div>
-
-
-<!-- FOOTER -->
-<div id="footer"></div>
-
-
-<!-- SCRIPTS -->
-<script src="../../services/app.js"></script>
-<script src="./dashboard.js"></script>
+    <script src="../../services/app.js"></script>
+    <script src="../../pages/auth/auth.js"></script>
+    <script src="./dashboard.js"></script>
 
 </body>
 </html>
