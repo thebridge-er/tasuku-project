@@ -6,9 +6,9 @@
     "changelog_version": "1.0.0"
   },
   "stats": {
-    "total_commits": 18,
-    "total_branches": 3,
-    "last_updated": "2026-03-16T15:49:18+01:00"
+    "total_commits": 21,
+    "total_branches": 4,
+    "last_updated": "2026-03-16T16:07:27+01:00"
   },
   "branches": [
     {
@@ -28,11 +28,19 @@
       "last_author": "agonzalezbridge"
     },
     {
+      "name": "feature-localstorage",
+      "file": "feature-localstorage.json",
+      "commit_count": 2,
+      "last_commit_hash": "d0d6b02",
+      "last_commit_date": "2026-03-16T15:42:13+01:00",
+      "last_author": "agonzalezbridge"
+    },
+    {
       "name": "feature-login",
       "file": "feature-login.json",
-      "commit_count": 3,
-      "last_commit_hash": "1d670a3",
-      "last_commit_date": "2026-03-16T15:49:18+01:00",
+      "commit_count": 4,
+      "last_commit_hash": "306ed78",
+      "last_commit_date": "2026-03-16T16:07:27+01:00",
       "last_author": "Txe"
     }
   ]
