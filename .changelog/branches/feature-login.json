@@ -1,8 +1,31 @@
 {
   "branch": "feature-login",
   "created_at": "2026-03-15T11:44:30+01:00",
-  "last_updated": "2026-03-15T11:44:30+01:00",
+  "last_updated": "2026-03-16T12:04:10+01:00",
   "commits": [
+    {
+      "hash": "2db2240",
+      "hash_full": "2db22408e4d3ed951793c6471cfd265d44ff1945",
+      "message": "Merge remote-tracking branch 'origin/feature-landingpage' into feature-login",
+      "type": "other",
+      "scope": "",
+      "subject": "Merge remote-tracking branch 'origin/feature-landingpage' into feature-login",
+      "description": "",
+      "notes": "",
+      "author": {
+        "name": "Txe",
+        "email": "labiennacida@gmail.com"
+      },
+      "branch": "feature-login",
+      "date": "2026-03-16T12:04:10+01:00",
+      "timestamp": 1773659050,
+      "stats": {
+        "files_changed": 0,
+        "lines_added": 0,
+        "lines_deleted": 0
+      },
+      "files": []
+    },
     {
       "hash": "eac1ad8",
       "hash_full": "eac1ad89ac5d71d1757915e5c4550c54a310be11",

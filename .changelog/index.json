@@ -6,9 +6,15 @@
     "changelog_version": "1.0.0"
   },
   "stats": {
+<<<<<<< HEAD
     "total_commits": 11,
     "total_branches": 2,
     "last_updated": "2026-03-15T11:44:30+01:00"
+=======
+    "total_commits": 14,
+    "total_branches": 2,
+    "last_updated": "2026-03-13T13:37:23+01:00"
+>>>>>>> origin/feature-landingpage
   },
   "branches": [
     {
@@ -26,6 +32,14 @@
       "last_commit_hash": "eac1ad8",
       "last_commit_date": "2026-03-15T11:44:30+01:00",
       "last_author": "Txe"
+    },
+    {
+      "name": "feature-api",
+      "file": "feature-api.json",
+      "commit_count": 5,
+      "last_commit_hash": "fcda319",
+      "last_commit_date": "2026-03-13T13:37:23+01:00",
+      "last_author": "agonzalezbridge"
     }
   ]
 }
