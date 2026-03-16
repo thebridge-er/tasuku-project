@@ -1,18 +1,109 @@
-<section id="perfil">
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="perfil-card">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perfil</title>
 
-<img id="perfilAvatar"
-src="https://api.dicebear.com/7.x/adventurer/svg?seed=user">
+<link rel="stylesheet" href="../../styles/code.css">
+<link rel="stylesheet" href="./profile.css">
 
-<h2 id="perfilNombre">Usuario</h2>
+</head>
 
-<p id="perfilCorreo">correo@email.com</p>
+<body>
 
-<button class="main-btn" onclick="irDashboard()">
-Entrar al espacio
-</button>
+    <section id="perfil">
 
-</div>
+        <div class="perfil-card">
+        <img id="perfilAvatar"
+        src="https://api.dicebear.com/7.x/adventurer/svg?seed=user">
+        <h2 id="perfilNombre">Usuario</h2>
+        <p id="perfilCorreo">correo@email.com</p>
 
-</section>
+        <button class="main-btn" onclick="irDashboard()"> Entrar al espacio </button>
+        </div>
+    </section>
+
+
+
+<!-- DASHBOARD / ESPACIO -->
+
+<section id="espacio" style="display:none">
+
+        <div class="space-header">
+            <div class="space-info">
+            <div class="space-icon">🏠</div>
+            <div>
+                <h2 id="spaceName">PEDRO</h2>
+                <p id="spaceMembers">1 miembros</p>
+            </div>
+            <div class="header-icons">
+                <button class="icon-btn">☀️</button>
+                <button class="icon-btn">🌐</button>
+                <button class="icon-btn">↪</button>
+            </div>
+            </div>
+        </div>
+
+
+            <div class="user-card">
+            <img id="spaceAvatar"
+            src="https://api.dicebear.com/7.x/adventurer/svg?seed=user">
+            <div>
+                <h3 id="spaceUserName">JEFFERS</h3>
+                <p>🏆 <span id="userPoints">0</span> puntos</p>
+            </div>
+            <div class="logros">
+                <p>Logros</p>
+                <strong>0/7</strong>
+            </div>
+        </div>
+
+
+            <!-- RANKING -->
+
+        <div class="ranking-card">
+            <h3>🏆 Ranking</h3>
+            <div class="ranking-user">
+                <span>1</span>
+                <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=user">
+                <p>JEFFERS</p>
+                <span>0 puntos</span>
+            </div>
+        </div>
+
+
+            <!-- TAREAS -->
+
+        <div class="tasks-card">
+        <h3>✔ Tareas</h3>
+        <p>Sin tareas todavía</p>
+        <button class="main-btn">
+        Añadir tareas de ejemplo
+        </button>
+        </div>
+
+
+        <!-- LOGROS -->
+
+        <div class="logros-card">
+        <h3>✨ Logros</h3>
+            <div class="logros-grid">
+                <div class="logro">🌱 Primeros pasos</div>
+                <div class="logro">⭐ Aprendiz</div>
+                <div class="logro">🏆 Maestro</div>
+                <div class="logro">💯 Club 100</div>
+                <div class="logro">💎 Coleccionista</div>
+                <div class="logro">💪 Desafío</div>
+                <div class="logro">🔥 Racha</div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../../services/app.js"></script>
+    <script src="../../pages/auth/auth.js"></script>
+    <script src="./profile.js"></script>
+
+</body>
+</html>

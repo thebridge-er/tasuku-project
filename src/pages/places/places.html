@@ -1,36 +1,58 @@
-<section id="espacio">
+<!DOCTYPE html>
+<html lang="es">
+<head>
 
-<div class="space-header">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div class="space-info">
+<title>Tasuku - Espacios</title>
 
-<div class="space-icon">🏠</div>
+<link rel="stylesheet" href="../../styles/code.css">
+<link rel="stylesheet" href="places.css">
 
-<div>
-<h2 id="spaceName">Mi Espacio</h2>
-<p id="spaceMembers">1 miembros</p>
-</div>
-
-</div>
-
-</div>
+</head>
 
 
-<div class="user-card">
+<body>
 
-<img id="spaceAvatar"
-src="https://api.dicebear.com/7.x/adventurer/svg?seed=user">
 
-<div>
-<h3 id="spaceUserName">Usuario</h3>
-<p>🏆 <span id="userPoints">0</span> puntos</p>
-</div>
+<header class="header">
 
-<div class="logros">
-<p>Logros</p>
-<strong>0/7</strong>
-</div>
+<div class="logo">
+
+<div class="logo-icon">🏠</div>
+<h1>TASUKU</h1>
 
 </div>
 
-</section>
+
+<div class="header-right">
+
+<i>☀️</i>
+<i>🌐</i>
+<i>↪</i>
+
+</div>
+
+</header>
+
+
+    <section id="places">
+
+        <div class="places-top">
+        <h2>Mis espacios</h2>
+        <button class="create-space-btn" id="createSpaceBtn">
+        + Crear espacio
+        </button>
+        </div>
+
+        <div class="spaces-list" id="spacesContainer">
+        <!-- espacios creados por JS -->
+        </div>
+    </section>
+
+
+    <script src="places.js"></script>
+
+</body>
+</html>

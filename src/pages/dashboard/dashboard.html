@@ -46,59 +46,38 @@ Unirse a Espacio
 </section>
 
 
-<!-- ESPACIO -->
 <section id="espacio"></section>
 
-
-<!-- PERFIL -->
 <section id="perfil"></section>
 
 
-<!-- MODAL UNIRSE -->
-<div id="joinModal" class="modal">
+    <div id="joinModal" class="modal">
+        <div class="modal-card">
+            <span class="close" onclick="closeModal('joinModal')">✕</span>
+            <h3>Unirse a Espacio</h3>
 
-<div class="modal-card">
-
-<span class="close" onclick="closeModal('joinModal')">✕</span>
-
-<h3>Unirse a Espacio</h3>
-
-<input id="joinCode" placeholder="CÓDIGO DE INVITACIÓN">
-
-<button onclick="unirseEspacio()">
-Unirse a Espacio
-</button>
-
-</div>
-
-</div>
+            <input id="joinCode" placeholder="CÓDIGO DE INVITACIÓN">
+            <button onclick="unirseEspacio()">
+            Unirse a Espacio
+            </button>
+        </div>
+    </div>
 
 
-<!-- MODAL CREAR -->
-<div id="createModal" class="modal">
+    <div id="createModal" class="modal">
+        <div class="modal-card">
+            <span class="close" onclick="closeModal('createModal')">✕</span>
+            <h3>Crear Espacio</h3>
 
-<div class="modal-card">
+            <input id="spaceNameInput" placeholder="Nombre del Espacio">
+            <button class="main-btn" onclick="crearEspacio()">
+            Crear Espacio
+            </button>
+        </div>
+    </div>
 
-<span class="close" onclick="closeModal('createModal')">✕</span>
+    <div id="footer"></div>
 
-<h3>Crear Espacio</h3>
-
-<input id="spaceNameInput" placeholder="Nombre del Espacio">
-
-<button class="main-btn" onclick="crearEspacio()">
-Crear Espacio
-</button>
-
-</div>
-
-</div>
-
-
-<!-- FOOTER -->
-<div id="footer"></div>
-
-
-<!-- SCRIPTS -->
 <script src="../../services/app.js"></script>
 <script src="./dashboard.js"></script>
 
