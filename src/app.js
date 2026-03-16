@@ -8,8 +8,11 @@ import {
 
 import { loadLanguage } from "./services/translation.js";
 import { initializeColorTheme } from "./services/colorTheme.js";
+import StorageManager from "./infraestructure/storageManager.js";
 
+const db = StorageManager.load();
 
+console.log(db);
 
 async function initGoogleCalendar() {
   await initCalendar();

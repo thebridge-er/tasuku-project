@@ -6,7 +6,7 @@ export function testModule() {
 
 export async function loadLanguage(lang) {
 
-    const response = await fetch(`./lang/${lang}.json`); //llamamos al archivo de traducciones (es, eus o en)
+    const response = await fetch(`../../lang/${lang}.json`); //llamamos al archivo de traducciones (es, eus o en)
     translations = await response.json(); //convertimos la respuesta del en un objeto JSON, para poder acceder a las traducciones
 
     translatePage();

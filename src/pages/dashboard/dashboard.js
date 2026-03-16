@@ -1,4 +1,18 @@
-document.addEventListener("DOMContentLoaded", cargarPerfil)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* document.addEventListener("DOMContentLoaded", cargarPerfil)
 
 function cargarPerfil(){
 const usuario = JSON.parse(localStorage.getItem("usuario"))
@@ -17,4 +31,4 @@ function irDashboard(){
     document.getElementById("perfil").style.display = "none"
     document.getElementById("espacio").style.display = "block"
 
-}
+} */
