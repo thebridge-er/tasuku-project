@@ -10,6 +10,7 @@ import { loadLanguage } from "./services/translation.js";
 import { initializeColorTheme } from "./services/colorTheme.js";
 
 
+
 async function initGoogleCalendar() {
   await initCalendar();
   await initGoogleIdentity();
