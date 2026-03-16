@@ -1,23 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles/code.css">
-</head>
-<body>
-    
-        <div id="createModal" class="modal">
-            <div class="modal-card">
-                <span class="close" onclick="closeModal('createModal')">✕</span>
-                <h3>Crear Espacio</h3>
+<div id="createModal" class="modal">
 
-                <input placeholder="Nombre del Espacio">
-                <button class="main-btn" onclick="crearEspacio()">Crear Espacio</button>
-            </div>
-        </div>
-    <script></script>
-    <script></script>
-</body>
-</html>
+<div class="modal-card">
+
+<div class="modal-header">
+<h3>Crear espacio</h3>
+<span class="close" onclick="closeModal('createModal')">✕</span>
+</div>
+
+<label>Nombre del espacio</label>
+
+<input id="spaceNameInput" placeholder="Mikasa">
+
+<button class="main-btn" onclick="crearEspacio()">
+Crear espacio
+</button>
+
+</div>
+
+</div>
