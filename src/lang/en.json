@@ -1,5 +1,33 @@
 {
-  "title": "Welcome",
-  "description": "This is my application",
-  "login": "Login"
+  "app_name": "TASUKU",
+  "login": "Login",
+  "start": "Start",
+
+  "hero_title": "Make chores fun",
+  "hero_description": "Organize household tasks with your roommates, family, or friends. Earn points, unlock achievements, and keep your space clean together!",
+
+  "feature_spaces_title": "Shared Spaces",
+  "feature_spaces_desc": "Create or join spaces with family or roommates",
+
+  "feature_tasks_title": "Task Management",
+  "feature_tasks_desc": "Organize and distribute household tasks easily",
+
+  "feature_gamification_title": "Gamification",
+  "feature_gamification_desc": "Earn points, climb the leaderboard and unlock achievements",
+
+  "feature_collaboration_title": "Collaboration",
+  "feature_collaboration_desc": "Work together to keep your space clean",
+
+  "points_system": "Point System",
+
+  "easy_tasks": "Easy Tasks",
+  "easy_points": "5 points",
+
+  "medium_tasks": "Medium Tasks",
+  "medium_points": "10 points",
+
+  "hard_tasks": "Hard Tasks",
+  "hard_points": "20 points",
+
+  "footer_text": "Made with love for more organized homes"
 }

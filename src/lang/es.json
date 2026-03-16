@@ -1,5 +1,33 @@
 {
-  "title": "Bienvenido",
-  "description": "Esta es mi aplicación",
-  "login": "Iniciar sesión"
+  "app_name": "TASUKU",
+  "login": "Iniciar sesión",
+  "start": "Comenzar",
+
+  "hero_title": "Haz las tareas divertidas",
+  "hero_description": "Organiza las tareas del hogar con tus compañeros de piso, familia o amigos. ¡Gana puntos, desbloquea logros y mantén tu espacio limpio juntos!",
+
+  "feature_spaces_title": "Espacios Compartidos",
+  "feature_spaces_desc": "Crea o únete a espacios con tu familia o compañeros",
+
+  "feature_tasks_title": "Gestión de Tareas",
+  "feature_tasks_desc": "Organiza y distribuye las tareas del hogar fácilmente",
+
+  "feature_gamification_title": "Gamificación",
+  "feature_gamification_desc": "Gana puntos, sube en el ranking y desbloquea logros",
+
+  "feature_collaboration_title": "Colaboración",
+  "feature_collaboration_desc": "Trabaja en equipo para mantener tu espacio limpio",
+
+  "points_system": "Sistema de Puntos",
+
+  "easy_tasks": "Tareas Fáciles",
+  "easy_points": "5 puntos",
+
+  "medium_tasks": "Tareas Medias",
+  "medium_points": "10 puntos",
+
+  "hard_tasks": "Tareas Difíciles",
+  "hard_points": "20 puntos",
+
+  "footer_text": "Hecho con amor para hogares más organizados"
 }

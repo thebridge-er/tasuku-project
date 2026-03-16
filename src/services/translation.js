@@ -19,7 +19,6 @@ function translatePage(){
     elements.forEach( element => {
         const key = element.getAttribute("data-translation"); //conseguimos la key del elemento que esta dentro de "data-translation"
         element.textContent = translations[key]; //cambiamos el texto del elemento por la traducción
-
     });
 
 }
