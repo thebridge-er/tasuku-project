@@ -180,3 +180,6 @@ document.addEventListener("DOMContentLoaded", () => {
     loadComponent("joinModal", basePath + "modals/join-space.html")
 
 })
+
+
+

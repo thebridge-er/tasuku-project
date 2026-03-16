@@ -1,0 +1,51 @@
+{
+  "branch": "feature-localstorage",
+  "created_at": "2026-03-16T14:04:07+01:00",
+  "last_updated": "2026-03-16T14:04:07+01:00",
+  "commits": [
+    {
+      "hash": "db48140",
+      "hash_full": "db48140984d993634fe759015c93b1681049797e",
+      "message": " terminar con storageManager.js y creacion src/models/Space-Task-User.js",
+      "type": "other",
+      "scope": "",
+      "subject": " terminar con storageManager.js y creacion src/models/Space-Task-User.js",
+      "description": "no se hizo correctamente el push de storageManager asique lo he corregido y he empezado con la definicion de los objetos",
+      "notes": "",
+      "author": {
+        "name": "agonzalezbridge",
+        "email": "asier.medina.ugalde@gmail.com"
+      },
+      "branch": "feature-localstorage",
+      "date": "2026-03-16T14:04:07+01:00",
+      "timestamp": 1773666247,
+      "stats": {
+        "files_changed": 5,
+        "lines_added": 100,
+        "lines_deleted": 1
+      },
+      "files": [
+        {
+          "file": "src/infraestructure/storageManager.js",
+          "status": "modified"
+        },
+        {
+          "file": "src/models/Space.js",
+          "status": "added"
+        },
+        {
+          "file": "src/models/Task.js",
+          "status": "added"
+        },
+        {
+          "file": "src/models/User.js",
+          "status": "added"
+        },
+        {
+          "file": "src/services/app.js",
+          "status": "modified"
+        }
+      ]
+    }
+  ]
+}
