@@ -61,3 +61,17 @@
     color: #60a5fa;
     cursor: pointer;
 }
+
+.error-msg {
+    color: #f10f0f !important;
+    padding: 5px;
+    border-radius: 6px;
+    margin-top: 5px;
+    font-size: 14px;
+    display: none;
+    text-align: center;
+}
+
+.error-msg.show {
+    display: block;
+}
