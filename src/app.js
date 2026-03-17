@@ -6,18 +6,20 @@ import {
   getEventsThisWeek
 } from "./services/calendarService.js";
 
+import { loadLanguage } from "./services/translation.js";
+import { initializeColorTheme } from "./services/colorTheme.js";
+
+
 async function initGoogleCalendar() {
-
   await initCalendar();
-
   await initGoogleIdentity();
-
   console.log("Google Calendar ready");
-
 }
-//APP CONTROLLER//
 
-//EVENT HANDLERS//
+function startApp() {
+  loadLanguage("eus");
+  initializeColorTheme();
+  initGoogleCalendar();
+}
 
-//START APP//
-startApp();
+document.addEventListener("DOMContentLoaded", startApp);

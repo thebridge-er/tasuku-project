@@ -10,3 +10,7 @@ display:flex;
 align-items:center;
 gap:10px;
 }
+
+.header-right i {
+  cursor: pointer;
+}
