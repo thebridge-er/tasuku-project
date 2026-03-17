@@ -41,10 +41,29 @@
         <div class="spaces-list" id="spacesContainer">
         <!-- espacios creados por JS -->
         </div>
+    </section><section id="spaceView" style="display:none;">
+
+    <button onclick="volverSpaces()">⬅ Volver</button>
+
+    <h2 id="spaceTitle"></h2>
+
+    <div>
+        <input id="taskInput" placeholder="Nueva tarea...">
+        <button onclick="crearTarea()">Añadir</button>
+    </div>
+
+    <div id="tasksContainer"></div>
+
     </section>
+    <!-- MODAL CREATE SPACE -->
+    
+    <!-- MODAL -->
+<div id="createModal"></div>
+
+<script src="places.js"></script>
 
 
-    <script src="places.js"></script>
+    <script src="../../../services/app.js"></script>
 
 </body>
 </html>

@@ -176,3 +176,12 @@
 .logro{
     width:100%;
 }
+
+.clickable{
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.clickable:hover{
+    transform:scale(1.1);
+}

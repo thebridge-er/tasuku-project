@@ -10,9 +10,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const mainBtn = document.getElementById("mainBtn")
     const switchText = document.getElementById("switchText")
+    const registerLink = document.getElementById("registerLink")
+    if(registerLink){
+    registerLink.addEventListener("click", mostrarRegistro)
+}
 
     let modoRegistro = localStorage.getItem("modoRegistro")
-
     if (modoRegistro === "registro") {
         mostrarRegistro()
         localStorage.removeItem("modoRegistro")
@@ -41,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             localStorage.setItem("usuarioActual", JSON.stringify(user))
 
-            window.location.href = "../dashboard/dashboard.html"
+            window.location.href = "../places/places.html"
 
         } else {
 
@@ -54,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem(email, JSON.stringify(user))
             localStorage.setItem("usuarioActual", JSON.stringify(user))
 
-            window.location.href = "../dashboard/dashboard.html"
+            window.location.href = "../profile/HOME/onboarding.html"
 
         }
 
