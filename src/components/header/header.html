@@ -1,18 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<header class="header">
-    <div class="logo">
-        <a href="../../index1.html">
-            <div class="logo-icon">🏠</div>
-        </a>
-        <h1>TASUKU</h1>
-    </div>
+    <title><Header></Header>Cabecera</title>
 
-    <div class="header-right">
-        <i class="fa-solid fa-globe"></i>
-        <i id="themeToggle" class="fa-solid fa-sun" title="Cambiar tema"></i>
+    <!-- GLOBAL -->
+    <link rel="stylesheet" href="../../styles/global.css">
 
-        <button class="login-btn" onclick="irLogin()">
-            Iniciar Sesión
-        </button>
-    </div>
-</header>
+    <!-- HEADER CSS -->
+    <link rel="stylesheet" href="./header.css">
+
+
+    <!-- BUTTONS CSS-->
+    <link rel="stylesheet" href="../buttons/buttons.css">
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="../../index1.html">
+                    <div class="logo-icon">
+                        <img src="/src/assets/images/icono-casa.svg" alt="Icono Tasuku">
+                        <h1>TASUKU</h1>
+                    </div>
+                </a>
+            </div>
+            
+
+            <div class="header-right">
+                <!--
+                <i class="fa-solid fa-globe"></i>
+                <i id="themeToggle" class="fa-solid fa-sun" title="Cambiar tema"></i>
+                <button class="login-btn" onclick="irLogin()">
+                    Iniciar Sesión
+                </button>-->
+                <!-- AQUÍ DEBERÍA IR EL BTN DE DARK/LIGHT MODE-->
+                <ui-button id="style-mode" circle="" dark-mode="" icon=""></ui-button>
+            </div>
+        </div>
+    </header>
+
+    <!-- JS -->
+    <script type="module" src="./buttons.js"></script>
+    <!-- Meter script type=""-->
+    <script type="module" src="../src/app.js"></script>
+</body>

@@ -70,9 +70,15 @@ ui-button[icon]::before {
   display: inline-block;
   width: 1.2rem;
   height: 1.2rem;
-  mask: url(attr(icon)) no-repeat center / contain;
-  -webkit-mask: url(attr(icon)) no-repeat center / contain;
   background-color: currentColor;
+  -webkit-mask-image: var(--icon-url);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  mask-image: var(--icon-url);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
 }
 
 ui-button[icon-left]::before {
@@ -90,8 +96,6 @@ ui-button[icon-right]::after {
   display: inline-block;
   width: 1.2rem;
   height: 1.2rem;
-  mask: url(attr(icon-right)) no-repeat center / contain;
-  -webkit-mask: url(attr(icon-right)) no-repeat center / contain;
   background-color: currentColor;
 }
 
