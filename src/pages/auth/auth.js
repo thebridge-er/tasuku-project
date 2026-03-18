@@ -1,11 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     let modo = "login"
-    let modo = "login"
 
-    const emailInput = document.getElementById("email")
-    const passwordInput = document.getElementById("password")
-    const nameField = document.getElementById("nameField")
     const emailInput = document.getElementById("email")
     const passwordInput = document.getElementById("password")
     const nameField = document.getElementById("nameField")

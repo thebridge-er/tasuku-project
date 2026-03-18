@@ -1,8 +1,44 @@
 {
   "branch": "pruebas",
   "created_at": "2026-03-18T10:24:47+01:00",
-  "last_updated": "2026-03-18T10:51:39+01:00",
+  "last_updated": "2026-03-18T11:53:16+01:00",
   "commits": [
+    {
+      "hash": "57c558c",
+      "hash_full": "57c558c387ce1f8915c700666dcedfde4a309fa2",
+      "message": "Registro y login funcionando otra vez",
+      "type": "other",
+      "scope": "",
+      "subject": "Registro y login funcionando otra vez",
+      "description": "Ya funciona el login y el registro otra vez.",
+      "notes": "Ya funciona el login y el registro otra vez.",
+      "author": {
+        "name": "Txe",
+        "email": "labiennacida@gmail.com"
+      },
+      "branch": "pruebas",
+      "date": "2026-03-18T11:53:16+01:00",
+      "timestamp": 1773831196,
+      "stats": {
+        "files_changed": 3,
+        "lines_added": 0,
+        "lines_deleted": 74
+      },
+      "files": [
+        {
+          "file": "src/pages/auth/auth.html",
+          "status": "modified"
+        },
+        {
+          "file": "src/pages/auth/auth.js",
+          "status": "modified"
+        },
+        {
+          "file": "src/services/app.js",
+          "status": "modified"
+        }
+      ]
+    },
     {
       "hash": "09e5adf",
       "hash_full": "09e5adf970d867b72910c32fa2e25dfc7a450444",
