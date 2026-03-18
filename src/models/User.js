@@ -1,13 +1,13 @@
-export default class User{
-    constructor(id, name, email, points = 0,role,createdAt){
+export default class User {
+  constructor(id, name, email, spaces = [], points = 0, role, createDate = new Date()) {
     this.id = id;
     this.name = name;
     this.email = email;
     this.spaces = spaces;
     this.points = points;
     this.role = role;
-    this.createDate=createDate;
-    }
+    this.createDate = createDate;
+  }
 
 /*FUNCIONES*/
 joinSpace(spaceId){
