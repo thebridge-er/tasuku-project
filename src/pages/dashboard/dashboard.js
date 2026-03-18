@@ -8,9 +8,7 @@ function init() {
 }
 
 
-/* =========================
-   PERFIL
-========================= */
+/* PERFIL */
 
 function cargarPerfil() {
 
@@ -27,9 +25,7 @@ function cargarPerfil() {
 }
 
 
-/* =========================
-   ESPACIO
-========================= */
+/* ESPACIO  */
 
 function cargarEspacio() {
 
@@ -52,9 +48,7 @@ function cargarEspacio() {
 }
 
 
-/* =========================
-   CAMBIO DE VISTA
-========================= */
+/* CAMBIO DE VISTA */
 
 function irDashboard() {
 
@@ -62,4 +56,4 @@ function irDashboard() {
 
     document.getElementById("espacio").style.display = "block"
 
-} */
+}
