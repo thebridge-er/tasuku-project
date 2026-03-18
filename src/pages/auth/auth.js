@@ -83,5 +83,79 @@ document.addEventListener("DOMContentLoaded", () => {
             .addEventListener("click", mostrarRegistro)
     }
 
-    document.getElementById("registerLink")?.addEventListener("click", mostrarRegistro)
+    document
+        .getElementById("registerLink")
+        ?.addEventListener("click", mostrarRegistro)
 })
+
+function getDB() {
+    const raw = localStorage.getItem("tasukuDB")
+    if (!raw) return { users: [], spaces: [], tasks: [] }
+    return JSON.parse(raw)
+}
+
+function saveDB(db) {
+    localStorage.setItem("tasukuDB", JSON.stringify(db))
+}
+
+// ======================
+// LOGIN
+// ======================
+window.loginUser = function (email, password) {
+
+    if (!email || !password) {
+        return { ok: false, message: "Rellena todos los campos" }
+    }
+
+    const db = getDB()
+    const user = db.users.find(u => u.email === email)
+
+    if (!user) {
+        return { ok: false, message: "Usuario no encontrado" }
+    }
+
+    if (user.password !== password) {
+        return { ok: false, message: "Contraseña incorrecta" }
+    }
+
+    db.users = db.users.map(u => ({ ...u, session: u.id === user.id }))
+    saveDB(db)
+
+    return { ok: true }
+}
+
+// ======================
+// REGISTRO
+// ======================
+window.registerUser = function (name, email, password) {
+
+    if (!name || !email || !password) {
+        return { ok: false, message: "Rellena todos los campos" }
+    }
+
+    const db = getDB()
+    const existe = db.users.find(u => u.email === email)
+
+    if (existe) {
+        return { ok: false, message: "El usuario ya existe" }
+    }
+
+    const newUser = {
+        id: db.users.length ? Math.max(...db.users.map(u => u.id)) + 1 : 1,
+        name,
+        email,
+        role: "member",
+        password,
+        session: true,
+        createdAt: new Date().toISOString()
+    }
+
+    // Cerrar sesiones anteriores y añadir el nuevo usuario
+    db.users = db.users.map(u => ({ ...u, session: false }))
+    db.users.push(newUser)
+    saveDB(db)
+
+    return { ok: true }
+}
+
+
