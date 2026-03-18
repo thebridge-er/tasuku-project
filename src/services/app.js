@@ -97,9 +97,7 @@ function generarCodigo(){
     return "TASUKU-" + Math.floor(1000 + Math.random()*9000)
 }
 
-/* =========================
-   CREAR ESPACIO
-========================= */
+/* CREAR ESPACIO */
 
 function crearEspacio(){
 
@@ -129,14 +127,12 @@ function crearEspacio(){
 
     closeModal("createModal")
 
-    /* 🔥 CAMBIO IMPORTANTE */
+    /* CAMBIO IMPORTANTE */
     localStorage.setItem("espacioActual", JSON.stringify(espacio))
     window.location.href = "../../places/places.html"
 }
 
-/* =========================
-    UNIRSE A ESPACIO
-========================= */
+    /* UNIRSE A ESPACIO */
 
 
 function unirseEspacio(){
@@ -164,16 +160,13 @@ function unirseEspacio(){
     }
 
     alert("Te has unido al espacio: " + espacio.nombre)
-
     closeModal("joinModal")
 
-    /* 🔥 CAMBIO IMPORTANTE */
+    /* CAMBIO IMPORTANTE */
     localStorage.setItem("espacioActual", JSON.stringify(espacio))
     window.location.href = "../../places/places.html"
 }
-/* =========================
-    ENTRAR ESPACIO (LOCAL)
-========================= */
+    /*  ENTRAR ESPACIO (LOCAL)  */
 
 function entrarEspacio(espacio){
 

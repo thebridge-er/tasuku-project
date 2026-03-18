@@ -32,16 +32,11 @@ if(espacioGuardado){
 
     localStorage.setItem("tasukuDB", JSON.stringify(db))
 }
-/* =========================
-   CARGAR MODAL
-========================= */
+/* CARGAR MODAL */
 
 async function loadModal(){
-
     const res = await fetch("../../components/modals/create-space.html")
-
     const html = await res.text()
-
     document.getElementById("createModal").innerHTML = html
 
 }
@@ -49,9 +44,7 @@ async function loadModal(){
 loadModal()
 
 
-/* =========================
-   BOTÓN CREAR ESPACIO
-========================= */
+/* BOTÓN CREAR ESPACIO  */
 
 document.getElementById("createSpaceBtn").onclick = () => {
 
@@ -64,16 +57,12 @@ document.getElementById("createSpaceBtn").onclick = () => {
 }
 
 
-/* =========================
-   CREAR ESPACIO
-========================= */
+/*  CREAR ESPACIO  */
 
 function crearEspacio(){
 
     const input = document.getElementById("spaceNameInput")
-
     const name = input.value.trim()
-
     if(!name){
         alert("Escribe un nombre")
         return
@@ -84,31 +73,22 @@ function crearEspacio(){
         codigo: "TASUKU-" + Math.floor(1000 + Math.random()*9000),
         miembros: [usuario]
     }
-
     db.spaces.push(nuevoEspacio)
-
     localStorage.setItem("tasukuDB", JSON.stringify(db))
-
     input.value = ""
-
     closeModal("createModal")
-
     renderSpaces()
 }
 
 
-/* =========================
-   CERRAR MODAL
-========================= */
+/* CERRAR MODAL */
 
 function closeModal(id){
     document.querySelector(".modal").style.display = "none"
 }
 
 
-/* =========================
-   OBTENER ESPACIOS
-========================= */
+/*  OBTENER ESPACIOS */
 
 function getUserSpaces(){
     return db.spaces.filter(space =>
@@ -117,14 +97,11 @@ function getUserSpaces(){
 }
 
 
-/* =========================
-    RENDER ESPACIOS
-========================= */
+/* RENDER ESPACIOS  */
 
 function renderSpaces(){
 
     const freshDB = JSON.parse(localStorage.getItem("tasukuDB")) || { spaces: [] }
-
     const spaces = freshDB.spaces.filter(space =>
     space.miembros.some(m => m.email === usuario.email)
     )
@@ -162,21 +139,14 @@ function renderSpaces(){
 }
 
 
-/* =========================
-    ENTRAR A ESPACIO
-========================= */
+/*  ENTRAR A ESPACIO  */
 
 function enterSpace(space){
-
     localStorage.setItem("espacioActual", JSON.stringify(space))
-
     window.location.href = "../dashboard/dashboard.html"
-
 }
 
 
-/* =========================
-   INIT
-========================= */
+/* INIT  */
 
 renderSpaces()

@@ -5,9 +5,7 @@ export default class StorageManager {
   static load(){
 
     const data = localStorage.getItem(this.KEY);
-
     if(!data){
-
       const initialData = {
         users: [],
         spaces: [],
@@ -16,21 +14,15 @@ export default class StorageManager {
       };
 
       localStorage.setItem(this.KEY, JSON.stringify(initialData));
-
       return initialData;
-
     }
 
     return JSON.parse(data);
-
   }
 
   static save(data){
-
     localStorage.setItem(this.KEY, JSON.stringify(data));
-
   }
-
 }
 
 /*
