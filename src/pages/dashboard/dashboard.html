@@ -1,108 +1,124 @@
-<!doctype html>
-<html lang="en" data-theme="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="../../styles/global.css" />
-    <link rel="stylesheet" href="./dashboard.css" />
-  </head>
+<!DOCTYPE html>
+<html lang="en">
 
-  <body>
-    <header class="landing-header">
-      <div class="logo">
-        <a href="index.html">
-          <div class="logo-icon">🏠</div>
-        </a>
-        <h1 data-translation="app_name">TASUKU</h1>
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../../styles/main.css" />
+  <link rel="stylesheet" href="../../styles/global.css" />
+  <link rel="stylesheet" href="./dashboard.css">
+</head>
 
-      <div class="header-right">
-        <button id="style-mode">
-          <div id="icon-moon" class="theme-icon">🌙</div>
-          <div id="icon-sun" class="theme-icon">☀️</div>
-        </button>
+<body>
 
-        <button
-          class="login-btn"
-          onclick="irLogin()"
-          data-translation="login"
-        ></button>
-      </div>
-    </header>
-    <section id="espacio">
-      <div class="user-card">
-        <img
-          id="spaceAvatar"
-          src="https://api.dicebear.com/7.x/adventurer/svg?seed=user"
-        />
+  <section id="perfil">
+    <div class="perfil-card">
+      <img id="perfilAvatar" src="https://api.dicebear.com/7.x/adventurer/svg?seed=user">
+      <h2 id="perfilNombre">Usuario</h2>
+      <p id="perfilCorreo">correo@email.com</p>
+
+      <button class="main-btn" onclick="irDashboard()"> Entrar al espacio </button>
+    </div>
+  </section>
+
+  <!-- DASHBOARD / ESPACIO -->
+
+  <section id="espacio" style="display:none">
+
+    <div class="space-header">
+      <div class="space-info">
+        <div class="space-icon">🏠</div>
         <div>
-          <h3 id="spaceUserName">JEFFERS</h3>
-          <p>🏆 <span id="userPoints">0</span> puntos</p>
+          <h2 id="spaceName">PEDRO</h2>
+          <p id="spaceMembers">1 miembros</p>
         </div>
-        <div class="logros">
-          <p>Logros</p>
-          <strong>0/7</strong>
-        </div>
-      </div>
-
-      <!-- RANKING -->
-
-      <div class="ranking-card">
-        <h3>🏆 Ranking</h3>
-        <div class="ranking-user">
-          <span>1</span>
-          <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=user" />
-          <p>JEFFERS</p>
-          <span>0 puntos</span>
+        <div class="header-right">
+          <button id="style-mode">
+            <div id="icon-moon" class="theme-icon">🌙</div>
+            <div id="icon-sun" class="theme-icon">☀️</div>
+          </button>
+          <button id="lang-btn" class="style-mode">🌐</button>
         </div>
       </div>
+    </div>
 
-      <!-- TAREAS -->
 
-      <div class="tasks-card">
-        <h3>✔ Tareas</h3>
-        <p>Sin tareas todavía</p>
-        <button class="main-btn">Añadir tareas de ejemplo</button>
+    <div class="user-card">
+      <img id="spaceAvatar" src="https://api.dicebear.com/7.x/adventurer/svg?seed=user">
+      <div>
+        <h3 id="spaceUserName">JEFFERS</h3>
+        <p>🏆 <span id="userPoints">0</span> puntos</p>
       </div>
+      <div class="logros">
+        <p>Logros</p>
+        <strong>0/7</strong>
+      </div>
+    </div>
 
-      <!-- LOGROS -->
 
-      <div class="logros-card">
-        <h3>✨ Logros</h3>
-        <div class="logros-grid">
-          <div class="logro">
-            <span>🌱</span>
-            <span>Primeros pasos</span>
-          </div>
-          <div class="logro">
-            <span>⭐</span>
-            <span>Aprendiz</span>
-          </div>
-          <div class="logro">
-            <span>🏆</span>
-            <span>Maestro</span>
-          </div>
-          <div class="logro">
-            <span>💯</span>
-            <span>Club 100</span>
-          </div>
-          <div class="logro">
-            <span>💎</span>
-            <span>Coleccionista</span>
-          </div>
-          <div class="logro">
-            <span>💪</span>
-            <span>Desafío</span>
-          </div>
-          <div class="logro">
-            <span>🔥</span>
-            <span>Racha</span>
-          </div>
+    <!-- RANKING -->
+
+    <div class="ranking-card">
+      <h3>🏆 Ranking</h3>
+      <div class="ranking-user">
+        <span>1</span>
+        <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=user" />
+        <p>JEFFERS</p>
+        <span>0 puntos</span>
+      </div>
+    </div>
+
+    <!-- TAREAS -->
+
+    <div class="tasks-card">
+      <h3>✔ Tareas</h3>
+      <p>Sin tareas todavía</p>
+      <button class="main-btn">Añadir tareas de ejemplo</button>
+    </div>
+
+    <!-- LOGROS -->
+
+    <div class="logros-card">
+      <h3>✨ Logros</h3>
+      <div class="logros-grid">
+        <div class="logro">
+          <span>🌱</span>
+          <span>Primeros pasos</span>
+        </div>
+        <div class="logro">
+          <span>⭐</span>
+          <span>Aprendiz</span>
+        </div>
+        <div class="logro">
+          <span>🏆</span>
+          <span>Maestro</span>
+        </div>
+        <div class="logro">
+          <span>💯</span>
+          <span>Club 100</span>
+        </div>
+        <div class="logro">
+          <span>💎</span>
+          <span>Coleccionista</span>
+        </div>
+        <div class="logro">
+          <span>💪</span>
+          <span>Desafío</span>
+        </div>
+        <div class="logro">
+          <span>🔥</span>
+          <span>Racha</span>
         </div>
       </div>
-    </section>
-  </body>
-<script type="module" src="../../app.js"></script>
-<!-- <script type="module"src="./dashboard.js"></script>
- --></html>
+    </div>
+  </section>
+
+  <script src="../../services/app.js"></script>
+  <script src="../../pages/auth/auth.js"></script>
+  <script src="../../app.js"></script>
+  <script src="./dashboard.js"></script>
+
+</body>
+
+</html>
