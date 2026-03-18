@@ -1,8 +1,31 @@
 {
   "branch": "pruebas",
   "created_at": "2026-03-18T10:24:47+01:00",
-  "last_updated": "2026-03-18T10:47:50+01:00",
+  "last_updated": "2026-03-18T10:51:39+01:00",
   "commits": [
+    {
+      "hash": "09e5adf",
+      "hash_full": "09e5adf970d867b72910c32fa2e25dfc7a450444",
+      "message": "Fusión de todas las ramas",
+      "type": "other",
+      "scope": "",
+      "subject": "Fusión de todas las ramas",
+      "description": "Hemos juntado todas las ramas",
+      "notes": "Hemos juntado todas las ramas",
+      "author": {
+        "name": "Txe",
+        "email": "labiennacida@gmail.com"
+      },
+      "branch": "pruebas",
+      "date": "2026-03-18T10:51:39+01:00",
+      "timestamp": 1773827499,
+      "stats": {
+        "files_changed": 0,
+        "lines_added": 0,
+        "lines_deleted": 0
+      },
+      "files": []
+    },
     {
       "hash": "9f47320",
       "hash_full": "9f47320bd7dab02863edf5e44e0efff5079761b7",
