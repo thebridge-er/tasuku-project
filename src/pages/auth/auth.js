@@ -1,75 +1,89 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-console.log("auth.js cargado")
+    let modo = "login"
 
-let modo = "login"
+    const emailInput = document.getElementById("email")
+    const passwordInput = document.getElementById("password")
+    const nameField = document.getElementById("nameField")
 
-const emailInput = document.getElementById("email")
-const passwordInput = document.getElementById("password")
-const nameField = document.getElementById("nameField")
+    const mainBtn = document.getElementById("mainBtn")
+    const switchText = document.getElementById("switchText")
+    const formTitle = document.getElementById("formTitle")
 
-const mainBtn = document.getElementById("mainBtn")
-const registerLink = document.getElementById("registerLink")
 
-mainBtn.addEventListener("click", login)
-registerLink.addEventListener("click", mostrarRegistro)
+    const errorMsg = document.getElementById("errorMsg")
 
-function login(){
+    mainBtn.addEventListener("click", handleAuth)
 
-let email = emailInput.value
-let password = passwordInput.value
+    function mostrarError(mensaje) {
+        errorMsg.innerText = mensaje
+        errorMsg.classList.add("show")
+    }
 
-if(modo === "login"){
+    function limpiarError() {
+        errorMsg.innerText = ""
+        errorMsg.classList.remove("show")
+    }
 
-let user = JSON.parse(localStorage.getItem(email))
+    function handleAuth() {
 
-if(!user){
-alert("Usuario no encontrado")
-return
-}
+        limpiarError()
 
-if(user.password !== password){
-alert("Contraseña incorrecta")
-return
-}
+        let email = emailInput.value.trim().toLowerCase()
+        let password = passwordInput.value.trim()
+        let name = nameField.value.trim()
 
-/* guardamos usuario actual */
-localStorage.setItem("usuarioActual", JSON.stringify(user))
+        let result
 
-/* redirigir al dashboard */
-window.location.href = "../dashboard/dashboard.html"
+        if (modo === "login") {
+            result = window.loginUser(email, password)
+        } else {
+            result = window.registerUser(name, email, password)
+        }
 
-}else{
+        if (!result.ok) {
+            mostrarError(result.message) // 🆕 antes era alert
+            return
+        }
 
-let user = {
-name: nameField.value,
-email: email,
-password: password
-}
+        window.location.href = "../dashboard/dashboard.html"
+    }
 
-/* guardar usuario */
-localStorage.setItem(email, JSON.stringify(user))
+    function mostrarRegistro() {
+        modo = "registro"
 
-/* guardar usuario actual */
-localStorage.setItem("usuarioActual", JSON.stringify(user))
+        formTitle.innerText = "Registrarse"
+        nameField.style.display = "block"
+        mainBtn.innerText = "Registrarse"
 
-/* redirigir al dashboard */
-window.location.href = "../dashboard/dashboard.html"
+        switchText.innerHTML = `
+        ¿Ya tienes cuenta?
+        <span id="loginLink">Iniciar sesión</span>
+        `
 
-}
+        document
+            .getElementById("loginLink")
+            .addEventListener("click", mostrarLogin)
+    }
 
-}
+    function mostrarLogin() {
+        modo = "login"
 
-function mostrarRegistro(){
+        formTitle.innerText = "Iniciar Sesión"
+        nameField.style.display = "none"
+        mainBtn.innerText = "Iniciar Sesión"
 
-modo = "registro"
+        switchText.innerHTML = `
+        ¿No tienes cuenta?
+        <span id="registerLink">Registrarse</span>
+        `
 
-document.getElementById("formTitle").innerText = "Registrarse"
+        document
+            .getElementById("registerLink")
+            .addEventListener("click", mostrarRegistro)
+    }
 
-nameField.style.display = "block"
-
-mainBtn.innerText = "Registrarse"
-
-}
-
+    document
+        .getElementById("registerLink")
+        ?.addEventListener("click", mostrarRegistro)
 })

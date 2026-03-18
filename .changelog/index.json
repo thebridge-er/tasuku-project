@@ -6,17 +6,17 @@
     "changelog_version": "1.0.0"
   },
   "stats": {
-    "total_commits": 16,
-    "total_branches": 3,
-    "last_updated": "2026-03-16T15:42:13+01:00"
+    "total_commits": 22,
+    "total_branches": 5,
+    "last_updated": "2026-03-18T10:24:47+01:00"
   },
   "branches": [
     {
       "name": "dev",
       "file": "dev.json",
-      "commit_count": 9,
-      "last_commit_hash": "8e6a38d",
-      "last_commit_date": "2026-03-12T16:10:54+01:00",
+      "commit_count": 10,
+      "last_commit_hash": "708637f",
+      "last_commit_date": "2026-03-13T13:16:08+01:00",
       "last_author": "Txe"
     },
     {
@@ -34,6 +34,22 @@
       "last_commit_hash": "d0d6b02",
       "last_commit_date": "2026-03-16T15:42:13+01:00",
       "last_author": "agonzalezbridge"
+    },
+    {
+      "name": "feature-login",
+      "file": "feature-login.json",
+      "commit_count": 4,
+      "last_commit_hash": "306ed78",
+      "last_commit_date": "2026-03-16T16:07:27+01:00",
+      "last_author": "Txe"
+    },
+    {
+      "name": "pruebas",
+      "file": "pruebas.json",
+      "commit_count": 1,
+      "last_commit_hash": "3c84ae5",
+      "last_commit_date": "2026-03-18T10:24:47+01:00",
+      "last_author": "Txe"
     }
   ]
 }
