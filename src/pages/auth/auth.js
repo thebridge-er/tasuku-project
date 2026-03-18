@@ -83,7 +83,5 @@ document.addEventListener("DOMContentLoaded", () => {
             .addEventListener("click", mostrarRegistro)
     }
 
-    document
-        .getElementById("registerLink")
-        ?.addEventListener("click", mostrarRegistro)
+    document.getElementById("registerLink")?.addEventListener("click", mostrarRegistro)
 })

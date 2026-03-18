@@ -21,47 +21,10 @@ async function initGoogleCalendar() {
 }
 
 function startApp() {
-  function initLanguageSwitcher(){
-  const langBtn = document.getElementById("lang-btn")
-  if(!langBtn) return
-  const langs = ["es", "eus", "en"]
-  let current = 0
-  langBtn.addEventListener("click", () => {
-    current = (current + 1) % langs.length
-    const lang = langs[current]
-    localStorage.setItem("lang", lang)
-    loadLanguage(lang)
-  })
-
-}
-  const savedLang = localStorage.getItem("lang") || "eus"
-  loadLanguage(savedLang)
-  initLanguageSwitcher()
+  loadLanguage("eus")
   initializeColorTheme();
-  initGoogleCalendar();
-  initStartButton();
+  /* initGoogleCalendar(); */
 }
 
 
 document.addEventListener("DOMContentLoaded", startApp);
-
-function initStartButton(){
-
-  const startBtn = document.querySelector("[data-translation='start']")
-
-  if(!startBtn) return
-
-  startBtn.addEventListener("click", () => {
-
-    // 🔥 activar modo registro
-    localStorage.setItem("modoRegistro", "registro")
-
-    // 🔥 ir a auth
-    window.location.href = "./pages/auth/auth.html"
-
-  })
-
-}
-window.irLogin = function(){
-  window.location.href = "./pages/auth/auth.html"
-}
