@@ -20,8 +20,16 @@ async function initGoogleCalendar() {
   console.log("Google Calendar ready");
 }
 
+/*
+Dependiendo de lo seleccionado en el select 
+que llame a la funcion 
+
+loadLanguage(valor del option)
+*/
+
+
 function startApp() {
-  loadLanguage("eus")
+  loadLanguage("es");
   initializeColorTheme();
   /* initGoogleCalendar(); */
 }
