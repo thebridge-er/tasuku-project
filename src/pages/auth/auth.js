@@ -88,6 +88,16 @@ document.addEventListener("DOMContentLoaded", () => {
         ?.addEventListener("click", mostrarRegistro)
 })
 
+function getDB() {
+    const raw = localStorage.getItem("tasukuDB")
+    if (!raw) return { users: [], spaces: [], tasks: [] }
+    return JSON.parse(raw)
+}
+
+function saveDB(db) {
+    localStorage.setItem("tasukuDB", JSON.stringify(db))
+}
+
 // ======================
 // LOGIN
 // ======================
@@ -97,7 +107,8 @@ window.loginUser = function (email, password) {
         return { ok: false, message: "Rellena todos los campos" }
     }
 
-    let user = JSON.parse(localStorage.getItem(email))
+    const db = getDB()
+    const user = db.users.find(u => u.email === email)
 
     if (!user) {
         return { ok: false, message: "Usuario no encontrado" }
@@ -107,7 +118,8 @@ window.loginUser = function (email, password) {
         return { ok: false, message: "Contraseña incorrecta" }
     }
 
-    localStorage.setItem("usuarioActual", JSON.stringify(user))
+    db.users = db.users.map(u => ({ ...u, session: u.id === user.id }))
+    saveDB(db)
 
     return { ok: true }
 }
@@ -121,20 +133,27 @@ window.registerUser = function (name, email, password) {
         return { ok: false, message: "Rellena todos los campos" }
     }
 
-    let existe = localStorage.getItem(email)
+    const db = getDB()
+    const existe = db.users.find(u => u.email === email)
 
     if (existe) {
         return { ok: false, message: "El usuario ya existe" }
     }
 
-    let user = {
+    const newUser = {
+        id: db.users.length ? Math.max(...db.users.map(u => u.id)) + 1 : 1,
         name,
         email,
-        password
+        role: "member",
+        password,
+        session: true,
+        createdAt: new Date().toISOString()
     }
 
-    localStorage.setItem(email, JSON.stringify(user))
-    localStorage.setItem("usuarioActual", JSON.stringify(user))
+    // Cerrar sesiones anteriores y añadir el nuevo usuario
+    db.users = db.users.map(u => ({ ...u, session: false }))
+    db.users.push(newUser)
+    saveDB(db)
 
     return { ok: true }
 }

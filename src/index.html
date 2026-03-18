@@ -23,8 +23,16 @@
         <div id="icon-moon" class="theme-icon">🌙</div>
         <div id="icon-sun" class="theme-icon">☀️</div>
       </button>
-      <button id="lang-btn" class="style-mode">🌐</button>
-      <button class="login-btn" onclick="irLogin()" data-translation="login">Login</button>
+      <!-- <button id="lang-btn" class="style-mode">🌐</button> -->
+      <select id="lang">
+        <option value="eus" data-translation="baske"></option>
+        <option value="en" data-translation="english"></option>
+        <option value="es" data-translation="spanish"></option>
+      </select>
+
+      <button data-custom="sdfsf"></button>
+
+      <button class="login-btn" onclick="window.location = './pages/auth/auth.html'" data-translation="login"></button>
     </div>
   </header>
 
@@ -45,11 +53,10 @@
       juntos!
     </p>
 
-    <button class="start-btn" onclick="irRegistro()" data-translation="start">Empezar</button>
+    <button class="start-btn" onclick="window.location = './pages/auth/auth.html'" data-translation="start"></button>
   </section>
 
   <section class="features">
-
     <div class="card">
       <div class="icon"><span class="famicons--home-outline"></span></div>
       <h3 data-translation="feature_spaces_title">Espacios Compartidos</h3>
@@ -81,13 +88,11 @@
         Trabaja en equipo para mantener tu espacio limpio
       </p>
     </div>
-
   </section>
 
   <section class="points">
     <div class="points-container">
       <div class="points-left">
-
         <h2 data-translation="points_system">Sistema de Puntos</h2>
 
         <div class="point-card easy">
@@ -113,10 +118,9 @@
             <p data-translation="hard_points">20 puntos</p>
           </div>
         </div>
-
       </div>
       <div class="points-right">
-        <img src="../src/assets/images/generic-img-cleaner.png" alt="">
+        <img src="../src/assets/images/generic-img-cleaner.png" alt="" />
       </div>
     </div>
   </section>

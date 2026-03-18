@@ -29,6 +29,8 @@ export default class StorageManager {
         name: "Iker",
         email: "iker@example.com",
         role: "admin",
+        password:"123456",
+        session: false,
         createdAt: now
       },
       {
@@ -36,6 +38,8 @@ export default class StorageManager {
         name: "Asier",
         email: "asier@example.com",
         role: "member",
+        password:"123456",
+        session: false,
         createdAt: now
       }
     ];
@@ -184,8 +188,7 @@ export default class StorageManager {
     return {
       users,
       spaces,
-      tasks,
-      session: null
+      tasks
     };
   }
 }
