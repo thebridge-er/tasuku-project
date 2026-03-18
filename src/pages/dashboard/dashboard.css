@@ -1,97 +1,187 @@
-/* CONTENEDOR PRINCIPAL */
+/* =========================
+    PERFIL
+========================= */
 
-.welcome{
-text-align:center;
-padding:40px;
+#perfil{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
 }
 
-/* AVATAR */
-
-.welcome img{
-width:90px;
-border-radius:50%;
-margin-bottom:20px;
+.perfil-card{
+    background:#1f2640;
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    width:300px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* TITULO */
-
-.welcome h2{
-font-size:32px;
-margin-bottom:10px;
+.perfil-card img{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    margin-bottom:20px;
+    border:3px solid #4a6cf7;
 }
 
-/* TEXTO */
-
-.welcome p{
-color:#94a3b8;
-margin-bottom:30px;
+.perfil-card h2{
+    margin:10px 0;
+    font-size:22px;
 }
 
-
-/* MODAL OVERLAY */
-
-.modal{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.75);
-justify-content:center;
-align-items:center;
-z-index:1000;
+.perfil-card p{
+    color:#aaa;
+    margin-bottom:20px;
 }
 
 
-/* TARJETA DEL MODAL */
+/* =========================
+    BOTÓN PRINCIPAL
+========================= */
 
-.modal-card{
-background:#1e293b;
-padding:30px;
-border-radius:20px;
-width:420px;
-max-width:90%;
-position:relative;
-box-shadow:0 10px 40px rgba(0,0,0,0.5);
+.main-btn{
+    background:#4a6cf7;
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    color:white;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.2s;
+}
+
+.main-btn:hover{
+    background:#3b58d6;
 }
 
 
-/* BOTON CERRAR */
+/* =========================
+    HEADER DEL ESPACIO
+========================= */
 
-.close{
-position:absolute;
-top:15px;
-right:20px;
-font-size:18px;
-cursor:pointer;
-opacity:0.7;
+.space-header{
+    padding:20px;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.space-info{
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+.space-icon{
+    background:#4a6cf7;
+    padding:10px;
+    border-radius:10px;
 }
 
 
-/* INPUT */
+/* =========================
+    TARJETA DE USUARIO
+========================= */
 
-.modal-card input{
-width:100%;
-padding:14px;
-border-radius:12px;
-margin-top:15px;
-background:#0f172a;
-border:1px solid #334155;
-color:white;
+.user-card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:#1f2640;
+    padding:20px;
+    margin:20px;
+    border-radius:15px;
+}
+
+.user-card img{
+    width:60px;
+    border-radius:50%;
 }
 
 
-/* BOTON */
+/* =========================
+    RANKING
+========================= */
 
-.modal-card button{
-margin-top:20px;
-width:100%;
-padding:16px;
-border-radius:30px;
-border:none;
-background:#6b8cff;
-color:white;
-font-size:16px;
-cursor:pointer;
+.ranking-card{
+    background:#1f2640;
+    padding:20px;
+    margin:20px;
+    border-radius:15px;
+}
+
+.ranking-user{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-top:10px;
+}
+
+.ranking-user img{
+    width:40px;
+    border-radius:50%;
+}
+
+
+/* =========================
+    TAREAS
+========================= */
+
+.tasks-card{
+    background:#1f2640;
+    padding:20px;
+    margin:20px;
+    border-radius:15px;
+    text-align:center;
+}
+
+
+/* =========================
+    LOGROS
+========================= */
+
+.logros-card{
+    background:#1f2640;
+    padding:20px;
+    margin:20px;
+    text-align: center;
+    border-radius:15px;
+}
+
+.logros-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0,1fr));
+    gap:10px;
+    margin-top:10px;
+}
+
+.logro{
+    background:#2a3154;
+    padding:15px;
+    border-radius:10px;
+    font-size:14px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+
+    text-align:center;
+}
+
+.icono{
+    font-size:24px;
+}
+.logro{
+    width:100%;
+}
+
+.clickable{
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.clickable:hover{
+    transform:scale(1.1);
 }
