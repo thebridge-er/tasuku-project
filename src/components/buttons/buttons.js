@@ -1,78 +1,74 @@
-const template = document.createElement("template");
-
-template.innerHTML = `
-  <link rel="stylesheet" href="components/button/button.css">
-  <button class="btn">
-    <img class="icon left">
-    <span class="text"></span>
-    <img class="icon right">
-  </button>
-`;
+// =========================
+// BUTTONS.JS
+// Custom element dinámico
+// =========================
 
 class UIButton extends HTMLElement {
+
   connectedCallback() {
-    const shadow = this.attachShadow({ mode: "open" });
-    shadow.appendChild(template.content.cloneNode(true));
 
-    const btn = shadow.querySelector(".btn");
-    const text = shadow.querySelector(".text");
-    const leftIcon = shadow.querySelector(".left");
-    const rightIcon = shadow.querySelector(".right");
+    const text = this.getAttribute("text") || "";
 
-    // ===== TEXT =====
-    const label = this.getAttribute("text");
-    if (label) {
-      text.textContent = label;
-    } else {
-      text.remove();
-    }
-
-    // ===== VARIANT =====
-    const variant = this.getAttribute("variant");
-    if (variant) {
-      btn.classList.add(`btn-${variant}`);
-    }
-
-    // ===== ICON LEFT =====
+    const icon = this.getAttribute("icon");
     const iconLeft = this.getAttribute("icon-left");
-    if (iconLeft) {
-      leftIcon.src = iconLeft;
-      btn.classList.add("btn-icon-left");
-    } else {
-      leftIcon.remove();
-    }
-
-    // ===== ICON RIGHT =====
     const iconRight = this.getAttribute("icon-right");
-    if (iconRight) {
-      rightIcon.src = iconRight;
-      btn.classList.add("btn-icon-right");
-    } else {
-      rightIcon.remove();
-    }
+
+    const isCircle = this.hasAttribute("circle");
+
+
+    let leftHTML = "";
+    let rightHTML = "";
+    let textHTML = text;
+
 
     // ===== ICON ONLY =====
-    const icon = this.getAttribute("icon");
+
     if (icon) {
-      leftIcon.src = icon;
-      rightIcon.remove();
-      text.remove();
-      btn.classList.add("btn-icon");
+
+      leftHTML = `<img src="${icon}" alt="">`;
+      textHTML = "";
+      rightHTML = "";
+
     }
 
-    // ===== CIRCLE =====
-    if (this.hasAttribute("circle")) {
-      btn.classList.add("btn-circle");
+
+    // ===== ICON LEFT =====
+
+    if (iconLeft) {
+
+      leftHTML = `<img src="${iconLeft}" alt="">`;
+
     }
 
-    // ===== DARK / LIGHT MODE =====
-    if (this.hasAttribute("dark-mode")) {
-      btn.classList.add("btn-dark-mode");
+
+    // ===== ICON RIGHT =====
+
+    if (iconRight) {
+
+      rightHTML = `<img src="${iconRight}" alt="">`;
+
     }
-    if (this.hasAttribute("light-mode")) {
-      btn.classList.add("btn-light-mode");
+
+
+    // ===== CIRCLE BUTTON =====
+
+    if (isCircle) {
+
+      textHTML = "";
+
     }
+
+
+    // ===== RENDER =====
+
+    this.innerHTML = `
+      ${leftHTML}
+      ${textHTML}
+      ${rightHTML}
+    `;
+
   }
+
 }
 
 customElements.define("ui-button", UIButton);

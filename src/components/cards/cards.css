@@ -1,164 +1,199 @@
-/* Variables específicas de cards (se pueden sobrescribir según el theme) */
+/* =========================
+   VARIABLES
+========================= */
+
 :root {
   --card-bg: var(--color-surface-2);
   --card-bg-alt: var(--color-surface);
   --card-text-primary: var(--color-text);
   --card-text-secondary: var(--color-muted);
   --card-border-radius: var(--radius);
-  --card-score-bg: rgba(255, 255, 255, 0.12); /* un color neutro para dark mode */
+  --card-score-bg: rgba(255, 255, 255, 0.12);
   --ranking-top-bg: #6b5d4b;
-  --ranking-top-text: #000000;
 }
 
 [data-theme="light"] {
-  --card-bg: var(--color-surface-2);
-  --card-bg-alt: var(--color-surface);
-  --card-text-primary: var(--color-text);
-  --card-text-secondary: var(--color-muted);
-  --card-border-radius: var(--radius);
-  --card-score-bg: rgba(0, 0, 0, 0.08); /* contraste para light mode */
+  --card-score-bg: rgba(0, 0, 0, 0.08);
 }
 
+
+/* =========================
+   CUSTOM TAGS
+========================= */
+
+ui-card-user,
+ui-card-place,
+ui-card-ranking {
+
+  display: block;
+  width: 100%;
+  margin-bottom: 16px;
+
+}
+
+
+/* =========================
+   BASE CARD
+========================= */
+
 .card {
+
   padding: 16px;
   border-radius: var(--radius);
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow);
-  transition: background var(--transition), border var(--transition), color var(--transition);
-  margin-bottom: 16px;
+
 }
 
-/* Card Container */
-.user-card {
+
+/* =========================
+   CARD USER
+========================= */
+
+.card-user {
+
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 16px;
-  border: 1px solid var(--color-surface);
+
+  padding: 16px;
+
   border-radius: var(--card-border-radius);
   background: var(--card-bg);
-  transition: background var(--transition), color var(--transition);
+  border: 1px solid var(--color-border);
+
   width: 100%;
-  min-height: 120px;
+  min-height: 100px;
+
 }
 
-.user-card img {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    border: 3px solid var(--color-primary);
-    object-fit: contain;
-}
 
-/* Avatar */
-.avatar {
-  width: 40px;
-  height: 40px;
+.card-user-avatar {
+
+  width: 70px;
+  height: 70px;
+
   border-radius: 50%;
-  background-color: var(--card-bg-alt);
-  flex-shrink: 0;
+  border: 3px solid var(--color-primary);
+
+  object-fit: cover;
+
 }
 
-/* Info container */
-.user-card-info {
+
+.card-user-info {
+
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
+
 }
 
-/* User name */
-.user-card-name {
+
+.card-user-name {
+
   margin: 0;
   font-size: 20px;
   font-weight: 700;
   color: var(--card-text-primary);
+
 }
 
-.user-card-score {
-    display: flex;
-    align-items: center;
-    font-size: var(--font-size);
-    color: var(--color-text);
+
+.card-user-points {
+  position: relative;
+  font-size: 1rem;
+  color: var(--color-text);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
-.score-number {
-    font-weight: 700;
-    margin-right: 4px;
-}
-
-.score-label {
-  color: var(--color-muted);
-}
-
-.user-card-score::before {
+.card-user-points::before {
   content: "";
   display: inline-block;
-  width: 24px;
-  height: 24px;
-  margin-right: 4px;
+  width: 20px;
+  height: 20px;
   background-image: url("/src/assets/images/icon-trofeo.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-/* User points / secondary text */
-.user-card-points {
-  margin: 0;
-  font-size: 16px;
-  color: var(--card-text-secondary);
-}
 
-/* User score badge */
-.user-score {
-  font-weight: bold;
-  background: var(--card-score-bg);
-  border-radius: calc(var(--card-border-radius) / 1.5);
-  padding: 4px 6px;
-  color: var(--card-text-primary);
-  display: inline-block;
-}
+/* =========================
+   CARD PLACE
+========================= */
 
 .card-place {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 40px;
-    border: 1px solid var(--color-primary);
-    border-radius: var(--radius);
-    padding: 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px;
+
+  border-radius: var(--radius);
+  border: 1px solid var(--color-primary);
+
+  min-height: 60px;
+
 }
+
 
 .card-place-info {
-    display: flex;
-    align-items: center;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
 }
 
-.card-place-users img {
-    border-radius: 50%;
-    border: 3px solid var(--color-primary);
+
+.card-place-info img {
+  width: 32px;
+  height: 32px;
 }
 
-span.card-place-name {
-    margin: 0 8px;
+.card-place-name {
+  font-weight: 600;
 }
 
-/* CARD RANKING */
+.card-place-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-primary);
+  margin-left: 4px;
+}
+
+
+/* =========================
+   CARD RANKING
+========================= */
+
 .card-ranking {
   display: flex;
   flex-direction: column;
   gap: 12px;
   width: 100%;
-  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--card-bg-alt);
 }
 
 .card-ranking-header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   font-weight: 700;
   font-size: 18px;
+  padding: 12px 16px;
+  cursor: pointer;
+  user-select: none;
 }
 
 .card-ranking-title {
@@ -168,38 +203,33 @@ span.card-place-name {
 }
 
 .card-ranking-title::before {
-
   content: "";
-
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   background-image: url("/src/assets/images/icon-trofeo.svg");
   background-size: contain;
   background-repeat: no-repeat;
-  display: inline-block;
 }
 
-.card-ranking-toggle::before {
-  content: "";
-  width: 32px;
-  height: 32px;
-  background-image: url("/src/assets/images/chevron.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  display: inline-block;
-}
-
-.user-card-ranking .user-card-score::before {
-  content: none;
-}
-
-.card-ranking-list { /* Lista ranking */
+.card-ranking-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
+  padding: 0 16px 16px 16px;
 }
 
-.user-card-ranking {
+/* Toggle: cuando está cerrado */
+.card-ranking:not(.open) .card-ranking-list {
+  display: none;
+}
+
+
+
+/* =========================
+   USER RANKING
+========================= */
+
+.card-user-ranking {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -207,26 +237,63 @@ span.card-place-name {
   border-radius: var(--radius);
   background-color: var(--color-surface-2);
   border: 1px solid var(--color-border);
-  min-height: 48px;
-  width: 100%;
 }
 
-.user-card-ranking.top {
+
+.card-user-ranking.top {
   background-color: var(--ranking-top-bg);
+
 }
+
 
 .user-rank {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: 700;
   width: 24px;
   text-align: center;
+
 }
 
-/* MEDIA QUERIES */
-@media (max-width: 600px) {
-    .card-place {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-    }
+/* =========================
+   RANKING TOGGLE ICON
+========================= */
+
+.card-ranking-toggle {
+  width: 24px;
+  height: 24px;
+  background-image: url("/src/assets/images/chevron.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.6s ease;
+}
+
+/* cuando está abierto gira */
+.card-ranking.open .card-ranking-toggle {
+  transform: rotate(180deg);
+}
+
+
+/* =========================
+   MEDIA
+========================= */
+
+@media (max-width: 320px) {
+
+  .card-place {
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+
+  }
+
+  .card-user-ranking {
+    flex-direction: column;
+    align-items: center
+  }
+
+  .card-ranking .card-user-info {
+    align-items: center;
+  }
 }
