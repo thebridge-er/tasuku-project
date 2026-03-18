@@ -172,7 +172,7 @@ function unirseEspacio(){
     window.location.href = "../../places/places.html"
 }
 /* =========================
-   ENTRAR ESPACIO (LOCAL)
+    ENTRAR ESPACIO (LOCAL)
 ========================= */
 
 function entrarEspacio(espacio){

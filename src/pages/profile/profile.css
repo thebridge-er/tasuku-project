@@ -1,134 +1,84 @@
+body{
+    background:#0f172a;
+    font-family:sans-serif;
+    color:white;
+}
+
+/* CONTENEDOR */
 #perfil{
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
 }
 
+/* CARD */
 .perfil-card{
-background:#1f2640;
-padding:40px;
-border-radius:20px;
-text-align:center;
-width:300px;
-box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    background:#1e293b;
+    padding:30px;
+    border-radius:20px;
+    width:300px;
+    text-align:center;
 }
 
-.perfil-card img{
-width:100px;
-height:100px;
-border-radius:50%;
-margin-bottom:20px;
-border:3px solid #4a6cf7;
+/* AVATAR */
+#avatar{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    margin-bottom:15px;
 }
 
-.perfil-card h2{
-margin:10px 0;
-font-size:22px;
+/* NOMBRE */
+h2{
+    margin-bottom:20px;
 }
 
-.perfil-card p{
-color:#aaa;
-margin-bottom:20px;
-
+/* DATOS */
+.info{
+    background:#334155;
+    padding:10px;
+    border-radius:10px;
+    margin:10px 0;
+    text-align:left;
 }
 
-.main-btn{
-background:#4a6cf7;
-border:none;
-padding:12px 20px;
-border-radius:10px;
-color:white;
-cursor:pointer;
-font-weight:600;
-transition:0.2s;
+/* BOTONES */
+/* BOTONES BASE */
+.btn{
+    width:100%;
+    padding:12px;
+    margin-top:12px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    transition: all 0.2s ease;
 }
 
-.main-btn:hover{
-background:#3b58d6;
+/* BOTÓN MODIFICAR */
+.btn-edit{
+    background: linear-gradient(135deg, #6366f1, #818cf8);
+    color:white;
 }
 
-.space-header{
-padding:20px;
-border-bottom:1px solid rgba(255,255,255,0.1);
+.btn-edit:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(99,102,241,0.6);
 }
 
-.space-info{
-display:flex;
-gap:10px;
-align-items:center;
+/* BOTÓN ELIMINAR */
+.btn-delete{
+    background: linear-gradient(135deg, #7f1d1d, #ef4444);
+    color:white;
 }
 
-.space-icon{
-background:#4a6cf7;
-padding:10px;
-border-radius:10px;
-}
-
-
-.user-card{
-display:flex;
-align-items:center;
-justify-content:space-between;
-background:#1f2640;
-padding:20px;
-margin:20px;
-border-radius:15px;
-}
-
-.user-card img{
-width:60px;
-border-radius:50%;
-}
-
-
-.ranking-card{
-background:#1f2640;
-padding:20px;
-margin:20px;
-border-radius:15px;
-}
-
-.ranking-user{
-display:flex;
-align-items:center;
-gap:10px;
-margin-top:10px;
-}
-
-.ranking-user img{
-width:40px;
-border-radius:50%;
-}
-
-
-.tasks-card{
-background:#1f2640;
-padding:20px;
-margin:20px;
-border-radius:15px;
-text-align:center;
-}
-
-
-.logros-card{
-background:#1f2640;
-padding:20px;
-margin:20px;
-border-radius:15px;
-}
-
-.logros-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:10px;
-margin-top:10px;
-}
-
-.logro{
-background:#2a3154;
-padding:15px;
-border-radius:10px;
-text-align:center;
-font-size:14px;
+.btn-delete:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(239,68,68,0.6);
 }
