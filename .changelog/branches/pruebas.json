@@ -1,8 +1,36 @@
 {
   "branch": "pruebas",
   "created_at": "2026-03-18T10:24:47+01:00",
-  "last_updated": "2026-03-18T10:41:58+01:00",
+  "last_updated": "2026-03-18T10:47:50+01:00",
   "commits": [
+    {
+      "hash": "9f47320",
+      "hash_full": "9f47320bd7dab02863edf5e44e0efff5079761b7",
+      "message": "cambios",
+      "type": "other",
+      "scope": "",
+      "subject": "cambios",
+      "description": "",
+      "notes": "",
+      "author": {
+        "name": "Txe",
+        "email": "labiennacida@gmail.com"
+      },
+      "branch": "pruebas",
+      "date": "2026-03-18T10:47:50+01:00",
+      "timestamp": 1773827270,
+      "stats": {
+        "files_changed": 1,
+        "lines_added": 60,
+        "lines_deleted": 0
+      },
+      "files": [
+        {
+          "file": "src/services/app.js",
+          "status": "modified"
+        }
+      ]
+    },
     {
       "hash": "fd84497",
       "hash_full": "fd84497837437187f71b7451477ce25d08c20876",
