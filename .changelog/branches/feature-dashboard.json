@@ -1,8 +1,52 @@
 {
   "branch": "feature-dashboard",
   "created_at": "2026-03-19T10:31:21+01:00",
-  "last_updated": "2026-03-19T10:40:19+01:00",
+  "last_updated": "2026-03-19T13:13:04+01:00",
   "commits": [
+    {
+      "hash": "f80f3b79",
+      "hash_full": "f80f3b7981708329d41bf033c97d23c92e00c23b",
+      "message": "incluir calendario en el dashboard, falta solucionar boton login para api Calendar",
+      "type": "other",
+      "scope": "",
+      "subject": "incluir calendario en el dashboard, falta solucionar boton login para api Calendar",
+      "description": "pintar las tareas en el calendario, falta sincronización con api calendar",
+      "notes": "",
+      "author": {
+        "name": "agonzalezbridge",
+        "email": "asier.medina.ugalde@gmail.com"
+      },
+      "branch": "feature-dashboard",
+      "date": "2026-03-19T13:13:04+01:00",
+      "timestamp": 1773922384,
+      "stats": {
+        "files_changed": 5,
+        "lines_added": 249,
+        "lines_deleted": 68
+      },
+      "files": [
+        {
+          "file": "src/infraestructure/storageManager.js",
+          "status": "modified"
+        },
+        {
+          "file": "src/pages/dashboard/dashboard.css",
+          "status": "modified"
+        },
+        {
+          "file": "src/pages/dashboard/dashboard.html",
+          "status": "modified"
+        },
+        {
+          "file": "src/pages/dashboard/dashboard.js",
+          "status": "modified"
+        },
+        {
+          "file": "src/services/calendarService.js",
+          "status": "modified"
+        }
+      ]
+    },
     {
       "hash": "2a5332ee",
       "hash_full": "2a5332eecf0eac8089d83310cb115afc4134cd60",

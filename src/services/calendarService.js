@@ -42,12 +42,15 @@ export async function initCalendar() {
 /* INICIALIZAR GOOGLE IDENTITY */
 export function initGoogleIdentity(){
 
-  tokenClient = google.accounts.oauth2.initTokenClient({
+  if (!window.google || !google.accounts) {
+    console.error("❌ Google Identity no cargado aún")
+    return
+  }
 
+  tokenClient = google.accounts.oauth2.initTokenClient({
     client_id: CLIENT_ID,
     scope: SCOPES,
     callback: ""
-
   });
 
   gisInited = true;
@@ -58,21 +61,20 @@ export function initGoogleIdentity(){
 
 export function loginGoogle(){
 
+  if (!tokenClient) {
+    console.error("❌ tokenClient no inicializado")
+    return
+  }
+
   tokenClient.callback = async (resp)=>{
-
     if(resp.error !== undefined){
-
       console.error(resp);
       return;
-
     }
-
     console.log("Login correcto");
-
   };
 
   tokenClient.requestAccessToken();
-
 }
 
 
