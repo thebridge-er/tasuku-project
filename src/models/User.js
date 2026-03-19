@@ -6,6 +6,7 @@ export default class User {
     password,
     role,
     createdAt,
+    session,
     spaces = [],
     points = 0
   ) {
@@ -15,7 +16,7 @@ export default class User {
     this.password = password;
     this.role = role;
     this.createDate = createdAt;
-
+    this.session = session;
     this.spaces = spaces;
     this.points = points;
   }

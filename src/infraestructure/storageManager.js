@@ -1,9 +1,7 @@
 export default class StorageManager {
-
   static KEY = "tasukuDB";
 
   static load() {
-
     const data = localStorage.getItem(this.KEY);
 
     if (!data) {
@@ -20,7 +18,6 @@ export default class StorageManager {
   }
 
   static createInitialData() {
-
     const now = new Date().toISOString();
 
     const users = [
@@ -29,40 +26,71 @@ export default class StorageManager {
         name: "Iker",
         email: "iker@example.com",
         role: "admin",
-        password:"123456",
+        password: "123456",
         session: false,
-        createdAt: now
+        createdAt: now,
       },
       {
         id: 2,
         name: "Asier",
         email: "asier@example.com",
         role: "member",
-        password:"123456",
+        password: "123456",
         session: false,
-        createdAt: now
-      }
+        createdAt: now,
+      },
     ];
 
     const spaces = [
       {
         id: 1,
         name: "Personal",
-        createdAt: now,
+        key: "ABC123",
         ownerId: 1,
-        members: [1]
+        members: [1],
+        tasks: [1, 2, 3, 4], 
+        taskTemplates: [
+          {
+            title: "Hacer la compra",
+            difficulty: "easy",
+          },
+          {
+            title: "Limpiar baño",
+            difficulty: "medium",
+          },
+        ],
+        session: false,
+        weekStartDate: now,
+        createdAt: now,
       },
       {
         id: 2,
         name: "Trabajo",
-        createdAt: now,
+        key: "XYZ789",
         ownerId: 1,
-        members: [1, 2]
-      }
+        members: [1, 2],
+        tasks: [5, 6, 7, 8, 9, 10],
+        taskTemplates: [
+          {
+            title: "Daily meeting",
+            difficulty: "easy",
+          },
+          {
+            title: "Code review",
+            difficulty: "medium",
+          },
+          {
+            title: "Deploy producción",
+            difficulty: "hard",
+          },
+        ],
+        session: false,
+        weekStartDate: now,
+        createdAt: now,
+      },
     ];
 
     const tasks = [
-
       {
         id: 1,
         title: "Comprar comida",
@@ -72,7 +100,7 @@ export default class StorageManager {
         dueDate: "2026-03-20",
         createdAt: now,
         assignedTo: 1,
-        spaceId: 1
+        spaceId: 1,
       },
 
       {
@@ -84,7 +112,7 @@ export default class StorageManager {
         dueDate: "2026-03-18",
         createdAt: now,
         assignedTo: 2,
-        spaceId: 1
+        spaceId: 1,
       },
 
       {
@@ -96,7 +124,7 @@ export default class StorageManager {
         dueDate: "2026-03-19",
         createdAt: now,
         assignedTo: 1,
-        spaceId: 1
+        spaceId: 1,
       },
 
       {
@@ -108,7 +136,7 @@ export default class StorageManager {
         dueDate: "2026-03-24",
         createdAt: now,
         assignedTo: 1,
-        spaceId: 1
+        spaceId: 1,
       },
 
       {
@@ -120,7 +148,7 @@ export default class StorageManager {
         dueDate: "2026-03-22",
         createdAt: now,
         assignedTo: 2,
-        spaceId: 2
+        spaceId: 2,
       },
 
       {
@@ -132,7 +160,7 @@ export default class StorageManager {
         dueDate: "2026-03-23",
         createdAt: now,
         assignedTo: 2,
-        spaceId: 2
+        spaceId: 2,
       },
 
       {
@@ -144,7 +172,7 @@ export default class StorageManager {
         dueDate: "2026-03-25",
         createdAt: now,
         assignedTo: 1,
-        spaceId: 2
+        spaceId: 2,
       },
 
       {
@@ -156,7 +184,7 @@ export default class StorageManager {
         dueDate: "2026-03-21",
         createdAt: now,
         assignedTo: 1,
-        spaceId: 2
+        spaceId: 2,
       },
 
       {
@@ -168,7 +196,7 @@ export default class StorageManager {
         dueDate: "2026-03-17",
         createdAt: now,
         assignedTo: 2,
-        spaceId: 2
+        spaceId: 2,
       },
 
       {
@@ -180,20 +208,15 @@ export default class StorageManager {
         dueDate: "2026-03-26",
         createdAt: now,
         assignedTo: 2,
-        spaceId: 2
-      }
-
+        spaceId: 2,
+      },
     ];
 
     return {
-    users,
-    spaces,
-    tasks,
-    session: {
-    user: users[0],     // usuario logueado (Iker)
-    spaceId: 1          // espacio activo
-  }
-  };
+      users,
+      spaces,
+      tasks,
+    };
   }
 
 }

@@ -1,8 +1,31 @@
 {
   "branch": "feature-dashboard",
   "created_at": "2026-03-19T10:31:21+01:00",
-  "last_updated": "2026-03-19T10:31:21+01:00",
+  "last_updated": "2026-03-19T10:40:19+01:00",
   "commits": [
+    {
+      "hash": "2a5332ee",
+      "hash_full": "2a5332eecf0eac8089d83310cb115afc4134cd60",
+      "message": "merge pruebas into feature-dashboard",
+      "type": "other",
+      "scope": "",
+      "subject": "merge pruebas into feature-dashboard",
+      "description": "",
+      "notes": "",
+      "author": {
+        "name": "agonzalezbridge",
+        "email": "asier.medina.ugalde@gmail.com"
+      },
+      "branch": "feature-dashboard",
+      "date": "2026-03-19T10:40:19+01:00",
+      "timestamp": 1773913219,
+      "stats": {
+        "files_changed": 0,
+        "lines_added": 0,
+        "lines_deleted": 0
+      },
+      "files": []
+    },
     {
       "hash": "4a3a6870",
       "hash_full": "4a3a68702f340a4c4a38b3020fa853d5c03b815e",
