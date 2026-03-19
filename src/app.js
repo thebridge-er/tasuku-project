@@ -29,7 +29,7 @@ loadLanguage(valor del option)
 
 
 function startApp() {
-  loadLanguage("es");
+  loadLanguage("en");
   initializeColorTheme();
   /* initGoogleCalendar(); */
 }

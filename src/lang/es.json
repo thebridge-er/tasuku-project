@@ -3,6 +3,13 @@
   "login": "Iniciar sesión",
   "start": "Comenzar",
 
+  "email": "Correo",
+  "password": "Contraseña",
+  "name": "Nombre",
+
+  "no_account": "¿No tienes cuenta?",
+  "register": "Registrarse",
+
   "hero_title": "Haz las tareas divertidas",
   "hero_description": "Organiza las tareas del hogar con tus compañeros de piso, familia o amigos. ¡Gana puntos, desbloquea logros y mantén tu espacio limpio juntos!",
 

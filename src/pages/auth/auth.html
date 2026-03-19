@@ -1,46 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TASUKU Login</title>
-    <link rel="stylesheet" href="../../styles/code.css">
-    <link rel="stylesheet" href="../../components/header/header.css">
-    <link rel="stylesheet" href="../../components/buttons/buttons.css">
-    <link rel="stylesheet" href="./auth.css">
-    <link rel="stylesheet" href="../../styles/global.css">
-    <link rel="stylesheet" href="../../styles/global.css">
-</head>
+    <link rel="stylesheet" href="../../components/header/header.css" />
+    <link rel="stylesheet" href="../../components/buttons/buttons.css" />
+    <link rel="stylesheet" href="./auth.css" />
+    <link rel="stylesheet" href="../../styles/global.css" />
+  </head>
 
-<body>
-
+  <body>
     <div id="header"></div>
 
     <section class="auth" id="authSection">
-        <div class="auth-card">
-            <h2 id="formTitle">Login</h2>
-            <!--  <p id="formSub">Accede a tu espacio</p>-->
+      <div class="auth-card">
 
-            <input id="nameField" placeholder="Nombre" style="display:none">
-            <label>Correo</label>
-            <input id="email" placeholder="email@ejemplo.com" autocomplete="off">
-            <label>Contraseña</label>
+        <h2 id="formTitle" data-translation="login">Login</h2>
 
-            <input id="password" type="password" placeholder="********" autocomplete="off">
-            <button id="mainBtn">Iniciar Sesión</button>
-            <p id="errorMsg" class="error-msg"></p>
-            <p id="switchText">
-                ¿No tienes cuenta?
-                <span id="registerLink">Registrarse</span>
-            </p>
-        </div>
+        <input
+          id="nameField"
+          placeholder="Nombre"
+          data-translation="name"
+          style="display: none"
+        />
+
+        <label data-translation="email">Correo</label>
+        <input id="email" placeholder="email@ejemplo.com" autocomplete="off" />
+
+        <label data-translation="password">Contraseña</label>
+        <input
+          id="password"
+          type="password"
+          placeholder="********"
+          autocomplete="off"
+        />
+
+        <button id="mainBtn" data-translation="start">
+          Iniciar Sesión
+        </button>
+
+        <p id="errorMsg" class="error-msg"></p>
+
+        <p id="switchText">
+          <span data-translation="no_account">¿No tienes cuenta?</span>
+          <span id="registerLink" data-translation="register">
+            Registrarse
+          </span>
+        </p>
+
+      </div>
     </section>
 
     <div id="footer"></div>
-    <script src="../../services/app.js"></script>
+    <script type="module" src="../../app.js"></script>
     <script src="./auth.js"></script>
-</body>
-
-
+  </body>
 </html>

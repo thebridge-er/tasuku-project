@@ -3,6 +3,13 @@
   "login": "Saioa hasi",
   "start": "Hasi",
 
+  "email": "Posta elektronikoa",
+  "password": "Pasahitza",
+  "name": "Izena",
+
+  "no_account": "Ez duzu konturik?",
+  "register": "Erregistratu",
+
   "hero_title": "Egin etxeko lanak dibertigarri",
   "hero_description": "Antolatu etxeko lanak zure pisukide, familia edo lagunekin. Irabazi puntuak, desblokeatu lorpenak eta mantendu zure espazioa garbi elkarrekin!",
 

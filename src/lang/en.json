@@ -2,6 +2,12 @@
   "app_name": "TASUKU",
   "login": "Login",
   "start": "Start",
+  "email": "Email",
+  "password": "Password",
+  "name": "Name",
+
+  "no_account": "Don't have an account?",
+  "register": "Sign up",
 
   "hero_title": "Make chores fun",
   "hero_description": "Organize household tasks with your roommates, family, or friends. Earn points, unlock achievements, and keep your space clean together!",
