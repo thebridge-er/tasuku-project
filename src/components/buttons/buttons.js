@@ -1,63 +1,66 @@
 // =========================
 // BUTTONS.JS
-// Custom element dinámico
+// Custom element dinámico con :before para icon
 // =========================
 
 class UIButton extends HTMLElement {
 
   connectedCallback() {
 
-    const text = this.getAttribute("text") || "";
+    let text = this.getAttribute("text") || "";
 
-    const icon = this.getAttribute("icon");
+    let icon = this.getAttribute("icon");
     const iconLeft = this.getAttribute("icon-left");
     const iconRight = this.getAttribute("icon-right");
 
     const isCircle = this.hasAttribute("circle");
+    const isDarkMode = this.hasAttribute("dark-mode");
 
+    const id = this.getAttribute("id") || "";
 
     let leftHTML = "";
     let rightHTML = "";
     let textHTML = text;
 
+    // ======================
+    // ICONO AUTOMÁTICO DARK/LIGHT
+    // ======================
+
+    if (id === "style-mode") {
+      if (isDarkMode) {
+        icon = "../../assets/icons/icono-sol.svg";
+      } else {
+        icon = "../../assets/icons/icono-luna.svg";
+      }
+    }
 
     // ===== ICON ONLY =====
 
     if (icon) {
-
-      leftHTML = `<img src="${icon}" alt="">`;
-      textHTML = "";
+      // Usamos :before vía variable CSS
+      this.style.setProperty('--icon-url', `url(${icon})`);
+      textHTML = "";  // Si solo icono, sin texto
+      leftHTML = "";  // No img directo
       rightHTML = "";
-
     }
-
 
     // ===== ICON LEFT =====
 
     if (iconLeft) {
-
       leftHTML = `<img src="${iconLeft}" alt="">`;
-
     }
-
 
     // ===== ICON RIGHT =====
 
     if (iconRight) {
-
       rightHTML = `<img src="${iconRight}" alt="">`;
-
     }
-
 
     // ===== CIRCLE BUTTON =====
 
     if (isCircle) {
-
       textHTML = "";
-
     }
-
 
     // ===== RENDER =====
 
@@ -66,7 +69,6 @@ class UIButton extends HTMLElement {
       ${textHTML}
       ${rightHTML}
     `;
-
   }
 
 }

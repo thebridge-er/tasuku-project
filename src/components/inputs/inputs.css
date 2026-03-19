@@ -1,0 +1,152 @@
+/* =========================
+   UI INPUT
+========================= */
+
+ui-input {
+  display: block;
+  font-family: var(--font-family);
+  margin-bottom: 16px;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.ui-input {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+
+/* =========================
+   LABEL
+========================= */
+
+.ui-input__label {
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.ui-input__field {
+  width: 100%;
+
+  padding: 10px 12px;
+
+  font-size: 16px;
+  font-family: var(--font-family);
+
+  border-radius: var(--radius-input);
+  border: 1px solid var(--color-muted);
+
+  background-color: var(--color-bg);
+  color: var(--color-text);
+
+  outline: none;
+  transition: var(--transition);
+}
+
+
+/* =========================
+   PLACEHOLDER
+========================= */
+
+.ui-input__field::placeholder {
+  opacity: 0.8;
+}
+
+
+/* =========================
+   HOVER
+========================= */
+
+.ui-input__field:hover {
+  border-color: var(--color-primary);
+}
+
+
+/* =========================
+   ACTIVE
+========================= */
+
+.ui-input__field:active {
+  border-color: var(--color-primary);
+  background-color: var(--color-bg);
+}
+
+
+/* =========================
+   FOCUS
+========================= */
+
+.ui-input__field:focus {
+  border-color: var(--color-primary);
+}
+
+
+/* =========================
+   FOCUS VISIBLE
+========================= */
+
+.ui-input__field:focus-visible {
+  border-color: var(--color-primary);
+  outline: 2px solid var(--color-primary);
+}
+
+
+/* =========================
+   FOCUS WITHIN
+========================= */
+
+.ui-input:focus-within .ui-input__label {
+  color: var(--color-primary);
+}
+
+
+/* =========================
+   TARGET
+========================= */
+
+.ui-input:target .ui-input__field {
+  border-color: var(--color-primary);
+  background-color: var(--color-bg);
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+.ui-input--error .ui-input__field {
+  border-color: var(--color-danger);
+}
+
+.ui-input--error .ui-input__label {
+  color: var(--color-danger);
+}
+
+
+/* =========================
+   DISABLED
+========================= */
+
+.ui-input__field:disabled {
+  background-color: var(--color-text);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+
+/* =========================
+   FULL WIDTH
+========================= */
+
+.ui-input--full {
+  width: 100%;
+}

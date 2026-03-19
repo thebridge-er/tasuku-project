@@ -26,6 +26,7 @@ font-family:"Montserrat",sans-serif;
 --color-warning:#ffa602;
 
 --radius:1rem;
+--radius-input: 0.5rem;
 --shadow:0 10px 30px rgba(0,0,0,0.35);
 --transition:180ms ease;
 
@@ -42,6 +43,7 @@ color-scheme:dark;
 --color-muted:rgba(22,22,22,0.65);
 
 --color-border:rgba(22,22,22,0.12);
+--padding:20px;
 
 --color-primary:#3c61ff;
 --color-primary-variant:#1a3db8;
@@ -68,7 +70,7 @@ transition:background var(--transition),color var(--transition);
 .container{
 max-width:1200px;
 margin:auto;
-padding:0 20px;
+padding: 20px;
 }
 
 /* typography */
