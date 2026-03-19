@@ -8,8 +8,6 @@ document.addEventListener("DOMContentLoaded", init)
 
 function init() {
   cargarPerfil()
-  cargarEspacio()
-  cargarTareas()
   initEventos()
 }
 
@@ -47,23 +45,21 @@ function cargarEspacio() {
 
   if (!espacio) return
 
-  renderEspacio(espacio)
-}
-
-function renderEspacio(espacio) {
-  document.getElementById("spaceName").innerText = espacio.nombre
+  document.getElementById("spaceName").innerText = espacio.name
 
   document.getElementById("spaceMembers").innerText =
-    espacio.miembros.length + " miembros"
+    espacio.members.length + " miembros"
 
-  const db = StorageManager.load()
   const usuario = db.session?.user
+  if (!usuario) return
 
   document.getElementById("spaceUserName").innerText = usuario.name
 
   document.getElementById("spaceAvatar").src =
     "https://api.dicebear.com/7.x/adventurer/svg?seed=" + usuario.name
 }
+
+
 
 /* =========================
    TAREAS
@@ -72,14 +68,12 @@ function renderEspacio(espacio) {
 function cargarTareas() {
   const db = StorageManager.load()
 
-  const espacio = db.spaces.find(
-    s => s.id === db.session?.spaceId
-  )
+  const espacioId = db.session?.spaceId
 
-  if (!espacio) return
+  if (!espacioId) return
 
   const tareas = db.tasks.filter(t =>
-    espacio.tasks.includes(t.id)
+    t.spaceId === espacioId
   )
 
   renderTareas(tareas)
@@ -96,14 +90,13 @@ function crearTarea() {
     s => s.id === db.session?.spaceId
   )
 
-  const nuevaTarea = {
-    id: crypto.randomUUID(),
-    title: titulo,
-    completed: false
-  }
-
   db.tasks.push(nuevaTarea)
-  espacio.tasks.push(nuevaTarea.id)
+  const nuevaTarea = {
+  id: crypto.randomUUID(),
+  title: titulo,
+  status: "todo",
+  spaceId: db.session.spaceId
+}
 
   StorageManager.save(db)
 
@@ -125,9 +118,6 @@ function renderTareas(tareas) {
     container.innerHTML = `
       <h3>✔ Tareas</h3>
       <p>Sin tareas todavía</p>
-      <button class="main-btn" onclick="crearTareasDemo()">
-        Añadir tareas de ejemplo
-      </button>
     `
     return
   }
@@ -135,10 +125,10 @@ function renderTareas(tareas) {
   container.innerHTML = `
     <h3>✔ Tareas</h3>
     ${tareas.map(t => `
-      <div class="task-item">
+      <div class="task-item ${t.status === "done" ? "done" : ""}">
         <span>${t.title}</span>
         <button onclick="toggleTarea('${t.id}')">
-          ${t.completed ? "✅" : "✔"}
+          ${t.status === "done" ? "✅" : "✔"}
         </button>
       </div>
     `).join("")}
@@ -153,11 +143,11 @@ function renderTareas(tareas) {
 window.toggleTarea = function (taskId) {
   const db = StorageManager.load()
 
-  const tarea = db.tasks.find(t => t.id === taskId)
+  const tarea = db.tasks.find(t => t.id == taskId)
 
   if (!tarea) return
 
-  tarea.completed = !tarea.completed
+  tarea.status = tarea.status === "done" ? "todo" : "done"
 
   StorageManager.save(db)
 
@@ -181,17 +171,17 @@ window.crearTareasDemo = function () {
     {
       id: crypto.randomUUID(),
       title: "Limpiar cocina",
-      completed: false
+      status: "todo" 
     },
     {
       id: crypto.randomUUID(),
       title: "Bajar basura",
-      completed: false
+      status: "todo"
     },
     {
       id: crypto.randomUUID(),
       title: "Limpiar baño",
-      completed: false
+      status: "todo" 
     }
   ]
 
@@ -212,6 +202,10 @@ window.crearTareasDemo = function () {
 window.irDashboard = function () {
   document.getElementById("perfil").style.display = "none"
   document.getElementById("espacio").style.display = "block"
+
+  // 👇 cargar aquí
+  cargarEspacio()
+  cargarTareas()
 }
 
 

@@ -186,9 +186,14 @@ export default class StorageManager {
     ];
 
     return {
-      users,
-      spaces,
-      tasks
-    };
+    users,
+    spaces,
+    tasks,
+    session: {
+    user: users[0],     // usuario logueado (Iker)
+    spaceId: 1          // espacio activo
   }
+  };
+  }
+
 }
