@@ -1,20 +1,28 @@
 export default class Space {
 
-  constructor(id, name,ownerId, users = [], tasks = [], createDate= new Date()) {
+  constructor(
+    id, 
+    name, 
+    key,
+    ownerId, 
+    members = [], 
+    tasks = [], 
+    createDate= new Date(), 
+    session
+  ) 
+  {
     this.id = id;
     this.name = name;
+    this.key = key;
     this.ownerId= ownerId;
-    this.users = users;
+    this.members = users;
     this.tasks = tasks;
     this.createDate= createDate;
+    this.session = session;
     this.taskTemplates = [];
-    
   }
 
-
-
 /*FUNCIONES*/
-
 addUser(userId){
   if(!this.users.includes(userId)){
     this.users.push(userId);
