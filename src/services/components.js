@@ -1,40 +1,23 @@
-// =========================
-// COMPONENTS.JS
-// Inicializador de componentes
-// =========================
+const BASE_URL = new URL("./../components/", import.meta.url).href;
 
-
-// ===== BUTTONS =====
 
 function loadButtons() {
-  import("./buttons.js");
+  import(`${BASE_URL}buttons/buttons.js`);
 }
-
-
-// ===== CARDS =====
 
 function loadCards() {
-  import("./cards.js");
+  import(`${BASE_URL}cards/cards.js`);
 }
-
-
-// ===== INPUTS =====
 
 function loadInputs() {
-  import("./inputs.js");
+  import(`${BASE_URL}inputs/inputs.js`);
 }
-
-
-// ===== INIT =====
 
 function loadComponents() {
   loadButtons();
   loadCards();
   loadInputs();
 }
-
-
-// ejecutar al cargar
 
 document.addEventListener("DOMContentLoaded", () => {
   loadComponents();

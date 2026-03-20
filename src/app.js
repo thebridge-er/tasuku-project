@@ -20,16 +20,25 @@ async function initGoogleCalendar() {
   console.log("Google Calendar ready");
 }
 
-/*
-Dependiendo de lo seleccionado en el select 
-que llame a la funcion 
+function initLangSelector() {
+  const select = document.getElementById("lang");
+  if (!select) return;
 
-loadLanguage(valor del option)
-*/
+  // Recuperar idioma guardado o usar "en" por defecto
+  const savedLang = localStorage.getItem("tasukuLang") || "en";
+  select.value = savedLang;
+  loadLanguage(savedLang);
+
+  select.addEventListener("change", (e) => {
+    const lang = e.target.value;
+    localStorage.setItem("tasukuLang", lang);
+    loadLanguage(lang);
+  });
+}
 
 
 function startApp() {
-  loadLanguage("en");
+  initLangSelector();
   initializeColorTheme();
   /* initGoogleCalendar(); */
 }
