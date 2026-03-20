@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TASUKU Login</title>
+        <link rel="stylesheet" href="styles/code.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <a href="index.html">
+                <div class="logo-icon">🏠</div>
+            </a>
+            <h1>TASUKU</h1>
+        </div>
+    </header>
+    
+
+
+    <section class="auth" id="authSection">
+        <div class="auth-card">
+            <h2 id="formTitle">Iniciar Sesión</h2>
+            <p id="formSub">Access your space</p>
+
+            <input id="nameField" placeholder="Nombre" style="display:none">
+            <label>Correo</label>
+            
+            <input id="email" placeholder="email@ejemplo.com">
+            <label>Contraseña</label>
+            
+            <input id="password" type="password" placeholder="********">
+            <button id="mainBtn" onclick="login()">Iniciar Sesión</button>
+
+            <p id="switchText">
+                ¿No tienes cuenta?
+                <span onclick="mostrarRegistro()">Registrarse</span>
+            </p>
+        </div>
+    </section>
+
+
+    <section id="dashboard" style="display:none">
+        <div class="welcome">
+
+            <img id="avatar" src="https://api.dicebear.com/7.x/adventurer/svg?seed=user">
+            <h2 id="welcomeName">Bienvenido</h2>
+            <p>Crea o únete a un espacio para empezar</p>
+            <button class="main-btn" onclick="openCreate()">+ Crear Espacio</button>
+            <button class="secondary-btn" onclick="openJoin()">Unirse a Espacio</button>
+
+        </div>
+    </section>
+
+
+    <section id="espacio" style="display:none">
+        <div class="space-header">
+            <div class="space-info">
+                <div class="space-icon">🏠</div>
+                <div>
+                    <h2 id="spaceName">Mi Espacio</h2>
+                    <p id="spaceMembers">1 miembros</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="user-card">
+            <img id="spaceAvatar"
+            src="https://api.dicebear.com/7.x/adventurer/svg?seed=user">
+            <div>
+                <h3 id="spaceUserName">Usuario</h3>
+                <p>🏆 <span id="userPoints">0</span> puntos</p>
+            </div>
+
+            <div class="logros">
+                <p>Logros</p>
+                <strong>0/7</strong>
+            </div><!DOCTYPE html>
+</div>
+    <section id="perfil">
+        <div class="perfil-card">
+            <img id="perfilAvatar" src="https://api.dicebear.com/7.x/adventurer/svg?seed=user">
+
+            <h2 id="perfilNombre">Usuario</h2>
+            
+            <p id="perfilCorreo">correo@email.com</p>
+
+            <button class="main-btn" onclick="irDashboard()"> Entrar al espacio </button>
+        </div>
+            <section id="espacio" style="display:none">
+            <div class="space-header">
+                <div class="space-info">
+                    <div class="space-icon">🏠</div>
+                    <div>
+                        <h2 id="spaceName">Mi Espacio</h2>
+                        <p id="spaceMembers">1 miembros</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="user-card">
+            <img id="spaceAvatar"
+            src="https://api.dicebear.com/7.x/adventurer/svg?seed=user">
+            <div>
+                <h3 id="spaceUserName">Usuario</h3>
+                <p>🏆 <span id="userPoints">0</span> puntos</p>
+            </div>
+            </div>
+
+    </section>
+    </section>
+    <script src="../../services/app.js"></script>
+    <script src="../../pages/auth/auth.js"></script>
+</body>
+</html>
+        </div>
+    </section>
+
+    <section id="perfil" style="display:none">
+        <div class="perfil-card">
+            <img id="perfilAvatar"
+            src="https://api.dicebear.com/7.x/adventurer/svg?seed=user">
+            <h2 id="perfilNombre">Usuario</h2>
+            <p id="perfilCorreo">correo@email.com</p>
+            <button class="main-btn" onclick="irDashboard()">Entrar al espacio</button>
+        </div>
+    </section>
+
+    <div id="joinModal" class="modal">
+        <div class="modal-card">
+        <span class="close" onclick="closeModal('joinModal')">✕</span>
+        <h3>Unirse a Espacio</h3>
+
+        <input placeholder="CÓDIGO DE INVITACIÓN">
+        <button onclick="unirseEspacio()">Unirse a Espacio</button>
+        </div>
+    </div>
+
+    <div id="createModal" class="modal">
+        <div class="modal-card">
+        <span class="close" onclick="closeModal('createModal')">✕</span>
+        <h3>Crear Espacio</h3>
+
+        <input placeholder="Nombre del Espacio">
+        <button class="main-btn" onclick="crearEspacio()">Crear Espacio</button>
+        </div>
+    </div>
+
+<!--Aqui va el codigo JavaScript-->
+
+<script src="../../services/app.js"></script>
+</body>
+
+</html>
