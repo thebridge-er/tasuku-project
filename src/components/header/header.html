@@ -1,5 +1,5 @@
 <header class="landing-header">
-    <div class="header-logo">
+    <div class="logo">
         <a href="index.html">
             <div class="logo-icon">🏠</div>
         </a>
@@ -11,6 +11,16 @@
             <div id="icon-moon" class="theme-icon">🌙</div>
             <div id="icon-sun" class="theme-icon">☀️</div>
         </button>
-        <button id="lang-btn" class="style-mode">🌐</button>
+        <!-- <button id="lang-btn" class="style-mode">🌐</button> -->
+        <select id="lang">
+            <option value="eus" data-translation="baske"></option>
+            <option value="en" data-translation="english"></option>
+            <option value="es" data-translation="spanish"></option>
+        </select>
+
+        <button data-custom="sdfsf"></button>
+
+        <button class="login-btn" onclick="window.location = './pages/auth/auth.html'"
+            data-translation="login"></button>
     </div>
 </header>

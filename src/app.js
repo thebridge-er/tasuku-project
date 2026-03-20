@@ -9,12 +9,14 @@ import {
 import { loadLanguage } from "./services/translation.js";
 import { initializeColorTheme } from "./services/colorTheme.js";
 import StorageManager from "./infraestructure/storageManager.js";
+import { loadHeader } from "./services/headerLoader.js";
 
 const db = StorageManager.load();
 
 console.log(db);
 
 async function initGoogleCalendar() {
+  infraestructure
   await initCalendar();
   await initGoogleIdentity();
   console.log("Google Calendar ready");
@@ -28,11 +30,21 @@ loadLanguage(valor del option)
 */
 
 
-function startApp() {
+async function startApp() {
+  console.log("kajsgdiugsjagju")
+  await loadHeader()
+
+  const selectLang = document.getElementById("lang");
+
+  if (selectLang) {
+    selectLang.addEventListener("change", (event) => {
+      const selectedLang = event.target.value;
+      loadLanguage(selectedLang);
+    });
+  }
+
   loadLanguage("es");
   initializeColorTheme();
-  /* initGoogleCalendar(); */
 }
-
 
 document.addEventListener("DOMContentLoaded", startApp);
