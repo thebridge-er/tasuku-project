@@ -14,27 +14,18 @@ import {
    INIT
 ========================= */
 
-function init() {
+async function init() {
 
-  async function init() {
   activarSesionDemo()
   cargarPerfil()
   initEventos()
-
-  await initCalendar()
-    const waitGoogle = setInterval(() => {
-    if (window.google && google.accounts) {
-      initGoogleIdentity()
-      clearInterval(waitGoogle)
-      console.log("✅ Google Identity listo")
-    }
-  }, 100)
-  }
-
-  activarSesionDemo() 
-  cargarPerfil()
-  initEventos()
   cargarUsuariosSelect()
+
+  try {
+    await initCalendar()
+  } catch {
+    console.warn("Google API no disponible")
+  }
 }
 function getSesion() {
   const db = StorageManager.load()
@@ -62,7 +53,7 @@ function getUserName(userId) {
 }
 function cargarUsuariosSelect() {
   const select = document.getElementById("userSelect")
-  if (!select) return // 👈 evita crash
+  if (!select) return 
 
   const db = StorageManager.load()
   const espacio = db.spaces.find(s => s.session)
@@ -144,13 +135,15 @@ function crearTarea() {
 
   if (!espacio) return
 
-  const nuevaTarea = {
-    id: crypto.randomUUID(),
-    title: titulo,
-    status: "todo",
-    assignedTo: assignedTo, // 👈 AQUÍ ESTÁ EL CAMBIO
-    spaceId: espacio.id
-  }
+ const nuevaTarea = {
+  id: crypto.randomUUID(),
+  title: titulo,
+  status: "todo",
+  assignedTo: assignedTo, 
+  spaceId: espacio.id,
+  dueDate: new Date().toISOString().split("T")[0], // 
+  synced: false // para usar la api y que no se dupliquen eventos
+}
 
   db.tasks.push(nuevaTarea)
 
@@ -312,31 +305,30 @@ window.crearTareasDemo = function () {
 }
 async function syncCalendar() {
 
-  // 👇 inicializar TODO aquí
-  await initCalendar()
+  try {
 
-  initGoogleIdentity()
+    const { db, espacio } = getSesion()
 
-  await loginGoogle()
+    const tareas = db.tasks.filter(t => t.spaceId === espacio.id)
 
-  const { db, espacio } = getSesion()
+    for (const t of tareas) {
 
-  const tareas = db.tasks.filter(t => t.spaceId === espacio.id)
+      if (t.synced === true) continue
 
-  for (const t of tareas) {
+      // 👇 SIMULACIÓN
+      console.log("Simulando envío a Google:", t.title)
 
-    const start = new Date(t.dueDate + "T10:00:00")
-    const end = new Date(t.dueDate + "T11:00:00")
+      t.synced = true
+    }
 
-    await createEvent({
-      name: t.title,
-      user: getUserName(t.assignedTo),
-      start: start.toISOString(),
-      end: end.toISOString()
-    })
+    StorageManager.save(db)
+
+    alert("✅ Tareas sincronizadas (modo demo)")
+
+  } catch (error) {
+    console.error(error)
+    alert("❌ Error en sync")
   }
-
-  alert("✅ Sincronizado con Google Calendar")
 }
 
 /* =========================
