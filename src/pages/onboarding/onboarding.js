@@ -1,9 +1,9 @@
-import Space from "../../models/Space.js";
+import User from "../../models/User.js";
 import StorageManager from "../../infraestructure/storageManager.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const spacesContainer = document.getElementById("spacesContainer");
-  const db = JSON.parse(localStorage.getItem("tasukuDB"));
+  const raw = localStorage.getItem("tasukuDB");
+  const db = JSON.parse(raw);
   const userData = db.users.find((u) => u.session === true);
 
   if (!userData) {
@@ -11,55 +11,48 @@ document.addEventListener("DOMContentLoaded", async () => {
     return;
   }
 
-  const userSpaces = db.spaces.filter(
-    (s) => s.ownerId === userData.id || s.members.includes(userData.id),
+  if (hasSpaces(userData)) {
+    window.location.href = "../../pages/places/places.html";
+    return;
+  }
+
+  const user = new User(
+    userData.id,
+    userData.name,
+    userData.email,
+    userData.spaces ?? [],
+    userData.points ?? 0,
+    userData.role,
+    userData.password,
+    new Date(userData.createdAt),
   );
 
-  userSpaces.forEach((space) => {
-    const card = document.createElement("div");
-    card.classList.add("space-card");
-    card.innerHTML = `
-      <h3>${space.name}</h3>
-      <p>Miembros: ${space.members.length}</p>
-      <p>Tareas: ${space.tasks.length}</p>
-      <p>Código: ${space.key}</p>
-    `;
+  const welcomeName = document.getElementById("welcomeName");
+  const avatar = document.getElementById("avatar");
 
-    card.addEventListener("click", () => selectSpace(space.id));
-    spacesContainer.appendChild(card);
-  });
+  if (welcomeName) {
+    welcomeName.innerText = "¡Bienvenido, " + user.name + "!";
+  }
+
+  if (avatar) {
+    avatar.src =
+      "https://api.dicebear.com/7.x/adventurer/svg?seed=" + user.name;
+  }
+
+  /* CARGAR MODALES */
 
   loadModal("../../components/modals/create-space.html");
   loadModal("../../components/modals/join-space.html");
 });
 
-function selectSpace(spaceId) {
-  const db = StorageManager.load();
-
-  // Poner session true solo al espacio seleccionado
-  db.spaces = db.spaces.map((s) => ({
-    ...s,
-    session: s.id === spaceId,
-  }));
-
-  StorageManager.save(db);
-
-  window.location.href = "../../pages/dashboard/dashboard.html";
-}
-
-/* =========================
-   CARGAR MODAL
-========================= */
-
 async function loadModal(path) {
   const res = await fetch(path);
   const html = await res.text();
+
   document.body.insertAdjacentHTML("beforeend", html);
 }
 
-/* =========================
-   BOTÓN CREAR ESPACIO
-========================= */
+/* ABRIR MODALES */
 
 window.openJoin = function () {
   document.getElementById("joinModal").style.display = "flex";
@@ -74,10 +67,17 @@ window.closeModal = function (id) {
   document.getElementById(id).style.display = "none";
 };
 
+function hasSpaces(userData) {
+  const raw = localStorage.getItem("tasukuDB");
+  const db = JSON.parse(raw);
+  return db.spaces.some(
+    space => space.ownerId === userData.id || space.members.includes(userData.id)
+  );
+}
+
 /* =========================
    CREAR ESPACIO
 ========================= */
-
 
 function crearEspacio() {
   let nombre = document.querySelector("#createModal input").value;
@@ -91,7 +91,7 @@ function crearEspacio() {
   let db = StorageManager.load();
   let user = db.users.find((u) => u.session === true);
   let codigo = Math.floor(1000 + Math.random() * 9000).toString();
-
+  
   const newSpace = {
     id: db.users.length ? Math.max(...db.users.map((u) => u.id)) + 1 : 1,
     name: nombre,
@@ -120,7 +120,7 @@ function crearEspacio() {
 
   closeModal("createModal");
 
-  location.reload();
+  window.location.href = "../../pages/dashboard/dashboard.html";
 }
 
 
@@ -164,12 +164,3 @@ document.addEventListener("click", (e) => {
     unirseEspacio();
   }
 });
-
-
-/* =========================
-   CERRAR MODAL
-========================= */
-
-function closeModal(id) {
-  document.querySelector(".modal").style.display = "none";
-}

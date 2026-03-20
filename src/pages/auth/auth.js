@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return
         }
 
-        window.location.href = "../dashboard/dashboard.html"
+        window.location.href = "../../pages/onboarding/onboarding.html"
     }
 
     function mostrarRegistro() {

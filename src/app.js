@@ -1,10 +1,10 @@
 //IMPORTS//
-import {
+/* import {
   initCalendar,
   loginGoogle,
   createEvent,
   getEventsThisWeek
-} from "./services/calendarService.js";
+} from "./services/calendarService.js"; */
 
 import { loadLanguage } from "./services/translation.js";
 import { initializeColorTheme } from "./services/colorTheme.js";
