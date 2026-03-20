@@ -65,9 +65,27 @@ function eliminarCuenta() {
 
     db.users = db.users.filter(u => u.id !== usuario.id)
 
-    db.spaces.forEach(space => {
-        space.members = space.members.filter(id => id !== usuario.id)
-    })
+    db.spaces = db.spaces
+        .map(space => {
+
+            // Quitar usuario de miembros
+            space.members = space.members.filter(id => id !== usuario.id)
+
+            // 👉 Si era el owner
+            if (space.ownerId === usuario.id) {
+
+                if (space.members.length > 0) {
+                    // Transferir al primer miembro
+                    space.ownerId = space.members[0]
+                } else {
+                    // Marcar para eliminar (no hay miembros)
+                    return null
+                }
+            }
+
+            return space
+        })
+        .filter(space => space !== null)
 
     db.tasks = db.tasks.filter(t => t.assignedTo !== usuario.id)
 
