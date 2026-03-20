@@ -23,17 +23,19 @@
           <div id="icon-sun" class="theme-icon">☀️</div>
         </button>
         <!-- <button id="lang-btn" class="style-mode">🌐</button> -->
+    
         <select id="lang">
-          <option value="eus" data-translation="baske"></option>
-          <option value="en" data-translation="english"></option>
-          <option value="es" data-translation="spanish"></option>
+          <option value="eus" data-translation="baske">Euskera</option>
+          <option value="en" data-translation="english">English</option>
+          <option value="es" data-translation="spanish">Español</option>
         </select>
+
 
         <button
           class="login-btn"
           onclick="window.location = './pages/auth/auth.html'"
           data-translation="login"
-        ></button>
+        >Iniciar Sesión</button>
       </div>
     </header>
 
@@ -90,7 +92,7 @@
         class="start-btn"
         onclick="window.location = './pages/auth/auth.html'"
         data-translation="start"
-      ></button>
+      >Comenzar</button>
     </section>
 
     <section class="features">
@@ -241,7 +243,8 @@
   <script type="module" src="../src/services/app.js"></script>
 </body>
 
-    <script type="module" src="../src/app.js"></script>
-    <script type="module" src="../src/services/app.js"></script>
+    <script type="module" src="./app.js"></script>
+    <script typr="module" src="./services/translation.js"></script>
+  
   </body>
 </html>

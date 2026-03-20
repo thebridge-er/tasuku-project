@@ -27,12 +27,20 @@ que llame a la funcion
 loadLanguage(valor del option)
 */
 
+document.addEventListener("DOMContentLoaded", () => {
+  const langSelect = document.getElementById("lang");
 
-function startApp() {
-  loadLanguage("es");
-  initializeColorTheme();
-  /* initGoogleCalendar(); */
-}
+  if (langSelect) {
+    langSelect.addEventListener("change", (e) => {
+      const selectedLang = e.target.value;
+
+      localStorage.setItem("lang", selectedLang);
+      loadLanguage(selectedLang);
+      initializeColorTheme();
+        initGoogleCalendar(); 
+    });
+  }
+});
 
 
 document.addEventListener("DOMContentLoaded", startApp);
