@@ -57,4 +57,3 @@ function irDashboard() {
     document.getElementById("espacio").style.display = "block"
 
 } 
-}
