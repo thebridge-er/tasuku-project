@@ -1,0 +1,154 @@
+{
+  "branch": "feature-dashboard",
+  "created_at": "2026-03-19T10:31:21+01:00",
+  "last_updated": "2026-03-20T09:39:04+01:00",
+  "commits": [
+    {
+      "hash": "473afb34",
+      "hash_full": "473afb34dfe28dd52253ae4c2d64adcc9a93534a",
+      "message": " dashboard con llamada a la api modo demo",
+      "type": "other",
+      "scope": "",
+      "subject": " dashboard con llamada a la api modo demo",
+      "description": "",
+      "notes": "",
+      "author": {
+        "name": "agonzalezbridge",
+        "email": "asier.medina.ugalde@gmail.com"
+      },
+      "branch": "feature-dashboard",
+      "date": "2026-03-20T09:39:04+01:00",
+      "timestamp": 1773995944,
+      "stats": {
+        "files_changed": 2,
+        "lines_added": 33,
+        "lines_deleted": 41
+      },
+      "files": [
+        {
+          "file": "src/pages/dashboard/dashboard.html",
+          "status": "modified"
+        },
+        {
+          "file": "src/pages/dashboard/dashboard.js",
+          "status": "modified"
+        }
+      ]
+    },
+    {
+      "hash": "f80f3b79",
+      "hash_full": "f80f3b7981708329d41bf033c97d23c92e00c23b",
+      "message": "incluir calendario en el dashboard, falta solucionar boton login para api Calendar",
+      "type": "other",
+      "scope": "",
+      "subject": "incluir calendario en el dashboard, falta solucionar boton login para api Calendar",
+      "description": "pintar las tareas en el calendario, falta sincronización con api calendar",
+      "notes": "",
+      "author": {
+        "name": "agonzalezbridge",
+        "email": "asier.medina.ugalde@gmail.com"
+      },
+      "branch": "feature-dashboard",
+      "date": "2026-03-19T13:13:04+01:00",
+      "timestamp": 1773922384,
+      "stats": {
+        "files_changed": 5,
+        "lines_added": 249,
+        "lines_deleted": 68
+      },
+      "files": [
+        {
+          "file": "src/infraestructure/storageManager.js",
+          "status": "modified"
+        },
+        {
+          "file": "src/pages/dashboard/dashboard.css",
+          "status": "modified"
+        },
+        {
+          "file": "src/pages/dashboard/dashboard.html",
+          "status": "modified"
+        },
+        {
+          "file": "src/pages/dashboard/dashboard.js",
+          "status": "modified"
+        },
+        {
+          "file": "src/services/calendarService.js",
+          "status": "modified"
+        }
+      ]
+    },
+    {
+      "hash": "2a5332ee",
+      "hash_full": "2a5332eecf0eac8089d83310cb115afc4134cd60",
+      "message": "merge pruebas into feature-dashboard",
+      "type": "other",
+      "scope": "",
+      "subject": "merge pruebas into feature-dashboard",
+      "description": "",
+      "notes": "",
+      "author": {
+        "name": "agonzalezbridge",
+        "email": "asier.medina.ugalde@gmail.com"
+      },
+      "branch": "feature-dashboard",
+      "date": "2026-03-19T10:40:19+01:00",
+      "timestamp": 1773913219,
+      "stats": {
+        "files_changed": 0,
+        "lines_added": 0,
+        "lines_deleted": 0
+      },
+      "files": []
+    },
+    {
+      "hash": "4a3a6870",
+      "hash_full": "4a3a68702f340a4c4a38b3020fa853d5c03b815e",
+      "message": " cambios de dashboard para que coja la info de localstorage",
+      "type": "other",
+      "scope": "",
+      "subject": " cambios de dashboard para que coja la info de localstorage",
+      "description": "",
+      "notes": "",
+      "author": {
+        "name": "agonzalezbridge",
+        "email": "asier.medina.ugalde@gmail.com"
+      },
+      "branch": "feature-dashboard",
+      "date": "2026-03-19T10:31:21+01:00",
+      "timestamp": 1773912681,
+      "stats": {
+        "files_changed": 6,
+        "lines_added": 94,
+        "lines_deleted": 40
+      },
+      "files": [
+        {
+          "file": "src/infraestructure/storageManager.js",
+          "status": "modified"
+        },
+        {
+          "file": "src/pages/dashboard/dashboard-borrar.md",
+          "status": "deleted"
+        },
+        {
+          "file": "src/pages/dashboard/dashboard-test.html",
+          "status": "added"
+        },
+        {
+          "file": "src/pages/dashboard/dashboard-test.js",
+          "status": "added"
+        },
+        {
+          "file": "src/pages/dashboard/dashboard.html",
+          "status": "modified"
+        },
+        {
+          "file": "src/pages/dashboard/dashboard.js",
+          "status": "modified"
+        }
+      ]
+    }
+  ]
+}

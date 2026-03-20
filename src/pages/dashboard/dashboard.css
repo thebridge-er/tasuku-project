@@ -187,3 +187,27 @@
 .clickable:hover{
     transform:scale(1.1);
 }
+
+/* =========================
+    CALENDARIO
+========================= */    
+.calendar-card {
+  background: #1e1e2f;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.calendar-day {
+  margin-bottom: 10px;
+}
+
+.calendar-task {
+  font-size: 14px;
+  padding: 4px;
+}
+
+.calendar-task.done {
+  text-decoration: line-through;
+  opacity: 0.6;
+}

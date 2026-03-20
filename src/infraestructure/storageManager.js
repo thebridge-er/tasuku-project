@@ -47,7 +47,7 @@ export default class StorageManager {
         name: "Personal",
         key: "ABC123",
         ownerId: 1,
-        members: [1],
+        members: [1,2],
         tasks: [1, 2, 3, 4], 
         taskTemplates: [
           {
@@ -218,4 +218,5 @@ export default class StorageManager {
       tasks,
     };
   }
+
 }

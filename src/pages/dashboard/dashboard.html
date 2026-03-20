@@ -47,7 +47,7 @@
     <div class="user-card">
       <img id="spaceAvatar" src="https://api.dicebear.com/7.x/adventurer/svg?seed=user">
       <div>
-        <h3 id="spaceUserName">JEFFERS</h3>
+        <h3 id="spaceUserName">quien sea</h3>
         <p>🏆 <span id="userPoints">0</span> puntos</p>
       </div>
       <div class="logros">
@@ -69,13 +69,24 @@
       </div>
     </div>
 
+    <!-- CALENDARIO -->
+     <div class="calendar-card">
+  <h3>📅 Calendario</h3>
+  <div id="calendar"></div>
+</div>
+<button id="syncCalendarBtn" class="main-btn">
+  📅 Sincronizar con Google Calendar
+</button>
     <!-- TAREAS -->
 
-    <div class="tasks-card">
-      <h3>✔ Tareas</h3>
-      <p>Sin tareas todavía</p>
-      <button class="main-btn">Añadir tareas de ejemplo</button>
-    </div>
+  
+
+<div class="tasks-card">
+  <h3>✔ Tareas</h3>
+
+  <!-- JS pinta aquí -->
+</div>
+<div class="tasks-card"></div>
 
     <!-- LOGROS -->
 
@@ -113,8 +124,9 @@
       </div>
     </div>
   </section>
-
-  <script src="./dashboard.js"></script>
+  <script src="https://accounts.google.com/gsi/client"></script>
+<script src="https://apis.google.com/js/api.js"></script>
+  <script type="module" src="./dashboard.js"></script>
 
 </body>
 

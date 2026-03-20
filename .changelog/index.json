@@ -6,9 +6,9 @@
     "changelog_version": "1.0.0"
   },
   "stats": {
-    "total_commits": 4855,
-    "total_branches": 5,
-    "last_updated": "2026-03-18T15:26:48+01:00"
+    "total_commits": 4859,
+    "total_branches": 6,
+    "last_updated": "2026-03-20T09:39:04+01:00"
   },
   "branches": [
     {
@@ -25,6 +25,14 @@
       "commit_count": 5,
       "last_commit_hash": "fcda319",
       "last_commit_date": "2026-03-13T13:37:23+01:00",
+      "last_author": "agonzalezbridge"
+    },
+    {
+      "name": "feature-dashboard",
+      "file": "feature-dashboard.json",
+      "commit_count": 4,
+      "last_commit_hash": "473afb34",
+      "last_commit_date": "2026-03-20T09:39:04+01:00",
       "last_author": "agonzalezbridge"
     },
     {
