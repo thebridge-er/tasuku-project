@@ -134,6 +134,43 @@ transform:scale(1.1);
 z-index:5;
 }
 
+.main-btn{
+width:100%;
+padding:18px;
+border-radius:40px;
+font-size:16px;
+font-weight:600;
+background:#7d9af1;
+border:none;
+color:black;
+cursor:pointer;
+transition:0.25s;
+}
+
+.main-btn:hover{
+transform:translateY(-2px);
+}
+
+
+/* BOTON SECUNDARIO */
+
+.secondary-btn{
+width:100%;
+padding:18px;
+border-radius:40px;
+font-size:16px;
+font-weight:600;
+background:black;
+border:2px solid #6c8cff;
+color:#6c8cff;
+cursor:pointer;
+transition:0.25s;
+}
+
+.secondary-btn:hover{
+background:#0b1222;
+}
+
 
 /* RESPONSIVE */
 

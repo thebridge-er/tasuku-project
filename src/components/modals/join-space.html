@@ -1,20 +1,25 @@
-<div id="joinModal" class="modal">
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="modal-card">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
-<div class="modal-header">
-<h3>Unirse a espacio</h3>
-<span class="close" onclick="closeModal('joinModal')">✕</span>
-</div>
+<body>
 
-<label>Código de invitación</label>
+    <div id="joinModal" class="modal">
+        <div class="modal-card">
+            <span class="close" onclick="closeModal('joinModal')">✕</span>
+            <h3>Unirse a Espacio</h3>
 
-<input id="joinCode" placeholder="FEB24FS2026">
+            <input placeholder="CÓDIGO DE INVITACIÓN">
+            <button id="join-space-btn">Unirse a Espacio</button>
+        </div>
+    </div>
+    <script src="../../services/app.js"></script>
+    <script src="../../pages/auth/auth.js"></script>
+</body>
 
-<button class="main-btn" onclick="unirseEspacio()">
-Unirse a espacio
-</button>
-
-</div>
-
-</div>
+</html>

@@ -1,51 +1,234 @@
-// 1️. Seleccionar botón para cambiar tema
-const btnTheme = document.querySelector('ui-button[dark-mode]');
+// =========================
+// CARDS.JS - TASUKU PROJECT
+// User / Place / Ranking cards
+// =========================
 
-btnTheme.addEventListener('click', () => {
-  const html = document.documentElement;
-  const isLight = html.dataset.theme === 'light';
-  
-  // Cambiar theme
-  html.dataset.theme = isLight ? 'dark' : 'light';
-  
-  // Opcional: cambiar icono según theme
-  btnTheme.setAttribute('icon', isLight ? 'icon-dark.png' : 'icon-light.png');
-});
+// Custom elements
+class UICardUser extends HTMLElement {}
+customElements.define("ui-card-user", UICardUser);
 
-// ------------------------------
-// 2. Datos de ejemplo de usuarios
+class UICardPlace extends HTMLElement {}
+customElements.define("ui-card-place", UICardPlace);
+
+class UICardRanking extends HTMLElement {}
+customElements.define("ui-card-ranking", UICardRanking);
+
+
+// =========================
+// DATA
+// =========================
+
 const users = [
-  { name: 'Dolores Delano', points: 120, score: 80, avatar: 'assets/images/avatar1.svg' },
-  { name: 'Armando Guerra', points: 95, score: 60, avatar: 'assets/images/avatar2.svg' },
-  { name: 'Aitor Tiya', points: 150, score: 90, avatar: 'assets/images/avatar3.svg' }
+    { name: "Dolores Delano", score: 0, avatar: "/src/assets/images/avatar1.svg" },
+    { name: "Elsa Brosón", score: 0, avatar: "/src/assets/images/avatar2.svg" }
 ];
 
-// ------------------------------
-// 3. Contenedor donde se añadirán las cards
-const container = document.getElementById('cards-container');
+const places = [
+    {
+        name: "Mikasa",
+        icon: "/src/assets/images/icono-casa.svg",
+        users: [
+            "/src/assets/images/avatar1.svg",
+            "/src/assets/images/avatar2.svg"
+        ]
+    }
+];
 
-// Seleccionamos la card template (la primera o una invisible)
-const templateCard = document.querySelector('.user-card');
+const rankings = [
+    {
+        title: "Ranking",
+        users: users
+    }
+];
 
-// ------------------------------
-// 4. Función para crear cards dinámicamente
-users.forEach(user => {
-  // Clonamos la card template
-  const cardClone = templateCard.cloneNode(true);
-  
-  // Actualizamos contenido
-  cardClone.querySelector('.user-card-name').textContent = user.name;
-  cardClone.querySelector('.user-card-points').textContent = `${user.points} puntos`;
-  cardClone.querySelector('.user-score').textContent = user.score;
-  cardClone.querySelector('.avatar').src = user.avatar;
 
-  // Mostramos la card (en caso de que la template esté oculta)
-  cardClone.style.display = 'flex';
+// =========================
+// INIT
+// =========================
 
-  // Añadimos al contenedor
-  container.appendChild(cardClone);
+document.addEventListener("DOMContentLoaded", () => {
+
+    console.log("Init cards");
+
+    const app = document.querySelector("#app");
+    if (!app) return;
+
+
+    // =========================
+    // USER CARDS
+    // =========================
+
+    users.forEach(user => {
+
+        const el = document.createElement("ui-card-user");
+
+        el.innerHTML = `
+            <div class="card-user">
+
+                <img
+                    class="card-user-avatar"
+                    src="${user.avatar}"
+                    alt="Avatar de ${user.name}"
+                >
+
+                <div class="card-user-info">
+
+                    <h3 class="card-user-name">
+                        ${user.name}
+                    </h3>
+
+                    <p class="card-user-points">
+                        <span class="card-user-score">
+                            ${user.score}
+                        </span>
+                        puntos
+                    </p>
+
+                </div>
+
+            </div>
+        `;
+
+        app.appendChild(el);
+
+    });
+
+
+
+    // =========================
+    // PLACE CARDS
+    // =========================
+
+    places.forEach(place => {
+
+        const el = document.createElement("ui-card-place");
+
+        const usersHTML = place.users
+            .map(u =>
+                `<img
+                    src="${u}"
+                    alt="Avatar usuario"
+                    class="card-place-avatar"
+                >`
+            )
+            .join("");
+
+        el.innerHTML = `
+            <div class="card-place">
+
+                <div class="card-place-info">
+
+                    <img
+                        src="${place.icon}"
+                        alt="Icono de ${place.name}"
+                    >
+
+                    <span class="card-place-name">
+                        ${place.name}
+                    </span>
+
+                </div>
+
+                <div class="card-place-users">
+                    ${usersHTML}
+                </div>
+
+            </div>
+        `;
+
+        app.appendChild(el);
+
+    });
+
+
+
+    // =========================
+    // RANKING CARD
+    // =========================
+
+    rankings.forEach(rank => {
+
+        const el = document.createElement("ui-card-ranking");
+
+
+        const rankingUsersHTML = rank.users
+            .map((u, i) => `
+
+                <div class="card-user-ranking ${i === 0 ? "top" : ""}">
+
+                    <div class="user-rank">
+                        ${i + 1}
+                    </div>
+
+                    <img
+                        src="${u.avatar}"
+                        alt="Avatar de ${u.name}"
+                        class="card-user-avatar"
+                    >
+
+                    <div class="card-user-info">
+
+                        <h3 class="card-user-name">
+                            ${u.name}
+                        </h3>
+
+                        <p class="card-user-points">
+                            <span class="card-user-score">
+                                ${u.score}
+                            </span>
+                            puntos
+                        </p>
+
+                    </div>
+
+                </div>
+
+            `)
+            .join("");
+
+
+
+        el.innerHTML = `
+
+            <div class="card-ranking">
+
+                <div class="card-ranking-header">
+
+                    <div class="card-ranking-title">
+                        ${rank.title}
+                    </div>
+
+                    <div class="card-ranking-toggle"></div>
+
+                </div>
+
+
+                <div class="card-ranking-list">
+
+                    ${rankingUsersHTML}
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        app.appendChild(el);
+
+
+        // toggle
+
+        const header = el.querySelector(".card-ranking-header");
+        const container = el.querySelector(".card-ranking");
+
+        header.addEventListener("click", () => {
+
+            container.classList.toggle("open");
+
+        });
+
+    });
+
+
 });
-
-// ------------------------------
-// 5️⃣ (Opcional) Ocultar la template original
-templateCard.style.display = 'none';

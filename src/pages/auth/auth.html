@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../components/buttons/buttons.css">
     <link rel="stylesheet" href="./auth.css">
     <link rel="stylesheet" href="../../styles/global.css">
+    <link rel="stylesheet" href="../../styles/global.css">
 </head>
 
 <body>
@@ -23,12 +24,12 @@
 
             <input id="nameField" placeholder="Nombre" style="display:none">
             <label>Correo</label>
-
             <input id="email" placeholder="email@ejemplo.com" autocomplete="off">
             <label>Contraseña</label>
 
-            <input id="password" type="password" placeholder="**" autocomplete="off">
+            <input id="password" type="password" placeholder="********" autocomplete="off">
             <button id="mainBtn">Iniciar Sesión</button>
+            <p id="errorMsg" class="error-msg"></p>
             <p id="switchText">
                 ¿No tienes cuenta?
                 <span id="registerLink">Registrarse</span>
@@ -40,5 +41,6 @@
     <script src="../../services/app.js"></script>
     <script src="./auth.js"></script>
 </body>
+
 
 </html>

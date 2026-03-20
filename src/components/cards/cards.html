@@ -1,91 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cards Example</title>
 
-    <!-- Primero global.css -->
-    <link rel="stylesheet" href="/src/styles/global.css">
-    
-    <!-- Luego cards.css -->
-    <link rel="stylesheet" href="/src/components/cards/cards.css">
+    <title>Cards</title>
+
+    <!-- GLOBAL -->
+    <link rel="stylesheet" href="../../styles/global.css">
+
+    <!-- CARDS CSS -->
+    <link rel="stylesheet" href="./cards.css">
+
 </head>
+
+
 <body>
 
-    <!-- Botón para cambiar tema -->
-    <ui-button
-      id="btn-theme"
-      circle
-      dark-mode
-      icon="/src/assets/images/icon.png"
-    ></ui-button>
+    <!-- CONTENEDOR APP -->
+    <div id="app">
 
-    <!-- Contenedor donde se añadirán las cards dinámicas -->
-    <div id="cards-container">
+        <!-- CARD USER -->
+        <ui-card-user></ui-card-user>
 
-        <!-- Template card (oculta, se clona con JS) -->
-        <div class="card user-card" style="">
-            <img class="avatar" src="/src/assets/images/avatar1.svg" alt="Usuario">
-            <div class="user-card-info">
-                <h3 class="user-card-name">Usuario</h3>
-                <div class="user-card-score">
-                    <span class="user-score">0</span>
-                    <p class="user-card-points">puntos</p>
-                </div>
-            </div>
-            
-        </div>
+        <!-- CARD PLACE -->
+        <ui-card-place></ui-card-place>
 
     </div>
 
-    <!-- Card de lugar / ranking -->
-    <div class="card card-place">
-        <div class="card-place-info">
-            <img src="/src/assets/images/icono-casa.svg" alt="Lugar">
-            <span class="card-place-name">Mikasa</span>
-        </div>
-        <div class="card-place-users">
-            <img src="/src/assets/images/avatar1.svg" alt="Usuario 1">
-            <img src="/src/assets/images/avatar2.svg" alt="Usuario 2">
-            <img src="/src/assets/images/avatar3.svg" alt="Usuario 3">
-        </div>
-    </div>
-
-    <div class="card card-ranking">
-        <div class="card-ranking-header">
-            <div class="card-ranking-title">Ranking</div>
-            <div class="card-ranking-toggle"></div>
-        </div>
-        <div class="card-ranking-list">
-            <!-- Aquí se añadirán las cards de ranking dinámicamente -->
-            <div class="user-card-ranking top">
-                <span class="user-rank">1</span>
-                <img class="avatar" src="/src/assets/images/avatar1.svg" alt="Avatar1">
-                <div class="user-card-info">
-                    <span class="user-card-name">Dolores<br>Delano</span>
-                </div>
-                <div class="user-card-score">
-                    <span class="score-number">0</span>
-                    <span class="score-label">puntos</span>
-                </div>
-            </div>
-
-    <div class="user-card-ranking">
-        <span class="user-rank">2</span>
-        <img class="avatar" src="/src/assets/images/avatar2.svg" alt="Avatar2">
-        <div class="user-card-info">
-            <span class="user-card-name">
-            Elsa<br>Brosón
-            </span>
-        </div>
-        <div class="user-card-score">
-            <span class="score-number">0</span>
-            <span class="score-label">puntos</span>
-        </div>
-    </div>
 
     <!-- JS -->
-    <script src="/src/js/cards.js"></script>
+    <script type="module" src="./cards.js"></script>
+
 </body>
+
 </html>

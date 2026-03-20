@@ -1,20 +1,25 @@
-<div id="createModal" class="modal">
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="modal-card">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
-<div class="modal-header">
-<h3>Crear espacio</h3>
-<span class="close" onclick="closeModal('createModal')">✕</span>
-</div>
+<body>
 
-<label>Nombre del espacio</label>
+    <div id="createModal" class="modal">
+        <div class="modal-card">
+            <span class="close" onclick="closeModal('createModal')">✕</span>
+            <h3>Crear Espacio</h3>
 
-<input id="spaceNameInput" placeholder="Mikasa">
+            <input placeholder="Nombre del Espacio">
+            <button class="main-btn" id="create-space-btn">Crear Espacio</button>
+        </div>
+    </div>
+    <script src="../../services/app.js"></script>
+    <script src="../../pages/auth/auth.js"></script>
+</body>
 
-<button class="main-btn" onclick="crearEspacio()">
-Crear espacio
-</button>
-
-</div>
-
-</div>
+</html>
