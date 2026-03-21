@@ -6,9 +6,9 @@
     "changelog_version": "1.0.0"
   },
   "stats": {
-    "total_commits": 4859,
+    "total_commits": 34,
     "total_branches": 6,
-    "last_updated": "2026-03-20T09:39:04+01:00"
+    "last_updated": "2026-03-20T13:40:53+01:00"
   },
   "branches": [
     {
@@ -52,12 +52,20 @@
       "last_author": "Txe"
     },
     {
+      "name": "feature-profile",
+      "file": "feature-profile.json",
+      "commit_count": 1,
+      "last_commit_hash": "11a3d9a",
+      "last_commit_date": "2026-03-20T13:40:53+01:00",
+      "last_author": "Txe"
+    },
+    {
       "name": "pruebas",
       "file": "pruebas.json",
-      "commit_count": 4831,
-      "last_commit_hash": "e41e5d8f",
-      "last_commit_date": "2026-03-18T15:26:48+01:00",
-      "last_author": "agonzalezbridge"
+      "commit_count": 10,
+      "last_commit_hash": "2c7fb3d",
+      "last_commit_date": "2026-03-20T10:02:52+01:00",
+      "last_author": "Txe"
     }
   ]
 }

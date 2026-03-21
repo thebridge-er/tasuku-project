@@ -9,12 +9,14 @@
 import { loadLanguage } from "./services/translation.js";
 import { initializeColorTheme } from "./services/colorTheme.js";
 import StorageManager from "./infraestructure/storageManager.js";
+import { loadHeader } from "./services/headerLoader.js";
 
 const db = StorageManager.load();
 
 console.log(db);
 
 async function initGoogleCalendar() {
+  infraestructure
   await initCalendar();
   await initGoogleIdentity();
   console.log("Google Calendar ready");
@@ -39,9 +41,8 @@ function initLangSelector() {
 
 function startApp() {
   initLangSelector();
+  await loadHeader()
   initializeColorTheme();
-  /* initGoogleCalendar(); */
 }
-
 
 document.addEventListener("DOMContentLoaded", startApp);

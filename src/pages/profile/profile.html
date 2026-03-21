@@ -1,43 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Perfil</title>
-<link rel="stylesheet" href="../profile/profile.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="../profile/profile.css">
 </head>
 
 <body>
 
-<section id="perfil">
+    <section id="perfil">
 
-    <div class="perfil-card">
+        <div class="perfil-card">
 
-        <img id="perfilAvatar"
-        src="https://api.dicebear.com/7.x/adventurer/svg?seed=user">
+            <img id="perfilAvatar" src="https://api.dicebear.com/7.x/adventurer/svg?seed=user">
 
-        <h2 id="perfilNombre">Usuario</h2>
+            <h2 id="perfilNombre">Usuario</h2>
 
-        <div class="info">
-            <p><strong>Email:</strong> <span id="perfilEmail"></span></p>
-            <p><strong>Puntos:</strong> <span id="perfilPuntos">0</span></p>
-            <p><strong>Nº tareas:</strong> <span id="perfilTareas">0</span></p>
-            <p><strong>Nº espacios:</strong> <span id="perfilEspacios">0</span></p>
+            <div class="info">
+                <p><strong>Email:</strong> <span id="perfilEmail"></span></p>
+                <p><strong>Puntos:</strong> <span id="perfilPuntos">0</span></p>
+                <p><strong>Nº tareas:</strong> <span id="perfilTareas">0</span></p>
+                <p><strong>Nº espacios:</strong> <span id="perfilEspacios">0</span></p>
+            </div>
+
+            <button class="btn btn-edit">
+                Modificar
+            </button>
+
+            <button class="btn btn-delete">
+                Eliminar cuenta
+            </button>
+
         </div>
 
-        <button class="btn btn-edit">
-            Modificar
-        </button>
+    </section>
 
-        <button class="btn btn-delete">
-            Eliminar cuenta
-        </button>
-
-    </div>
-
-</section>
-
-<script src="perfil.js"></script>
+    <script src="profile.js"></script>
 
 </body>
+
 </html>
