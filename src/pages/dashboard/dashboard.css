@@ -2,38 +2,43 @@
     PERFIL
 ========================= */
 
-#perfil{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
+#perfil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
 }
 
-.perfil-card{
-    background:#1f2640;
-    padding:40px;
-    border-radius:20px;
-    text-align:center;
-    width:300px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+.perfil-card {
+    background: var(--color-surface);
+    padding: 40px 32px;
+    border-radius: var(--radius);
+    text-align: center;
+    width: 100%;
+    max-width: 340px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--color-border);
 }
 
-.perfil-card img{
-    width:100px;
-    height:100px;
-    border-radius:50%;
-    margin-bottom:20px;
-    border:3px solid #4a6cf7;
+.perfil-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 3px solid var(--color-primary);
+    object-fit: cover;
 }
 
-.perfil-card h2{
-    margin:10px 0;
-    font-size:22px;
+.perfil-card h2 {
+    margin: 10px 0 6px;
+    font-size: 1.3rem;
 }
 
-.perfil-card p{
-    color:#aaa;
-    margin-bottom:20px;
+.perfil-card p {
+    color: var(--color-muted);
+    margin-bottom: 24px;
+    font-size: 0.9rem;
 }
 
 
@@ -41,43 +46,106 @@
     BOTÓN PRINCIPAL
 ========================= */
 
-.main-btn{
-    background:#4a6cf7;
-    border:none;
-    padding:12px 20px;
-    border-radius:10px;
-    color:white;
-    cursor:pointer;
-    font-weight:600;
-    transition:0.2s;
+.main-btn {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-variant));
+    border: none;
+    padding: 12px 22px;
+    border-radius: 40px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    font-family: "Montserrat", sans-serif;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    white-space: nowrap;
 }
 
-.main-btn:hover{
-    background:#3b58d6;
+.main-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.92;
 }
-
-
 
 
 /* =========================
-    HEADER DEL ESPACIO
+    ESPACIO / DASHBOARD LAYOUT
 ========================= */
 
-.space-header{
-    padding:20px;
-    border-bottom:1px solid rgba(255,255,255,0.1);
+#espacio {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.space-info{
-    display:flex;
-    gap:10px;
-    align-items:center;
+/* Títulos del espacio bajo el header */
+#spaceName {
+    padding: 28px 24px 4px;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 700;
 }
 
-.space-icon{
-    background:#4a6cf7;
-    padding:10px;
-    border-radius:10px;
+#spaceMembers {
+    padding: 0 24px 20px;
+    color: var(--color-muted);
+    font-size: 0.88rem;
+}
+
+/* Grid principal del dashboard */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 0 16px 32px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+@media (min-width: 640px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr 1fr;
+        padding: 0 24px 40px;
+        gap: 20px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 0 32px 48px;
+        gap: 24px;
+    }
+}
+
+
+/* =========================
+    TARJETA BASE (shared)
+========================= */
+
+.user-card,
+.ranking-card,
+.tasks-card,
+.logros-card,
+.calendar-card {
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    transition: background var(--transition);
+}
+
+/* Títulos dentro de las cards */
+.user-card h3,
+.ranking-card h3,
+.tasks-card h3,
+.logros-card h3,
+.calendar-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: var(--color-text);
 }
 
 
@@ -85,19 +153,54 @@
     TARJETA DE USUARIO
 ========================= */
 
-.user-card{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    background:#1f2640;
-    padding:20px;
-    margin:20px;
-    border-radius:15px;
+.user-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
 }
 
-.user-card img{
-    width:60px;
-    border-radius:50%;
+.user-card img {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: 2px solid var(--color-primary);
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.user-card>div:nth-child(2) {
+    flex: 1;
+    min-width: 0;
+}
+
+.user-card h3 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-card p {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+}
+
+.user-card .logros {
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.user-card .logros p {
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    margin-bottom: 2px;
+}
+
+.user-card .logros strong {
+    font-size: 1rem;
+    color: var(--color-primary);
 }
 
 
@@ -105,23 +208,52 @@
     RANKING
 ========================= */
 
-.ranking-card{
-    background:#1f2640;
-    padding:20px;
-    margin:20px;
-    border-radius:15px;
+.ranking-card {
+    /* card base applied above */
 }
 
-.ranking-user{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-top:10px;
+.ranking-user {
+    display: flex;
+    
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-border);
 }
 
-.ranking-user img{
-    width:40px;
-    border-radius:50%;
+.ranking-user:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.ranking-user img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.ranking-user>span:first-child {
+    font-weight: 700;
+    color: var(--color-primary);
+    min-width: 20px;
+    font-size: 0.9rem;
+}
+
+.ranking-user p {
+    flex: 1;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ranking-user>span:last-child {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    white-space: nowrap;
 }
 
 
@@ -129,12 +261,12 @@
     TAREAS
 ========================= */
 
-.tasks-card{
-    background:#1f2640;
-    padding:20px;
-    margin:20px;
-    border-radius:15px;
-    text-align:center;
+.tasks-card {
+    /* card base applied above */
+}
+
+.tasks-card:empty {
+    display: none;
 }
 
 
@@ -142,72 +274,264 @@
     LOGROS
 ========================= */
 
-.logros-card{
-    background:#1f2640;
-    padding:20px;
-    margin:20px;
+.logros-card {
+    /* card base applied above */
+}
+
+.logros-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+@media (min-width: 480px) {
+    .logros-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.logro {
+    background: var(--color-surface-2);
+    padding: 14px 8px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
     text-align: center;
-    border-radius:15px;
+    border: 1px solid var(--color-border);
+    transition: var(--transition);
+    color: var(--color-muted);
 }
 
-.logros-grid{
-    display:grid;
-    grid-template-columns:repeat(3, minmax(0,1fr));
-    gap:10px;
-    margin-top:10px;
+.icono {
+    font-size: 22px;
 }
 
-.logro{
-    background:#2a3154;
-    padding:15px;
-    border-radius:10px;
-    font-size:14px;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-
-    text-align:center;
+.clickable {
+    cursor: pointer;
 }
 
-.icono{
-    font-size:24px;
-}
-.logro{
-    width:100%;
-}
-
-.clickable{
-    cursor:pointer;
-    transition:0.2s;
+.clickable:hover {
+    transform: scale(1.08);
+    border-color: var(--color-primary);
+    color: var(--color-text);
 }
 
-.clickable:hover{
-    transform:scale(1.1);
-}
 
 /* =========================
     CALENDARIO
-========================= */    
+========================= */
+
 .calendar-card {
-  background: #1e1e2f;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 20px;
+    /* card base applied above */
 }
 
 .calendar-day {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-muted);
 }
 
 .calendar-task {
-  font-size: 14px;
-  padding: 4px;
+    font-size: 0.82rem;
+    padding: 5px 8px;
+    border-radius: 6px;
+    background: var(--color-surface-2);
+    margin-top: 4px;
+    color: var(--color-text);
 }
 
 .calendar-task.done {
-  text-decoration: line-through;
-  opacity: 0.6;
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+#syncCalendarBtn {
+    margin: 0 16px 16px;
+    width: calc(100% - 32px);
+    max-width: 400px;
+}
+
+@media (min-width: 640px) {
+    #syncCalendarBtn {
+        margin: 0 24px 20px;
+        width: auto;
+    }
+}
+
+
+/* =========================
+    SPAN GRID — cards de tamaño mayor
+========================= */
+
+@media (min-width: 640px) {
+
+    /* User card ocupa 2 columnas en tablet */
+    .user-card {
+        grid-column: span 2;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    /* Logros ocupa 2 columnas en desktop */
+    .logros-card {
+        grid-column: span 2;
+    }
+
+    /* User card vuelve a 1 columna en desktop */
+    .user-card {
+        grid-column: span 1;
+    }
+}
+
+/* =========================
+    TAREAS — componente dinámico
+========================= */
+
+.tasks-card h4 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-muted);
+    margin: 20px 0 10px;
+}
+
+.tasks-card h4:first-of-type {
+    margin-top: 4px;
+}
+
+.tasks-card>p {
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    padding: 8px 0;
+}
+
+/* --- Formulario de creación --- */
+
+.task-create {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+}
+
+.task-create input {
+    flex: 1;
+    min-width: 0;
+    padding: 10px 14px;
+    border-radius: var(--radius-input);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-2);
+    color: var(--color-text);
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.88rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.task-create input:focus {
+    border-color: var(--color-primary);
+}
+
+.task-create input::placeholder {
+    color: var(--color-muted);
+}
+
+.task-create select {
+    padding: 10px 28px 10px 12px;
+    border-radius: var(--radius-input);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='rgba(255,255,255,0.4)'/%3E%3C/svg%3E") no-repeat right 10px center;
+    appearance: none;
+    color: var(--color-text);
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.85rem;
+    outline: none;
+    cursor: pointer;
+    transition: var(--transition);
+    min-width: 110px;
+}
+
+.task-create select:focus {
+    border-color: var(--color-primary);
+}
+
+.task-create .main-btn {
+    padding: 10px 18px;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+/* --- Ítems de tarea --- */
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: var(--radius-input);
+    background: var(--color-surface-2);
+    border: 1px solid var(--color-border);
+    margin-bottom: 6px;
+    transition: var(--transition);
+}
+
+.task-item:last-child {
+    margin-bottom: 0;
+}
+
+.task-item:hover {
+    border-color: var(--color-primary);
+}
+
+.task-item span {
+    flex: 1;
+    font-size: 0.88rem;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+.task-item small {
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.task-item button {
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.task-item button:hover {
+    border-color: var(--color-primary);
+    color: var(--color-text);
+    transform: translateY(-1px);
+}
+
+/* --- Estado done --- */
+
+.task-item.done {
+    opacity: 0.5;
+}
+
+.task-item.done span {
+    text-decoration: line-through;
+}
+
+.task-item.done button {
+    border-color: var(--color-success);
+    color: var(--color-success);
 }
