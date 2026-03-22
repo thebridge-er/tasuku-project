@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   userSpaces.forEach((space) => {
     const card = document.createElement("div");
     card.classList.add("space-card");
+    card.setAttribute("data-name", space.name.toLowerCase());
     card.innerHTML = `
       <h3>${space.name}</h3>
       <p>Miembros: ${space.members.length}</p>
@@ -172,4 +173,14 @@ document.addEventListener("click", (e) => {
 
 function closeModal(id) {
   document.querySelector(".modal").style.display = "none";
+}
+
+window.filterSpaces = function () {
+  const query = document.getElementById("spaceSearch").value.toLowerCase();
+  const cards = document.querySelectorAll(".space-card");
+
+  cards.forEach((card) => {
+    const name = card.getAttribute("data-name");
+    card.style.display = name.includes(query) ? "" : "none";
+  });
 }

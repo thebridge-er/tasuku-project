@@ -38,5 +38,8 @@
 
   "footer_text": "Maitasunez egina etxe antolatuagoetarako",
   "return": "Itxuli",
-  "welcome": "Ongi Etorri"
+  "welcome": "Ongi Etorri",
+  "profile":"Profila",
+  "return-onboarding": "Lekutik kanporatu",
+  "close-session":"Itxi Saioa"
 }

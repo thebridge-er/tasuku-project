@@ -38,5 +38,9 @@
 
   "footer_text": "Hecho con amor para hogares más organizados",
   "return": "Volver",
-  "welcome": "Bienvenido"
+  "welcome": "Bienvenido",
+  "profile":"Perfil",
+  "return-onboarding": "Salir del espacio",
+  "close-session":"Cerrar Sesión"
+  
 }

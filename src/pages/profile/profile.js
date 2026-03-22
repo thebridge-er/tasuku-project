@@ -123,6 +123,26 @@ function editarNombre() {
 
 
 // ======================
+// CERRAR SESIÓN
+// ======================
+
+function closeSession(){
+
+    let isConfirm = confirm("¿Quieres cerrar sesión?");
+    
+    if(!isConfirm) return; 
+    
+    let db = getDB()
+    const usuario = db.users.find(u => u.session === true)
+    usuario.session = false; 
+
+    saveDB(db)
+
+    window.location.href = "../../index.html"
+}
+
+
+// ======================
 // EVENTOS BOTONES
 // ======================
 
@@ -130,6 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const btnDelete = document.querySelector(".btn-delete")
     const btnEdit = document.querySelector(".btn-edit")
+    const btnCloseSession = document.querySelector(".btn-close-session")
 
     if (btnDelete) {
         btnDelete.addEventListener("click", eliminarCuenta)
@@ -137,6 +158,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (btnEdit) {
         btnEdit.addEventListener("click", editarNombre)
+    }
+
+    if(btnCloseSession){
+        btnCloseSession.addEventListener("click", closeSession);
     }
 
 })

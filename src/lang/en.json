@@ -37,5 +37,8 @@
 
   "footer_text": "Made with love for more organized homes",
   "return": "Return",
-  "welcome": "Welcome"
+  "welcome": "Welcome",
+  "profile":"Profile",
+  "return-onboarding": "Exit the space",
+  "close-session":"Close Session"
 }

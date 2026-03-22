@@ -172,6 +172,43 @@ background:#0b1222;
 }
 
 
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+#spaceSearch {
+  padding: 10px 16px 10px 38px;
+  border-radius: 20px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: var(--transition);
+  width: 100%;
+}
+
+#spaceSearch:focus {
+  border-color: var(--color-primary);
+  background: var(--color-surface-2);
+}
+
+#spaceSearch::placeholder {
+  color: var(--color-muted);
+}
+
+
 /* RESPONSIVE */
 
 @media (max-width:650px){

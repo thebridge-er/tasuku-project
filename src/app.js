@@ -39,9 +39,9 @@ function initLangSelector() {
 }
 
 
-function startApp() {
+async function startApp() {
+  await loadHeader();
   initLangSelector();
-  await loadHeader()
   initializeColorTheme();
 }
 
