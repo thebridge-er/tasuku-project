@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../../styles/global.css" />
+    <link rel="stylesheet" href="../../styles/main.css" />
+    <link rel="stylesheet" href="./dashboard.css" />
+  </head>
+
+  <body>
+    <!-- DASHBOARD / ESPACIO -->
+
+    <section id="espacio">
+
+      <!-- HEADER -->
+      <div id="header-container"></div>
+
+      <!-- ESPACIO INFO -->
+      <h2 id="spaceName"></h2>
+      <p id="spaceMembers"></p>
+
+      <!-- SYNC CALENDAR BTN (fuera del grid para que no rompa layout) -->
+      <button id="syncCalendarBtn" class="main-btn">
+        📅 Sincronizar con Google Calendar
+      </button>
+
+      <!-- GRID PRINCIPAL -->
+      <div class="dashboard-grid">
+
+        <!-- TARJETA DE USUARIO -->
+        <div class="user-card">
+          <img
+            id="spaceAvatar"
+            src="https://api.dicebear.com/7.x/adventurer/svg?seed=user"
+            alt="Avatar"
+          />
+          <div>
+            <h3 id="spaceUserName">quien sea</h3>
+            <p>🏆 <span id="userPoints">0</span> puntos</p>
+          </div>
+          <div class="logros">
+            <p>Logros</p>
+            <strong>0/7</strong>
+          </div>
+        </div>
+
+        <!-- RANKING -->
+        <div class="ranking-card">
+          <h3>🏆 Ranking</h3>
+          <div class="ranking-all-user">
+          </div>  
+        </div>
+
+        <!-- CALENDARIO -->
+        <div class="calendar-card">
+          <h3>📅 Calendario</h3>
+          <div id="calendar"></div>
+        </div>
+
+        <!-- TAREAS -->
+        <div class="tasks-card">
+          <h3>✔ Tareas</h3>
+          <!-- JS pinta aquí -->
+        </div>
+
+        <!-- LOGROS -->
+        <div class="logros-card">
+          <h3>✨ Logros</h3>
+          <div class="logros-grid">
+            <div class="logro clickable">
+              <span class="icono">🌱</span>
+              <span>Primeros pasos</span>
+            </div>
+            <div class="logro clickable">
+              <span class="icono">⭐</span>
+              <span>Aprendiz</span>
+            </div>
+            <div class="logro clickable">
+              <span class="icono">🏆</span>
+              <span>Maestro</span>
+            </div>
+            <div class="logro clickable">
+              <span class="icono">💯</span>
+              <span>Club 100</span>
+            </div>
+            <div class="logro clickable">
+              <span class="icono">💎</span>
+              <span>Coleccionista</span>
+            </div>
+            <div class="logro clickable">
+              <span class="icono">💪</span>
+              <span>Desafío</span>
+            </div>
+            <div class="logro clickable">
+              <span class="icono">🔥</span>
+              <span>Racha</span>
+            </div>
+          </div>
+        </div>
+        <button class="main-btn" onclick="window.location = '../../pages/onboarding/onboarding.html'" data-translation="return-onboarding"></button>
+      </div><!-- /.dashboard-grid -->
+
+    </section>
+
+    <script src="https://accounts.google.com/gsi/client"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script type="module" src="./dashboard.js"></script>
+    <script type="module" src="../../app.js"></script>
+  </body>
+</html>

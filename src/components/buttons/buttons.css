@@ -1,0 +1,125 @@
+/* Reset de ui-button */
+ui-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  background: var(--color-surface-2);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+  line-height: 1;
+}
+
+/* Variants */
+ui-button[variant="primary"] {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+  border-color: var(--color-primary-variant);
+}
+
+ui-button[variant="secondary"] {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+ui-button[variant="tertiary"] {
+  background-color: transparent;
+  color: var(--color-muted);
+  border: 1px dashed var(--color-border);
+}
+
+/* Hover: intercambiar primary ↔ secondary */
+ui-button[variant="primary"]:hover {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+ui-button[variant="secondary"]:hover {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+  border-color: var(--color-primary-variant);
+}
+
+ui-button[variant="tertiary"]:hover {
+  color: var(--color-text);
+  background-color: var(--color-surface);
+}
+
+/* Iconos */
+ui-button[icon],
+ui-button[icon-left],
+ui-button[icon-right] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+ui-button[icon]::before {
+  content: "";
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: currentColor;
+  -webkit-mask-image: var(--icon-url);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  mask-image: var(--icon-url);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
+
+ui-button[icon-left]::before {
+  content: "";
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  mask: url(attr(icon-left)) no-repeat center / contain;
+  -webkit-mask: url(attr(icon-left)) no-repeat center / contain;
+  background-color: currentColor;
+}
+
+ui-button[icon-right]::after {
+  content: "";
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: currentColor;
+}
+
+/* Botones circulares */
+ui-button[circle] {
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border-radius: 50%;
+}
+
+/* Dark / Light mode overrides */
+ui-button[dark-mode] {
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+ui-button[dark-mode]:hover {
+  background-color: var(--color-surface-2);
+}
+
+/* Accesibilidad: focus */
+ui-button:focus {
+  outline: 2px solid var(--color-primary-variant);
+  outline-offset: 2px;
+}

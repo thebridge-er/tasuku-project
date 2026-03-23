@@ -1,0 +1,299 @@
+/* =========================
+   VARIABLES
+========================= */
+
+:root {
+  --card-bg: var(--color-surface-2);
+  --card-bg-alt: var(--color-surface);
+  --card-text-primary: var(--color-text);
+  --card-text-secondary: var(--color-muted);
+  --card-border-radius: var(--radius);
+  --card-score-bg: rgba(255, 255, 255, 0.12);
+  --ranking-top-bg: #6b5d4b;
+}
+
+[data-theme="light"] {
+  --card-score-bg: rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   CUSTOM TAGS
+========================= */
+
+ui-card-user,
+ui-card-place,
+ui-card-ranking {
+
+  display: block;
+  width: 100%;
+  margin-bottom: 16px;
+
+}
+
+
+/* =========================
+   BASE CARD
+========================= */
+
+.card {
+
+  padding: 16px;
+  border-radius: var(--radius);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow);
+
+}
+
+
+/* =========================
+   CARD USER
+========================= */
+
+.card-user {
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 16px;
+
+  border-radius: var(--card-border-radius);
+  background: var(--card-bg);
+  border: 1px solid var(--color-border);
+
+  width: 100%;
+  min-height: 100px;
+
+}
+
+
+.card-user-avatar {
+
+  width: 70px;
+  height: 70px;
+
+  border-radius: 50%;
+  border: 3px solid var(--color-primary);
+
+  object-fit: cover;
+
+}
+
+
+.card-user-info {
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+}
+
+
+.card-user-name {
+
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--card-text-primary);
+
+}
+
+
+.card-user-points {
+  position: relative;
+  font-size: 1rem;
+  color: var(--color-text);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.card-user-points::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: url("/src/assets/images/icon-trofeo.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+/* =========================
+   CARD PLACE
+========================= */
+
+.card-place {
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px;
+
+  border-radius: var(--radius);
+  border: 1px solid var(--color-primary);
+
+  min-height: 60px;
+
+}
+
+
+.card-place-info {
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+}
+
+
+.card-place-info img {
+  width: 32px;
+  height: 32px;
+}
+
+.card-place-name {
+  font-weight: 600;
+}
+
+.card-place-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-primary);
+  margin-left: 4px;
+}
+
+
+/* =========================
+   CARD RANKING
+========================= */
+
+.card-ranking {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background-color: var(--card-bg-alt);
+}
+
+.card-ranking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 12px 16px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.card-ranking-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-ranking-title::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-image: url("/src/assets/images/icon-trofeo.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.card-ranking-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 16px 16px 16px;
+}
+
+/* Toggle: cuando está cerrado */
+.card-ranking:not(.open) .card-ranking-list {
+  display: none;
+}
+
+
+
+/* =========================
+   USER RANKING
+========================= */
+
+.card-user-ranking {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--radius);
+  background-color: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+}
+
+
+.card-user-ranking.top {
+  background-color: var(--ranking-top-bg);
+
+}
+
+
+.user-rank {
+  font-size: 30px;
+  font-weight: 700;
+  width: 24px;
+  text-align: center;
+
+}
+
+/* =========================
+   RANKING TOGGLE ICON
+========================= */
+
+.card-ranking-toggle {
+  width: 24px;
+  height: 24px;
+  background-image: url("/src/assets/images/chevron.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.6s ease;
+}
+
+/* cuando está abierto gira */
+.card-ranking.open .card-ranking-toggle {
+  transform: rotate(180deg);
+}
+
+
+/* =========================
+   MEDIA
+========================= */
+
+@media (max-width: 320px) {
+
+  .card-place {
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+
+  }
+
+  .card-user-ranking {
+    flex-direction: column;
+    align-items: center
+  }
+
+  .card-ranking .card-user-info {
+    align-items: center;
+  }
+}

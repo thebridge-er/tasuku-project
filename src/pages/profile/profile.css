@@ -1,0 +1,107 @@
+body{
+    background:#0f172a;
+    font-family:sans-serif;
+    color:white;
+}
+
+/* CONTENEDOR */
+#perfil{
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* CARD */
+.perfil-card{
+    background:#1e293b;
+    padding:30px;
+    border-radius:20px;
+    width:300px;
+    text-align:center;
+}
+
+/* AVATAR */
+#avatar{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    margin-bottom:15px;
+}
+
+/* NOMBRE */
+h2{
+    margin-bottom:20px;
+}
+
+/* DATOS */
+.info{
+    background:#334155;
+    padding:10px;
+    border-radius:10px;
+    margin:10px 0;
+    text-align:left;
+}
+
+/* BOTONES */
+/* BOTONES BASE */
+.btn{
+    width:100%;
+    padding:12px;
+    margin-top:12px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    transition: all 0.2s ease;
+}
+
+/* BOTÓN MODIFICAR */
+.btn-edit{
+    background: linear-gradient(135deg, #6366f1, #818cf8);
+    color:white;
+}
+
+.btn-edit:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(99,102,241,0.6);
+}
+
+/* BOTÓN ELIMINAR */
+.btn-delete{
+    background: linear-gradient(135deg, #7f1d1d, #ef4444);
+    color:white;
+}
+
+.btn-delete:hover{
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(239,68,68,0.6);
+}
+
+.main-btn {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-variant));
+    border: none;
+    padding: 12px 22px;
+    margin-top: 5%;
+    border-radius: 40px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    font-family: "Montserrat", sans-serif;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    white-space: nowrap;
+    width: 80%;
+}
+
+.main-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.92;
+}

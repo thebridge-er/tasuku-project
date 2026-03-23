@@ -1,0 +1,141 @@
+{
+  "branch": "feature-login",
+  "created_at": "2026-03-15T11:44:30+01:00",
+  "last_updated": "2026-03-16T16:07:27+01:00",
+  "commits": [
+    {
+      "hash": "306ed78",
+      "hash_full": "306ed786c434164dfd7dc741adf6e186dba3c0f7",
+      "message": "cambios",
+      "type": "other",
+      "scope": "",
+      "subject": "cambios",
+      "description": "",
+      "notes": "",
+      "author": {
+        "name": "Txe",
+        "email": "labiennacida@gmail.com"
+      },
+      "branch": "feature-login",
+      "date": "2026-03-16T16:07:27+01:00",
+      "timestamp": 1773673647,
+      "stats": {
+        "files_changed": 0,
+        "lines_added": 0,
+        "lines_deleted": 0
+      },
+      "files": []
+    },
+    {
+      "hash": "1d670a3",
+      "hash_full": "1d670a32875a389c4e2ed6bc307a4a803ae65264",
+      "message": "Botones del login/register",
+      "type": "other",
+      "scope": "",
+      "subject": "Botones del login/register",
+      "description": "",
+      "notes": "",
+      "author": {
+        "name": "Txe",
+        "email": "labiennacida@gmail.com"
+      },
+      "branch": "feature-login",
+      "date": "2026-03-16T15:49:18+01:00",
+      "timestamp": 1773672558,
+      "stats": {
+        "files_changed": 8,
+        "lines_added": 139,
+        "lines_deleted": 269
+      },
+      "files": [
+        {
+          "file": ".changelog/index.json",
+          "status": "modified"
+        },
+        {
+          "file": "src/components/header/header-borrar.md",
+          "status": "deleted"
+        },
+        {
+          "file": "src/components/header/header.css",
+          "status": "modified"
+        },
+        {
+          "file": "src/components/header/header.html",
+          "status": "modified"
+        },
+        {
+          "file": "src/index.html",
+          "status": "modified"
+        },
+        {
+          "file": "src/index2.html",
+          "status": "deleted"
+        },
+        {
+          "file": "src/pages/auth/auth.html",
+          "status": "modified"
+        },
+        {
+          "file": "src/script.js",
+          "status": "modified"
+        }
+      ]
+    },
+    {
+      "hash": "2db2240",
+      "hash_full": "2db22408e4d3ed951793c6471cfd265d44ff1945",
+      "message": "Merge remote-tracking branch 'origin/feature-landingpage' into feature-login",
+      "type": "other",
+      "scope": "",
+      "subject": "Merge remote-tracking branch 'origin/feature-landingpage' into feature-login",
+      "description": "",
+      "notes": "",
+      "author": {
+        "name": "Txe",
+        "email": "labiennacida@gmail.com"
+      },
+      "branch": "feature-login",
+      "date": "2026-03-16T12:04:10+01:00",
+      "timestamp": 1773659050,
+      "stats": {
+        "files_changed": 0,
+        "lines_added": 0,
+        "lines_deleted": 0
+      },
+      "files": []
+    },
+    {
+      "hash": "eac1ad8",
+      "hash_full": "eac1ad89ac5d71d1757915e5c4550c54a310be11",
+      "message": "Zona de espacios incluida",
+      "type": "other",
+      "scope": "",
+      "subject": "Zona de espacios incluida",
+      "description": "",
+      "notes": "",
+      "author": {
+        "name": "Txe",
+        "email": "labiennacida@gmail.com"
+      },
+      "branch": "feature-login",
+      "date": "2026-03-15T11:44:30+01:00",
+      "timestamp": 1773571470,
+      "stats": {
+        "files_changed": 2,
+        "lines_added": 6,
+        "lines_deleted": 7
+      },
+      "files": [
+        {
+          "file": "src/components/modals/create-space.html",
+          "status": "modified"
+        },
+        {
+          "file": "src/components/modals/join-space.html",
+          "status": "modified"
+        }
+      ]
+    }
+  ]
+}

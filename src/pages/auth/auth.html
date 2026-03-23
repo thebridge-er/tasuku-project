@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TASUKU Login</title>
+    <link rel="stylesheet" href="../../components/buttons/buttons.css">
+    <link rel="stylesheet" href="./auth.css">
+    <link rel="stylesheet" href="../../styles/global.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+</head>
+
+  <body>
+    <header class="landing-header">
+      <div class="logo">
+        <a href="index.html">
+          <div class="logo-icon">🏠</div>
+        </a>
+        <h1 data-translation="app_name">TASUKU</h1>
+      </div>
+
+      <div class="header-right">
+        <button id="style-mode">
+          <div id="icon-moon" class="theme-icon">🌙</div>
+          <div id="icon-sun" class="theme-icon">☀️</div>
+        </button>
+        <!-- <button id="lang-btn" class="style-mode">🌐</button> -->
+        <select id="lang" class="lang-select">
+          <option value="en">🇬🇧 EN</option>
+          <option value="es">🇪🇸 ES</option>
+          <option value="eus">🏴 EUS</option>
+        </select>
+
+        <button
+          class="login-btn"
+          onclick="window.location = '../../index.html'"
+          data-translation="return"
+        ></button>
+      </div>
+    </header>
+    
+
+    <section class="auth" id="authSection">
+      <div class="auth-card">
+
+        <h2 id="formTitle" data-translation="login">Login</h2>
+
+        <input
+          id="nameField"
+          placeholder="Nombre"
+          data-translation="name"
+          style="display: none"
+        />
+
+        <label data-translation="email">Correo</label>
+        <input id="email" placeholder="email@ejemplo.com" autocomplete="off" />
+
+        <label data-translation="password">Contraseña</label>
+        <input
+          id="password"
+          type="password"
+          placeholder="********"
+          autocomplete="off"
+        />
+
+        <button id="mainBtn" data-translation="start">
+          Iniciar Sesión
+        </button>
+
+        <p id="errorMsg" class="error-msg"></p>
+
+        <p id="switchText">
+          <span data-translation="no_account">¿No tienes cuenta?</span>
+          <span id="registerLink" data-translation="register">
+            Registrarse
+          </span>
+        </p>
+
+      </div>
+    </section>
+
+    <div id="footer"></div>
+    <script type="module" src="../../app.js"></script>
+    <script src="./auth.js"></script>
+  </body>
+</html>

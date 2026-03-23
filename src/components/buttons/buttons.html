@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Buttons</title>
+
+  <!-- GLOBAL -->
+  <link rel="stylesheet" href="../../styles/global.css">
+
+  <!-- BUTTONS -->
+  <link rel="stylesheet" href="./buttons.css">
+
+</head>
+
+<body>
+
+  <!-- BOTÓN PRIMARIO -->
+  <ui-button variant="primary" text="Botón"></ui-button>
+
+  <!-- BOTÓN SECUNDARIO -->
+  <ui-button variant="secondary" text="Botón"></ui-button>
+
+  <!-- BOTÓN TERCIARIO -->
+  <ui-button variant="tertiary" text="Botón"></ui-button>
+
+  <!-- BOTÓN CON ICONO -->
+  <ui-button
+    variant="primary"
+    text="Botón"
+    icon-left=""
+    icon-right="">
+  </ui-button>
+
+  <!-- BOTÓN CIRCULAR -->
+  <ui-button
+    id="style-mode"
+    circle
+    dark-mode
+    icon=iconos/icono-luna.svg>">
+  </ui-button>
+
+  <!-- BOTÓN ICONO -->
+  <ui-button
+    icon="">
+  </ui-button>
+
+  <!-- JS -->
+  <script type="module" src="./buttons.js"></script>
+  <!-- Meter script type=""-->
+  <script type="module" src="../src/app.js"></script>
+</body>
+
+</html>

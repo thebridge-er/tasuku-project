@@ -1,0 +1,45 @@
+{
+  "app_name": "TASUKU",
+  "login": "Saioa hasi",
+  "start": "Hasi",
+
+  "email": "Posta elektronikoa",
+  "password": "Pasahitza",
+  "name": "Izena",
+
+  "no_account": "Ez duzu konturik?",
+  "register": "Erregistratu",
+
+  "hero_title": "Egin etxeko lanak dibertigarri",
+  "hero_description": "Antolatu etxeko lanak zure pisukide, familia edo lagunekin. Irabazi puntuak, desblokeatu lorpenak eta mantendu zure espazioa garbi elkarrekin!",
+
+  "feature_spaces_title": "Partekatutako Espazioak",
+  "feature_spaces_desc": "Sortu edo batu espazioetara familiarekin edo pisukideekin",
+
+  "feature_tasks_title": "Zereginen Kudeaketa",
+  "feature_tasks_desc": "Antolatu eta banatu etxeko lanak erraz",
+
+  "feature_gamification_title": "Gamifikazioa",
+  "feature_gamification_desc": "Irabazi puntuak, igo rankingean eta desblokeatu lorpenak",
+
+  "feature_collaboration_title": "Elkarlana",
+  "feature_collaboration_desc": "Lan egin taldean zure espazioa garbi mantentzeko",
+
+  "points_system": "Puntu Sistema",
+
+  "easy_tasks": "Lan Errazak",
+  "easy_points": "5 puntu",
+
+  "medium_tasks": "Lan Ertainak",
+  "medium_points": "10 puntu",
+
+  "hard_tasks": "Lan Zailak",
+  "hard_points": "20 puntu",
+
+  "footer_text": "Maitasunez egina etxe antolatuagoetarako",
+  "return": "Itxuli",
+  "welcome": "Ongi Etorri",
+  "profile":"Profila",
+  "return-onboarding": "Lekutik kanporatu",
+  "close-session":"Itxi Saioa"
+}
