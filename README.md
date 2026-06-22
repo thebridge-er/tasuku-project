@@ -4,6 +4,8 @@
 
 La aplicación permite a los usuarios crear o unirse a un **espacio compartido** (hogar o lugar de trabajo) y distribuir automáticamente tareas del hogar entre los miembros, incorporando un sistema de **gamificación** para incentivar la colaboración.
 
+[Ver demo](https://thebridge-er.github.io/tasuku-project/)
+
 ---
 
 ## ✨ Funcionalidades
